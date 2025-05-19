@@ -8,7 +8,6 @@ export const translations = {
       contact: "Contact",
       login: "Login"
     },
-    // Rest of English translations...
     footer: {
       aboutDescription: "We are a leading provider of innovative chemical solutions for the oil and gas industry, committed to excellence and sustainability.",
       quickLinksTitle: "Quick Links",
@@ -164,6 +163,15 @@ export const translations = {
         fracturingFluids: "Since 2025, our company has localized production of reagents for efficient hydraulic fracturing in Kazakhstan. Manufactured at our own facilities, these products ensure consistent quality, fast logistics, and full adaptation to local geological conditions. Our portfolio stabilizes fluid systems, minimizes formation damage, and enhances fracture propagation for improved hydrocarbon recovery.",
         refineryReagents: "We supply reagents designed to optimize oil refining operations—from corrosion inhibition and foam control to flow property enhancement and coke prevention. All products comply with international quality and safety standards.",
         basicChemicals: "Innovative Chemicals offers a wide range of basic commodities for oil and gas dehydration, purification, stimulation, and equipment protection. All products meet industry standards and are delivered with full quality certification."
+      },
+      products: {
+        oilfieldChemicals: [
+          {
+            name: "Demulsifier (ICD)",
+            description: "Highly effective reagents for rapid and thorough water and oil separation. Ensures stable performance at all stages of oil treatment by breaking persistent emulsions and improving dehydration.",
+            pdf: "/images/PDF/Demulsifier (ICD).pdf"
+          }
+        ]
       }
     }
   },
@@ -176,7 +184,6 @@ export const translations = {
       contact: "Контакты",
       login: "Вход"
     },
-    // Rest of Russian translations...
     footer: {
       aboutDescription: "Мы являемся ведущим поставщиком инновационных химических решений для нефтегазовой отрасли, стремясь к совершенству и устойчивому развитию.",
       quickLinksTitle: "Быстрые Ссылки",
@@ -332,6 +339,15 @@ export const translations = {
         fracturingFluids: "С 2025 года наша компания локализовала производство реагентов для эффективного гидроразрыва пласта в Казахстане. Производимые на собственных мощностях, эти продукты обеспечивают стабильное качество, быструю логистику и полную адаптацию к местным геологическим условиям. Наш портфель стабилизирует системы жидкостей, минимизирует повреждение пласта и улучшает распространение трещин для повышения добычи углеводородов.",
         refineryReagents: "Мы поставляем реагенты, предназначенные для оптимизации операций нефтепереработки — от ингибирования коррозии и контроля пенообразования до улучшения свойств потока и предотвращения коксообразования. Вся продукция соответствует международным стандартам качества и безопасности.",
         basicChemicals: "Innovative Chemicals предлагает широкий ассортимент базовых товаров для обезвоживания, очистки, стимуляции нефти и газа и защиты оборудования. Вся продукция соответствует отраслевым стандартам и поставляется с полной сертификацией качества."
+      },
+      products: {
+        oilfieldChemicals: [
+          {
+            name: "Деэмульгатор (ICD)",
+            description: "Высокоэффективные реагенты для быстрого и полного разделения воды и нефти. Обеспечивает стабильную работу на всех этапах подготовки нефти путем разрушения стойких эмульсий и улучшения обезвоживания.",
+            pdf: "/images/PDF/Demulsifier (ICD).pdf"
+          }
+        ]
       }
     }
   }
