@@ -19,7 +19,7 @@ export const translations = {
         { url: "/contact", text: "Contact" }
       ],
       servicesTitle: "Our Services",
-      services: [ƒ
+      services: [
         { url: "/services#chemical-supply", text: "Chemical Supply" },
         { url: "/services#blending", text: "Blending Services" },
         { url: "/services#consulting", text: "Technical Consulting" },
