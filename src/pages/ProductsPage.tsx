@@ -16,55 +16,68 @@ const categories = [
     products: [
       {
         name: 'Demulsifier (ICD)',
-        description: 'Highly effective reagents for rapid and thorough water and oil separation. Ensures stable performance at all stages of oil treatment by breaking persistent emulsions and improving dehydration.'
+        description: 'Highly effective reagents for rapid and thorough water and oil separation. Ensures stable performance at all stages of oil treatment by breaking persistent emulsions and improving dehydration.',
+        pdf: '/images/PDF/Demulsifier (ICD).pdf'
       },
       {
         name: 'Wax Inhibitor (IC Wax)',
-        description: 'Reliable protection of equipment and pipelines from paraffin deposits. Effective at low dosages and particularly suitable for crude oil from the western regions of Kazakhstan.'
+        description: 'Reliable protection of equipment and pipelines from paraffin deposits. Effective at low dosages and particularly suitable for crude oil from the western regions of Kazakhstan.',
+        pdf: '/images/PDF/Wax Inhibitor (IC Wax).pdf'
       },
       {
         name: 'Corrosion Inhibitor (ICC)',
-        description: 'Comprehensive protection against all types of corrosion, including acid corrosion. Enhances reliability and extends the service life of pipeline and processing systems.'
+        description: 'Comprehensive protection against all types of corrosion, including acid corrosion. Enhances reliability and extends the service life of pipeline and processing systems.',
+        pdf: '/images/PDF/Corrosion Inhibitor (ICC).pdf'
       },
       {
         name: 'Hydrate Formation Inhibitor (IC Git)',
-        description: 'Prevents the formation of hydrates in gas and oil pipelines. Ensures uninterrupted transportation of hydrocarbons even at low temperatures.'
+        description: 'Prevents the formation of hydrates in gas and oil pipelines. Ensures uninterrupted transportation of hydrocarbons even at low temperatures.',
+        pdf: '/images/PDF/Hydrate Formation Inhibitor (IC Git).pdf'
       },
       {
         name: 'Biocide (ICB)',
-        description: 'Alternative formula based on THPS, glutaraldehyde, and QAC. Quickly suppresses bacterial activity, including SRB, ensuring sanitary safety of systems.'
+        description: 'Alternative formula based on THPS, glutaraldehyde, and QAC. Quickly suppresses bacterial activity, including SRB, ensuring sanitary safety of systems.',
+        pdf: '/images/PDF/Biocide (ICB).pdf'
       },
       {
         name: 'Hydrogen Sulfide Scavenger (ICH)',
-        description: 'Effective solution for neutralizing H₂S in liquids and gas. Protects personnel, equipment, and the environment from toxic effects.'
+        description: 'Effective solution for neutralizing H₂S in liquids and gas. Protects personnel, equipment, and the environment from toxic effects.',
+        pdf: '/images/PDF/Hydrogen Sulfide Scavenger (ICH)_empty.pdf'
       },
       {
         name: 'Scale Inhibitor (ICS)',
-        description: 'Prevents the formation of carbonates, sulfates, and other mineral deposits. Maintains equipment cleanliness and process efficiency.'
+        description: 'Prevents the formation of carbonates, sulfates, and other mineral deposits. Maintains equipment cleanliness and process efficiency.',
+        pdf: '/images/PDF/Scale Inhibitor (ICS).pdf'
       },
       {
         name: 'Flocculant (ICF)',
-        description: 'Optimizes the settling of mechanical impurities in formation water. Improves filtration and purification performance.'
+        description: 'Optimizes the settling of mechanical impurities in formation water. Improves filtration and purification performance.',
+        pdf: '/images/PDF/Flocculant (ICF).pdf'
       },
       {
         name: 'Drag Reducing Agent (IC DRA)',
-        description: 'Reduces hydraulic resistance and increases pipeline throughput. We also offer pumping equipment and technical support.'
+        description: 'Reduces hydraulic resistance and increases pipeline throughput. We also offer pumping equipment and technical support.',
+        pdf: '/images/PDF/Drag Reducing Agent (IC DRA).pdf'
       },
       {
         name: 'Defoamer (IC Foam)',
-        description: 'Reliable solution against foaming at all stages of oil refining. Effective at minimal dosages.'
+        description: 'Reliable solution against foaming at all stages of oil refining. Effective at minimal dosages.',
+        pdf: '/images/PDF/Defoamer (IC Foam).pdf'
       },
       {
         name: 'Pour Point Depressant (IC Depr)',
-        description: 'Lowers pour point and viscosity of crude oil. Ensures stable pumping even in harsh climatic conditions.'
+        description: 'Lowers pour point and viscosity of crude oil. Ensures stable pumping even in harsh climatic conditions.',
+        pdf: '/images/PDF/Pour Point Depressant (IC Depr)_empty.pdf'
       },
       {
         name: 'Oxygen Scavenger (ICO)',
-        description: 'Removes dissolved oxygen from water and process fluids, preventing oxidation and corrosion of equipment.'
+        description: 'Removes dissolved oxygen from water and process fluids, preventing oxidation and corrosion of equipment.',
+        pdf: '/images/PDF/Oxygen Scavenger (ICO).pdf'
       },
       {
         name: 'Coagulant (IC Coagulant)',
-        description: 'Ensures effective clarification and treatment of production water at oil fields. Ideal for preparing water for reuse.'
+        description: 'Ensures effective clarification and treatment of production water at oil fields. Ideal for preparing water for reuse.',
+        pdf: '/images/PDF/Coagulant (IC Coagulant).pdf'
       }
     ]
   },
@@ -355,15 +368,20 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ language }) => {
                     category.products.map((product, index) => (
                       <div
                         key={index}
-                        className="bg-gray-50 rounded-lg p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                        className="bg-gray-900 rounded-lg p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
                       >
-                        <h3 className="text-xl font-semibold mb-3 text-gray-900">
+                        <h3 className="text-xl font-semibold mb-3 text-white">
                           {product.name}
                         </h3>
-                        <p className="text-gray-600">{product.description}</p>
-                        <button className="mt-4 text-blue-600 font-medium hover:text-blue-800 transition-colors duration-300">
+                        <p className="text-gray-400 mb-4">{product.description}</p>
+                        <a 
+                          href={product.pdf}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-block text-blue-400 font-medium hover:text-blue-300 transition-colors duration-300"
+                        >
                           {t.viewDetailsButton} →
-                        </button>
+                        </a>
                       </div>
                     ))
                   )}
