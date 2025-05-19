@@ -231,9 +231,9 @@ export const translations = {
       downloadPDFButton: "Скачать PDF",
       viewAllProductsButton: "Посмотреть Все Продукты",
       categories: {
-        oilfieldChemicals: "НЕФТЕПРОМЫСЛОВАЯ ХИМИЯ",
-        acidStimulation: "Системы Кислотной Стимуляции",
-        fracturingFluids: "Системы Жидкостей для Гидроразрыва",
+        oilfieldChemicals: "Нефтепромысловая химия ",
+        acidStimulation: "Кислотная Стимуляция",
+        fracturingFluids: "Жидкости для Гидроразрыва",
         refineryReagents: "Реагенты для НПЗ",
         basicChemicals: "Базовая Химическая Продукция"
       }
