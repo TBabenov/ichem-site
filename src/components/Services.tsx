@@ -11,7 +11,7 @@ const services = [
   {
     id: 'consulting',
     name: 'Consulting Services',
-    icon: '/images/icons/Consulting.png',
+    icon: '/images/icons/consulting.png',
     image: '/images/Consulting.png',
     description: 'Our technical experts provide consultation services to identify and solve complex production challenges.',
     features: [
@@ -36,7 +36,7 @@ const services = [
   {
     id: 'acid-stimulation',
     name: 'Acid Stimulation Implementation Support',
-    icon: '/images/icons/Implementation.png',
+    icon: '/images/icons/Acid Stimulation.png',
     image: '/images/Acid Stimulation Fluid Systems.png',
     description: '"Innovative Chemicals" provides production enhancement via acid stimulation technologies, employing safe, data-enabled pumping units. Our in-house lab optimizes acid formulations through core-sample analysis and enforces rigorous QC. Our international team delivers turnkey well-treatment solutions.',
     features: [
@@ -61,7 +61,7 @@ const services = [
   {
     id: 'blending',
     name: 'Blending & Tolling Chemical Development',
-    icon: '/images/icons/Chemical Development.png',
+    icon: '/images/icons/Blending.png',
     image: '/images/Blending.png',
     description: '"Innovative Chemicals" offers contract manufacturing under a tolling scheme in stainless-steel mixing vessels, with strict QC at every stage. Production only begins after lab validation and full regulatory compliance.',
     features: [
@@ -86,7 +86,7 @@ const services = [
   {
     id: 'technical-training',
     name: 'Technical Training',
-    icon: '/images/icons/Technical Training.png',
+    icon: '/images/icons/training.png',
     image: '/images/Training.png',
     description: 'Specialized training programs to enhance the technical knowledge and skills of client personnel.',
     features: [
