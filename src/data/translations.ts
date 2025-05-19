@@ -65,7 +65,25 @@ export const translations = {
         quality: "Quality",
         sustainability: "Sustainability",
         partnership: "Partnership"
-      }
+      },
+      cards: [
+        {
+          title: "Innovation Excellence",
+          description: "We continuously develop and implement cutting-edge chemical solutions to address industry challenges."
+        },
+        {
+          title: "Quality Assurance",
+          description: "Our products undergo rigorous testing and quality control to meet the highest industry standards."
+        },
+        {
+          title: "Environmental Responsibility",
+          description: "We are committed to sustainable practices and environmentally conscious chemical solutions."
+        }
+      ]
+    },
+    partners: {
+      certificationsTitle: "Our Certifications",
+      description: "We maintain the highest standards of quality and safety in all our operations."
     },
     products: {
       title: "Our Products",
@@ -148,7 +166,25 @@ export const translations = {
         quality: "Качество",
         sustainability: "Устойчивое развитие",
         partnership: "Партнерство"
-      }
+      },
+      cards: [
+        {
+          title: "Инновационное Превосходство",
+          description: "Мы постоянно разрабатываем и внедряем передовые химические решения для решения отраслевых задач."
+        },
+        {
+          title: "Гарантия Качества",
+          description: "Наша продукция проходит строгий контроль качества, соответствуя высочайшим отраслевым стандартам."
+        },
+        {
+          title: "Экологическая Ответственность",
+          description: "Мы привержены устойчивому развитию и экологически безопасным химическим решениям."
+        }
+      ]
+    },
+    partners: {
+      certificationsTitle: "Наши Сертификаты",
+      description: "Мы поддерживаем высочайшие стандарты качества и безопасности во всех наших операциях."
     },
     products: {
       title: "Наша Продукция",
