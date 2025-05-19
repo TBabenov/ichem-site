@@ -9,7 +9,7 @@ interface ProductsPageProps {
 
 const categories = [
   {
-    id: 'oilfield-chemicals',
+    id: 'oilfieldChemicals',
     name: 'OILFIELD CHEMICALS',
     icon: '/images/icons/Production Chemicals.png',
     image: '/images/Film-Forming Corrosion Inhibitor.png',
@@ -70,7 +70,7 @@ const categories = [
     ]
   },
   {
-    id: 'acid-stimulation',
+    id: 'acidStimulation',
     name: 'Acid Stimulation Fluid Systems',
     icon: '/images/icons/Acid Stimulation.png',
     image: '/images/Acid Stimulation Fluid Systems.png',
@@ -119,7 +119,7 @@ const categories = [
     ]
   },
   {
-    id: 'fracturing-fluids',
+    id: 'fracturingFluids',
     name: 'Hydraulic Fracturing Fluid Systems',
     icon: '/images/icons/Hydraulic Fracturing.png',
     image: '/images/Hydraulic Fracturing.png',
@@ -160,7 +160,7 @@ const categories = [
     ]
   },
   {
-    id: 'refinery-reagents',
+    id: 'refineryReagents',
     name: 'Refinery Reagents',
     icon: '/images/icons/Downstream Chemicals.png',
     image: '/images/Downstream Chemicals.png',
@@ -201,7 +201,7 @@ const categories = [
     ]
   },
   {
-    id: 'basic-chemicals',
+    id: 'basicChemicals',
     name: 'Basic Chemical Supply',
     icon: '/images/icons/Basic Chemical.png',
     image: '/images/Basic Chemical Supply.png',
@@ -289,10 +289,11 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ language }) => {
                       ? 'bg-blue-600 text-white shadow-lg transform scale-105'
                       : 'text-gray-600 hover:bg-gray-100'
                   }`}
+                  aria-label={t.categories[category.id as keyof typeof t.categories]}
                 >
                   <img
                     src={category.icon}
-                    alt={category.name}
+                    alt={t.categories[category.id as keyof typeof t.categories]}
                     className="w-6 h-6 object-contain mr-2"
                   />
                   <span className="font-medium">
@@ -318,7 +319,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ language }) => {
               <div className="relative h-64 md:h-96">
                 <img
                   src={category.image}
-                  alt={category.name}
+                  alt={t.categories[category.id as keyof typeof t.categories]}
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end">
@@ -336,7 +337,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ language }) => {
               {/* Products Grid */}
               <div className="p-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {category.id === 'basic-chemicals' ? (
+                  {category.id === 'basicChemicals' ? (
                     // Special layout for Basic Chemicals
                     category.products.map((group, index) => (
                       <div
