@@ -19,7 +19,7 @@ export const translations = {
         { url: "/contact", text: "Contact" }
       ],
       servicesTitle: "Our Services",
-      services: [
+      services: [ƒ
         { url: "/services#chemical-supply", text: "Chemical Supply" },
         { url: "/services#blending", text: "Blending Services" },
         { url: "/services#consulting", text: "Technical Consulting" },
@@ -124,7 +124,7 @@ export const translations = {
       home: "Главная",
       products: "Продукция",
       services: "Услуги",
-      research: "НИОКР",
+      research: "Исследования и разработки",
       contact: "Контакты",
       login: "Портал Клиента"
     },
