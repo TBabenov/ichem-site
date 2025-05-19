@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronUp } from 'lucide-react';
+import { translations } from '../data/translations';
+import { ContactForm } from '../components/ContactForm';
 
 interface ProductsPageProps {
   language: 'en' | 'ru';
@@ -248,6 +250,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ language }) => {
   const [activeCategory, setActiveCategory] = useState(categories[0].id);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [showContactForm, setShowContactForm] = useState(false);
+  const t = translations[language].products;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -292,7 +295,9 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ language }) => {
                     alt={category.name}
                     className="w-6 h-6 object-contain mr-2"
                   />
-                  <span className="font-medium">{category.name}</span>
+                  <span className="font-medium">
+                    {t.categories[category.id as keyof typeof t.categories]}
+                  </span>
                 </button>
               ))}
             </div>
@@ -319,7 +324,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ language }) => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end">
                   <div className="p-8">
                     <h2 className="text-3xl font-bold text-white mb-4">
-                      {category.name}
+                      {t.categories[category.id as keyof typeof t.categories]}
                     </h2>
                     <p className="text-gray-200 max-w-3xl text-lg">
                       {category.description}
@@ -361,7 +366,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ language }) => {
                         </h3>
                         <p className="text-gray-600">{product.description}</p>
                         <button className="mt-4 text-blue-600 font-medium hover:text-blue-800 transition-colors duration-300">
-                          Technical Data Sheet →
+                          {t.viewDetailsButton} →
                         </button>
                       </div>
                     ))
@@ -373,7 +378,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ language }) => {
                   <div className="flex flex-col md:flex-row items-center justify-between">
                     <div className="mb-6 md:mb-0">
                       <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                        Interested in {category.name}?
+                        Interested in {t.categories[category.id as keyof typeof t.categories]}?
                       </h3>
                       <p className="text-gray-600">
                         Contact our team for detailed information and pricing.
