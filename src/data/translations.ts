@@ -135,7 +135,7 @@ export const translations = {
         { url: "/", text: "Главная" },
         { url: "/products", text: "Продукция" },
         { url: "/services", text: "Услуги" },
-        { url: "/rd", text: "НИОКР" },
+        { url: "/rd", text: "Исследования и разработки" },
         { url: "/contact", text: "Контакты" }
       ],
       servicesTitle: "Наши Услуги",
