@@ -81,6 +81,25 @@ export const translations = {
         }
       ]
     },
+    experience: {
+      title: "Our Experience",
+      description: "We provide comprehensive solutions across the entire oil and gas value chain.",
+      areas: [
+        {
+          title: "Flow Assurance",
+          description: "Flow Assurance Service covers the entire production system — from reservoir perforation, through wellbores, flowlines, and pipelines, all the way to processing facilities and storage tanks. It ensures the continuous and safe flow of hydrocarbons by identifying and managing risks such as hydrates, wax, asphaltenes, corrosion, scale, and slugging. Using advanced stimulation, monitoring, and chemical strategies, we help optimize production, reduce downtime, and maintain system integrity across the full value chain."
+        },
+        {
+          title: "Carbonate Reservoir Acid Stimulation",
+          description: "A technique used to enhance oil and gas recovery by injecting acid (typically hydrochloric acid) into the reservoir. The acid dissolves carbonate rock, creating channels that improve fluid flow from the reservoir to the wellbore. This service increases well productivity, reduces formation damage, and is tailored to reservoir conditions for maximum effectiveness."
+        },
+        {
+          title: "Well Integrity Chemical Treatment",
+          description: "Well Integrity Chemical Treatment is designed to prevent pipe failures by using targeted chemical solutions to control corrosion, scale, and other degradation processes. These treatments protect downhole and surface piping, extend equipment life, and reduce unplanned shutdowns — ensuring continuous, safe, and efficient well operation."
+        }
+      ],
+      learnMoreButton: "Learn More"
+    },
     partners: {
       certificationsTitle: "Our Certifications",
       description: "We maintain the highest standards of quality and safety in all our operations."
@@ -181,6 +200,25 @@ export const translations = {
           description: "Мы привержены устойчивому развитию и экологически безопасным химическим решениям."
         }
       ]
+    },
+    experience: {
+      title: "Наш Опыт",
+      description: "Мы предоставляем комплексные решения для всей цепочки создания стоимости в нефтегазовой отрасли.",
+      areas: [
+        {
+          title: "Обеспечение Потока",
+          description: "Сервис по обеспечению потока охватывает всю производственную систему — от перфорации пласта, через скважины, промысловые трубопроводы и магистральные трубопроводы, до перерабатывающих установок и резервуаров хранения. Он обеспечивает непрерывный и безопасный поток углеводородов путем выявления и управления рисками, такими как гидраты, парафины, асфальтены, коррозия, отложения и пробкообразование. Используя передовые методы стимуляции, мониторинга и химические стратегии, мы помогаем оптимизировать добычу, сократить простои и поддерживать целостность системы по всей цепочке создания стоимости."
+        },
+        {
+          title: "Кислотная Стимуляция Карбонатных Коллекторов",
+          description: "Метод, используемый для увеличения добычи нефти и газа путем закачки кислоты (обычно соляной кислоты) в пласт. Кислота растворяет карбонатную породу, создавая каналы, которые улучшают поток флюида из пласта в скважину. Эта услуга повышает продуктивность скважины, снижает повреждение пласта и адаптируется к условиям коллектора для максимальной эффективности."
+        },
+        {
+          title: "Химическая Обработка для Обеспечения Целостности Скважин",
+          description: "Химическая обработка для обеспечения целостности скважин предназначена для предотвращения отказов труб с использованием целевых химических решений для контроля коррозии, отложений и других процессов деградации. Эти обработки защищают подземные и наземные трубопроводы, продлевают срок службы оборудования и сокращают внеплановые остановки — обеспечивая непрерывную, безопасную и эффективную работу скважины."
+        }
+      ],
+      learnMoreButton: "Подробнее"
     },
     partners: {
       certificationsTitle: "Наши Сертификаты",
