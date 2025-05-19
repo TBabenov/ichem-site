@@ -3,13 +3,11 @@ import { Microscope, Lightbulb, Building, Ruler } from 'lucide-react';
 import { translations } from '../data/translations';
 
 interface ResearchProps {
-  language: 'en' | 'ru' | 'kk';
+  language: 'en' | 'ru';
 }
 
 export const Research: React.FC<ResearchProps> = ({ language }) => {
-  // Default to English translations if the language is 'kk' or invalid
-  const effectiveLanguage = language === 'kk' ? 'en' : language;
-  const t = translations[effectiveLanguage].research;
+  const t = translations[language].research;
   
   return (
     <section id="research" className="py-20 bg-white">
