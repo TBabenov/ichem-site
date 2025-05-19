@@ -6,8 +6,9 @@ export const translations = {
       services: "Services",
       research: "R&D",
       contact: "Contact",
-      login: "Customer Portal"
+      login: "Login"
     },
+    // Rest of English translations...
     footer: {
       aboutDescription: "We are a leading provider of innovative chemical solutions for the oil and gas industry, committed to excellence and sustainability.",
       quickLinksTitle: "Quick Links",
@@ -173,8 +174,9 @@ export const translations = {
       services: "Услуги",
       research: "Исследования и разработки",
       contact: "Контакты",
-      login: "Портал Клиента"
+      login: "Вход"
     },
+    // Rest of Russian translations...
     footer: {
       aboutDescription: "Мы являемся ведущим поставщиком инновационных химических решений для нефтегазовой отрасли, стремясь к совершенству и устойчивому развитию.",
       quickLinksTitle: "Быстрые Ссылки",
