@@ -69,7 +69,7 @@ export const Hero: React.FC<HeroProps> = ({ language }) => {
             <img 
               src="/images/icons/logol.png" 
               alt="Innovative Chemicals Logo" 
-              className="h-24 w-auto"
+              className="h-32 w-auto md:h-40"
             />
           </div>
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight">
