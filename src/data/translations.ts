@@ -106,7 +106,43 @@ export const translations = {
     },
     research: {
       title: "Research and Development",
-      description: "Our experts conduct research and testing to improve product quality."
+      description: "Our experts conduct research and testing to improve product quality.",
+      labTitle: "Advanced Laboratory Capabilities",
+      labDescription: "Our laboratory is equipped with cutting-edge technology for chemical analysis and product testing.",
+      labFeatures: [
+        {
+          title: "Analytical Instruments",
+          description: "High-precision tools for chemical composition analysis."
+        },
+        {
+          title: "Innovative Testing",
+          description: "Protocols to simulate real oilfield conditions."
+        },
+        {
+          title: "Certified Facilities",
+          description: "Accredited labs ensuring compliance with industry standards."
+        },
+        {
+          title: "Measurement Accuracy",
+          description: "Metrology control systems for reliable data."
+        }
+      ],
+      innovationTitle: "Innovation and Development",
+      innovationDescription: "We invest in ongoing research to develop new chemical technologies and improve field performance.",
+      innovations: [
+        {
+          title: "Green Chemistry",
+          description: "Developing environmentally friendly reagents."
+        },
+        {
+          title: "Efficiency Boosters",
+          description: "Formulations designed to optimize production rates."
+        },
+        {
+          title: "Digital Integration",
+          description: "Smart monitoring and data-driven decisions."
+        }
+      ]
     },
     products: {
       title: "Our Products",
@@ -237,7 +273,43 @@ export const translations = {
     },
     research: {
       title: "Исследования и разработки",
-      description: "Наши специалисты проводят исследования и тесты для улучшения качества продукции."
+      description: "Наши специалисты проводят исследования и тесты для улучшения качества продукции.",
+      labTitle: "Возможности Лаборатории",
+      labDescription: "Наша лаборатория оснащена передовыми технологиями для химического анализа и тестирования продукции.",
+      labFeatures: [
+        {
+          title: "Аналитическое Оборудование",
+          description: "Высокоточные инструменты для анализа химического состава."
+        },
+        {
+          title: "Инновационное Тестирование",
+          description: "Протоколы, имитирующие реальные условия месторождений."
+        },
+        {
+          title: "Сертифицированные Установки",
+          description: "Аккредитованные лаборатории, соответствующие отраслевым стандартам."
+        },
+        {
+          title: "Точность Измерений",
+          description: "Системы метрологического контроля для достоверных данных."
+        }
+      ],
+      innovationTitle: "Инновации и Развитие",
+      innovationDescription: "Мы инвестируем в постоянные исследования для разработки новых химических технологий и повышения эффективности на месторождениях.",
+      innovations: [
+        {
+          title: "Зеленая Химия",
+          description: "Разработка экологически чистых реагентов."
+        },
+        {
+          title: "Ускорители Эффективности",
+          description: "Формулы, направленные на повышение добычи."
+        },
+        {
+          title: "Цифровая Интеграция",
+          description: "Умный мониторинг и принятие решений на основе данных."
+        }
+      ]
     },
     products: {
       title: "Наша Продукция",
