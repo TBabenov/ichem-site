@@ -7,7 +7,9 @@ interface ResearchProps {
 }
 
 export const Research: React.FC<ResearchProps> = ({ language }) => {
-  const t = translations[language].research;
+  // Default to English translations if the language is 'kk' or invalid
+  const effectiveLanguage = language === 'kk' ? 'en' : language;
+  const t = translations[effectiveLanguage].research;
   
   return (
     <section id="research" className="py-20 bg-white">
