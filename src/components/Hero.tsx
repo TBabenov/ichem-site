@@ -39,8 +39,7 @@ export const Hero: React.FC<HeroProps> = ({ language }) => {
     <section className="relative h-[80vh] md:h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <div 
-          className="absolute inset-0 bg-black opacity-60 z-10"
-          style={{ backgroundImage: 'linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.5))' }}
+          className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50 z-10"
         ></div>
         <video
           ref={videoRef}
@@ -76,8 +75,14 @@ export const Hero: React.FC<HeroProps> = ({ language }) => {
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight">
             {t.companyName}
           </h1>
-          <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto">
+          <h2 className="text-2xl md:text-3xl text-white mb-4">
+            Oilfield Chemical Supply and Chemical Treatment Services
+          </h2>
+          <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-4">
             {t.tagline}
+          </p>
+          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
+            Innovative solutions to lower costs and boost your business efficiency.
           </p>
         </div>
 
