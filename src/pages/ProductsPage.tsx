@@ -13,7 +13,6 @@ const categories = [
     name: 'OILFIELD CHEMICALS',
     icon: '/images/icons/Production Chemicals.png',
     image: '/images/Film-Forming Corrosion Inhibitor.png',
-    description: 'Innovative Chemicals offers advanced production solutions, ensuring reliability and efficiency of Kazakhstan and Caspian region fields. We manufacture chemical reagents, specifically designed to meet the industry\'s highest standards.',
     products: [
       {
         name: 'Demulsifier (ICD)',
@@ -74,7 +73,6 @@ const categories = [
     name: 'Acid Stimulation Fluid Systems',
     icon: '/images/icons/Acid Stimulation.png',
     image: '/images/Acid Stimulation Fluid Systems.png',
-    description: 'Since 2022, we have localized the production of reagents for acid stimulation systems in Kazakhstan and the Middle East, ensuring prompt delivery and consistent high product quality. In addition to reagent supply, we offer comprehensive well treatment services, including technical support and on-site supervision. Our specialized formulations are highly effective and fully compatible with formation rock and reservoir fluids, delivering outstanding results in enhanced oil recovery.',
     products: [
       {
         name: 'Acid Corrosion Inhibitor (CorroX)',
@@ -123,7 +121,6 @@ const categories = [
     name: 'Hydraulic Fracturing Fluid Systems',
     icon: '/images/icons/Hydraulic Fracturing.png',
     image: '/images/Hydraulic Fracturing.png',
-    description: 'Since 2025, our company has localized production of reagents for efficient hydraulic fracturing in Kazakhstan. Manufactured at our own facilities, these products ensure consistent quality, fast logistics, and full adaptation to local geological conditions. Our portfolio stabilizes fluid systems, minimizes formation damage, and enhances fracture propagation for improved hydrocarbon recovery.',
     products: [
       {
         name: 'Gelling Agent (ICG)',
@@ -164,7 +161,6 @@ const categories = [
     name: 'Refinery Reagents',
     icon: '/images/icons/Downstream Chemicals.png',
     image: '/images/Downstream Chemicals.png',
-    description: 'We supply reagents designed to optimize oil refining operations—from corrosion inhibition and foam control to flow property enhancement and coke prevention. All products comply with international quality and safety standards.',
     products: [
       {
         name: 'Film-Forming Corrosion Inhibitor (IC-REF-Cor)',
@@ -205,7 +201,6 @@ const categories = [
     name: 'Basic Chemical Supply',
     icon: '/images/icons/Basic Chemical.png',
     image: '/images/Basic Chemical Supply.png',
-    description: 'Innovative Chemicals offers a wide range of basic commodities for oil and gas dehydration, purification, stimulation, and equipment protection. All products meet industry standards and are delivered with full quality certification.',
     products: [
       {
         name: 'Glycols',
@@ -328,7 +323,7 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ language }) => {
                       {t.categories[category.id as keyof typeof t.categories]}
                     </h2>
                     <p className="text-gray-200 max-w-3xl text-lg">
-                      {category.description}
+                      {t.categoryDescriptions[category.id as keyof typeof t.categoryDescriptions]}
                     </p>
                   </div>
                 </div>

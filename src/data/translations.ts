@@ -116,6 +116,13 @@ export const translations = {
         fracturingFluids: "Hydraulic Fracturing Fluid Systems",
         refineryReagents: "Refinery Reagents",
         basicChemicals: "Basic Chemical Supply"
+      },
+      categoryDescriptions: {
+        oilfieldChemicals: "Innovative Chemicals offers advanced production solutions, ensuring reliability and efficiency of Kazakhstan and Caspian region fields. We manufacture chemical reagents, specifically designed to meet the industry's highest standards.",
+        acidStimulation: "Since 2022, we have localized the production of reagents for acid stimulation systems in Kazakhstan and the Middle East, ensuring prompt delivery and consistent high product quality. In addition to reagent supply, we offer comprehensive well treatment services, including technical support and on-site supervision. Our specialized formulations are highly effective and fully compatible with formation rock and reservoir fluids, delivering outstanding results in enhanced oil recovery.",
+        fracturingFluids: "Since 2025, our company has localized production of reagents for efficient hydraulic fracturing in Kazakhstan. Manufactured at our own facilities, these products ensure consistent quality, fast logistics, and full adaptation to local geological conditions. Our portfolio stabilizes fluid systems, minimizes formation damage, and enhances fracture propagation for improved hydrocarbon recovery.",
+        refineryReagents: "We supply reagents designed to optimize oil refining operations—from corrosion inhibition and foam control to flow property enhancement and coke prevention. All products comply with international quality and safety standards.",
+        basicChemicals: "Innovative Chemicals offers a wide range of basic commodities for oil and gas dehydration, purification, stimulation, and equipment protection. All products meet industry standards and are delivered with full quality certification."
       }
     }
   },
@@ -231,11 +238,18 @@ export const translations = {
       downloadPDFButton: "Скачать PDF",
       viewAllProductsButton: "Посмотреть Все Продукты",
       categories: {
-        oilfieldChemicals: "Нефтепромысловая химия ",
+        oilfieldChemicals: "Нефтепромысловая химия",
         acidStimulation: "Кислотная Стимуляция",
         fracturingFluids: "Жидкости для Гидроразрыва",
         refineryReagents: "Реагенты для НПЗ",
         basicChemicals: "Базовая Химическая Продукция"
+      },
+      categoryDescriptions: {
+        oilfieldChemicals: "Innovative Chemicals предлагает передовые производственные решения, обеспечивающие надежность и эффективность месторождений Казахстана и Каспийского региона. Мы производим химические реагенты, специально разработанные в соответствии с высочайшими отраслевыми стандартами.",
+        acidStimulation: "С 2022 года мы локализовали производство реагентов для систем кислотной стимуляции в Казахстане и на Ближнем Востоке, обеспечивая оперативную доставку и стабильно высокое качество продукции. Помимо поставки реагентов, мы предлагаем комплексные услуги по обработке скважин, включая техническую поддержку и надзор на месте. Наши специализированные составы высокоэффективны и полностью совместимы с породой пласта и пластовыми флюидами, обеспечивая выдающиеся результаты в повышении нефтеотдачи.",
+        fracturingFluids: "С 2025 года наша компания локализовала производство реагентов для эффективного гидроразрыва пласта в Казахстане. Производимые на собственных мощностях, эти продукты обеспечивают стабильное качество, быструю логистику и полную адаптацию к местным геологическим условиям. Наш портфель стабилизирует системы жидкостей, минимизирует повреждение пласта и улучшает распространение трещин для повышения добычи углеводородов.",
+        refineryReagents: "Мы поставляем реагенты, предназначенные для оптимизации операций нефтепереработки — от ингибирования коррозии и контроля пенообразования до улучшения свойств потока и предотвращения коксообразования. Вся продукция соответствует международным стандартам качества и безопасности.",
+        basicChemicals: "Innovative Chemicals предлагает широкий ассортимент базовых товаров для обезвоживания, очистки, стимуляции нефти и газа и защиты оборудования. Вся продукция соответствует отраслевым стандартам и поставляется с полной сертификацией качества."
       }
     }
   }
