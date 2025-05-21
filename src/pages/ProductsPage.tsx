@@ -433,5 +433,3 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ language }) => {
     </div>
   );
 };
-
-export { ProductsPage }
