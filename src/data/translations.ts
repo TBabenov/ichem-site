@@ -366,3 +366,5 @@ export const translations = {
     }
   }
 };
+
+export { translations }
