@@ -169,12 +169,14 @@ export const translations = {
           {
             name: "Demulsifier (ICD)",
             description: "Highly effective reagents for rapid and thorough water and oil separation. Ensures stable performance at all stages of oil treatment by breaking persistent emulsions and improving dehydration.",
-            pdfFile: "Demulsifier (ICD).pdf"
+            pdfFile: "Demulsifier (ICD).pdf",
+            pdfFileRu: "Demulsifier (ICD)_ru.pdf"
           },
           {
             name: "Wax Inhibitor (IC Wax)",
             description: "Reliable protection of equipment and pipelines from paraffin deposits. Effective at low dosages and particularly suitable for crude oil from the western regions of Kazakhstan.",
-            pdfFile: "Wax Inhibitor (IC Wax).pdf"
+            pdfFile: "Wax Inhibitor (IC Wax).pdf",
+            pdfFileRu: "Wax Inhibitor (IC Wax)_ru.pdf"
           }
         ]
       }
@@ -350,12 +352,14 @@ export const translations = {
           {
             name: "Деэмульгатор (ICD)",
             description: "Высокоэффективные реагенты для быстрого и полного разделения воды и нефти. Обеспечивает стабильную работу на всех этапах подготовки нефти путем разрушения стойких эмульсий и улучшения обезвоживания.",
-            pdfFile: "Demulsifier (ICD).pdf"
+            pdfFile: "Demulsifier (ICD).pdf",
+            pdfFileRu: "Demulsifier (ICD)_ru.pdf"
           },
           {
             name: "Ингибитор парафиноотложений (IC Wax)",
             description: "Надежная защита оборудования и трубопроводов от парафиновых отложений. Эффективен при низких дозировках и особенно подходит для нефти западных регионов Казахстана.",
-            pdfFile: "Wax Inhibitor (IC Wax).pdf"
+            pdfFile: "Wax Inhibitor (IC Wax).pdf",
+            pdfFileRu: "Wax Inhibitor (IC Wax)_ru.pdf"
           }
         ]
       }

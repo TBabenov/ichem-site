@@ -46,7 +46,7 @@ export const Products: React.FC<ProductsProps> = ({ language }) => {
                 {product.description}
               </p>
               <a 
-                href={`/images/PDF/${product.pdfFile}`}
+                href={`/images/PDF/${language === 'ru' ? product.pdfFileRu : product.pdfFile}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block text-blue-400 font-medium hover:text-blue-300 transition-colors duration-300"
