@@ -147,7 +147,7 @@ export const translations = {
     products: {
       title: "Our Products",
       description: "Explore our comprehensive range of chemical solutions for the oil and gas industry.",
-      viewDetailsButton: "View Details",
+      viewDetailsButton: "Download product datasheet",
       downloadPDFButton: "Download PDF",
       viewAllProductsButton: "View All Products",
       categories: {
@@ -169,7 +169,12 @@ export const translations = {
           {
             name: "Demulsifier (ICD)",
             description: "Highly effective reagents for rapid and thorough water and oil separation. Ensures stable performance at all stages of oil treatment by breaking persistent emulsions and improving dehydration.",
-            pdf: "/images/PDF/Demulsifier (ICD).pdf"
+            pdfFile: "Demulsifier (ICD).pdf"
+          },
+          {
+            name: "Wax Inhibitor (IC Wax)",
+            description: "Reliable protection of equipment and pipelines from paraffin deposits. Effective at low dosages and particularly suitable for crude oil from the western regions of Kazakhstan.",
+            pdfFile: "Wax Inhibitor (IC Wax).pdf"
           }
         ]
       }
@@ -323,7 +328,7 @@ export const translations = {
     products: {
       title: "Наша Продукция",
       description: "Ознакомьтесь с нашим полным ассортиментом химических решений для нефтегазовой отрасли.",
-      viewDetailsButton: "Подробнее",
+      viewDetailsButton: "Скачать описание продукта",
       downloadPDFButton: "Скачать PDF",
       viewAllProductsButton: "Посмотреть Все Продукты",
       categories: {
@@ -345,7 +350,12 @@ export const translations = {
           {
             name: "Деэмульгатор (ICD)",
             description: "Высокоэффективные реагенты для быстрого и полного разделения воды и нефти. Обеспечивает стабильную работу на всех этапах подготовки нефти путем разрушения стойких эмульсий и улучшения обезвоживания.",
-            pdf: "/images/PDF/Demulsifier (ICD).pdf"
+            pdfFile: "Demulsifier (ICD).pdf"
+          },
+          {
+            name: "Ингибитор парафиноотложений (IC Wax)",
+            description: "Надежная защита оборудования и трубопроводов от парафиновых отложений. Эффективен при низких дозировках и особенно подходит для нефти западных регионов Казахстана.",
+            pdfFile: "Wax Inhibitor (IC Wax).pdf"
           }
         ]
       }
