@@ -106,7 +106,7 @@ export const translations = {
     },
     research: {
       title: "Research and Development",
-      description: "Our experts conduct research and testing to improve product quality.",
+      description: "Our highly qualified speiclisits and chemical engineers perform field and laboratory control of reagent efficiency, adjust dosages, and investigate emerging issues. Recommendations for process improvement are developed, and all results are documented with analysis and conclusions.",
       labTitle: "Advanced Laboratory Capabilities",
       labDescription: "Our laboratory is equipped with cutting-edge technology for chemical analysis and product testing.",
       labFeatures: [
@@ -151,7 +151,7 @@ export const translations = {
       downloadPDFButton: "Download PDF",
       viewAllProductsButton: "View All Products",
       categories: {
-        oilfieldChemicals: "OILFIELD CHEMICALS",
+        oilfieldChemicals: "Oilfield Chemicals",
         acidStimulation: "Acid Stimulation Fluid Systems",
         fracturingFluids: "Hydraulic Fracturing Fluid Systems",
         refineryReagents: "Refinery Reagents",
@@ -175,10 +175,371 @@ export const translations = {
             name: "Wax Inhibitor (IC Wax)",
             description: "Reliable protection of equipment and pipelines from paraffin deposits. Effective at low dosages and particularly suitable for crude oil from the western regions of Kazakhstan.",
             pdfFile: "Wax Inhibitor (IC Wax).pdf"
+          },
+          {
+            name: "Corrosion Inhibitor (ICC)",
+            description: "Comprehensive protection against all types of corrosion, including acid corrosion. Enhances reliability and extends the service life of pipeline and processing systems.",
+            pdfFile: "Corrosion Inhibitor (ICC).pdf"
+          },
+          {
+            name: "Hydrate Formation Inhibitor (IC Git)",
+            description: "Prevents the formation of hydrates in gas and oil pipelines. Ensures uninterrupted transportation of hydrocarbons even at low temperatures.",
+            pdfFile: "Hydrate Formation Inhibitor (IC Git).pdf"
+          },
+          {
+            name: "Biocide (ICB)",
+            description: "Alternative formula based on THPS, glutaraldehyde, and QAC. Quickly suppresses bacterial activity, including SRB, ensuring sanitary safety of systems.",
+            pdfFile: "Biocide (ICB).pdf"
+          },
+          {
+            name: "Hydrogen Sulfide Scavenger (ICH)",
+            description: "Effective solution for neutralizing H₂S in liquids and gas. Protects personnel, equipment, and the environment from toxic effects.",
+            pdfFile: "Hydrogen Sulfide Scavenger (ICH)_empty.pdf"
+          },
+          {
+            name: "Scale Inhibitor (ICS)",
+            description: "Prevents the formation of carbonates, sulfates, and other mineral deposits. Maintains equipment cleanliness and process efficiency.",
+            pdfFile: "Scale Inhibitor (ICS).pdf"
+          },
+          {
+            name: "Flocculant (ICF)",
+            description: "Optimizes the settling of mechanical impurities in formation water. Improves filtration and purification performance.",
+            pdfFile: "Flocculant (ICF).pdf"
+          },
+          {
+            name: "Drag Reducing Agent (IC DRA)",
+            description: "Reduces hydraulic resistance and increases pipeline throughput. We also offer pumping equipment and technical support.",
+            pdfFile: "Drag Reducing Agent (IC DRA).pdf"
+          },
+          {
+            name: "Defoamer (IC Foam)",
+            description: "Reliable solution against foaming at all stages of oil refining. Effective at minimal dosages.",
+            pdfFile: "Defoamer (IC Foam).pdf"
+          },
+          {
+            name: "Pour Point Depressant (IC Depr)",
+            description: "Lowers pour point and viscosity of crude oil. Ensures stable pumping even in harsh climatic conditions.",
+            pdfFile: "Pour Point Depressant (IC Depr)_empty.pdf"
+          },
+          {
+            name: "Oxygen Scavenger (ICO)",
+            description: "Removes dissolved oxygen from water and process fluids, preventing oxidation and corrosion of equipment.",
+            pdfFile: "Oxygen Scavenger (ICO).pdf"
+          },
+          {
+            name: "Coagulant (IC Coagulant)",
+            description: "Ensures effective clarification and treatment of production water at oil fields. Ideal for preparing water for reuse.",
+            pdfFile: "Coagulant (IC Coagulant).pdf"
+          }
+        ],
+        acidStimulation: [
+          {
+            name: "Acid Corrosion Inhibitor (CorroX)",
+            description: "Provides equipment protection from acid corrosion under low and medium temperature conditions.",
+            pdfFile: null
+          },
+          {
+            name: "Acid Corrosion Inhibitor (CorroX HT)",
+            description: "Protects equipment from acid corrosion under high-temperature conditions.",
+            pdfFile: null
+          },
+          {
+            name: "Iron Stabilizer (IronFix)",
+            description: "Maintains iron ions in dissolved form, preventing contamination of oil and water with iron sediments and blocking of pore throats.",
+            pdfFile: null
+          },
+          {
+            name: "Demulsifier (SurfPro)",
+            description: "Prevents formation of stable emulsions during interaction of acid solutions with reservoir fluids in the near-wellbore zone.",
+            pdfFile: null
+          },
+          {
+            name: "Anti-Sludge (Surfactant Dispersant) (SludgeX)",
+            description: "Prevents deposition of heavy oil fractions, minimizes the risk of formation damage, and enhances acid penetration into rock matrix.",
+            pdfFile: null
+          },
+          {
+            name: "Hydrogen Sulfide Scavenger (SulfurX)",
+            description: "Neutralizes H₂S, forming safe compounds and creating a protective film on metal surfaces; prevents corrosion and improves safety during acid treatments.",
+            pdfFile: null
+          },
+          {
+            name: "Chelating Agent (CA Agent)",
+            description: "Binds and removes metal ions (Ca²⁺, Mg²⁺, Fe³⁺), preventing scale and corrosion; maintains chemical stability of treatment fluids.",
+            pdfFile: null
+          },
+          {
+            name: "Chemical Diverter (IC-VES)",
+            description: "Viscoelastic surfactant-based diverter, effectively controls acid loss in high-permeability interbeds.",
+            pdfFile: null
+          },
+          {
+            name: "Retarded Acid (Retarded Acid)",
+            description: "Slows acid reaction rate in high-temperature wells, reducing corrosion and maintaining optimal rock dissolution.",
+            pdfFile: null
+          },
+          {
+            name: "Asphaltene/Wax Solvent (IC Solvent)",
+            description: "Selects optimal solvent for specific asphaltene/paraffin compositions, improving viscosity and flowback.",
+            pdfFile: null
+          }
+        ],
+        fracturingFluids: [
+          {
+            name: "Gelling Agent (ICG)",
+            description: "Forms a strong, stable gel base for proppant transport.",
+            pdfFile: null
+          },
+          {
+            name: "Clay Stabilizer (IC Clay)",
+            description: "Prevents swelling and dispersion of clay minerals, protecting formation permeability.",
+            pdfFile: null
+          },
+          {
+            name: "Demulsifier (ICD-40)",
+            description: "Prevents stable emulsion formation between fracturing fluid and formation fluids.",
+            pdfFile: null
+          },
+          {
+            name: "Biocide (ICB-40G)",
+            description: "Rapidly disinfects system by inhibiting anaerobic and sulfate-reducing bacteria.",
+            pdfFile: null
+          },
+          {
+            name: "Crosslinker (Fast) (CLF-1)",
+            description: "Water-soluble agent that quickly creates a three-dimensional gel structure.",
+            pdfFile: null
+          },
+          {
+            name: "Crosslinker (Delayed) (CLD-2)",
+            description: "Suspension that delays gelation for controlled proppant transport.",
+            pdfFile: null
+          },
+          {
+            name: "Breaker (Oxidative) (BO-1)",
+            description: "Oxidative agent that reduces gel viscosity post-treatment.",
+            pdfFile: null
+          },
+          {
+            name: "Breaker (Enzymatic) (BE-2)",
+            description: "Biodegradable enzyme that gently degrades gel for flowback.",
+            pdfFile: null
+          }
+        ],
+        refineryReagents: [
+          {
+            name: "Film-Forming Corrosion Inhibitor (IC-REF-Cor)",
+            description: "Forms a durable protective film on atmospheric distillation equipment.",
+            pdfFile: null
+          },
+          {
+            name: "Neutralizing Amines (IC-REF-Amine)",
+            description: "Neutralizes acidic components (HCl, H₂S) in refining columns.",
+            pdfFile: null
+          },
+          {
+            name: "Cold Flow Improver Additive (IC-REF-Flow)",
+            description: "Lowers pour point and improves diesel flowability at low temperatures.",
+            pdfFile: null
+          },
+          {
+            name: "Lubricity Additive (IC-REF-Lube)",
+            description: "Enhances lubricity of fuel systems, reducing wear.",
+            pdfFile: null
+          },
+          {
+            name: "Demulsifier (IC-REF-Dem)",
+            description: "Ensures efficient separation of water-oil emulsions during crude processing.",
+            pdfFile: null
+          },
+          {
+            name: "Defoamer (IC-REF-Defoam)",
+            description: "Suppresses foam in refinery process streams.",
+            pdfFile: null
+          },
+          {
+            name: "Amine System Defoamer (IC-REF-DefoamA)",
+            description: "Prevents foam in amine gas treatment units under CO₂/H₂S.",
+            pdfFile: null
+          },
+          {
+            name: "Coke Inhibitor (IC-REF-Coke)",
+            description: "Inhibits coke formation on internal refinery surfaces.",
+            pdfFile: null
+          }
+        ],
+        basicChemicals: [
+          {
+            name: "Glycols",
+            description: "MEG, DEG, TEG, and PEG for various applications including gas dehydration and antifreeze.",
+            items: [
+              "Monoethylene Glycol (MEG)",
+              "Diethylene Glycol (DEG)",
+              "Triethylene Glycol (TEG)",
+              "Polyethylene Glycol (PEG)"
+            ]
+          },
+          {
+            name: "Amines",
+            description: "Various amines for gas treatment and acid neutralization.",
+            items: [
+              "Monoethanolamine (MEA)",
+              "Diethanolamine (DEA)",
+              "Triethanolamine (TEA)"
+            ]
+          },
+          {
+            name: "Acids",
+            description: "High-quality acids for various industrial applications.",
+            items: [
+              "Citric Acid",
+              "Hydrochloric Acid (up to 15%)",
+              "Hydrofluoric Acid (HF)",
+              "Formic Acid",
+              "Acetic Acid"
+            ]
+          },
+          {
+            name: "Scale & Corrosion Inhibitors",
+            description: "Specialized chemicals for scale prevention and corrosion protection.",
+            items: [
+              "NTA (Nitrilotriacetic Acid)",
+              "HEDP",
+              "Imidazolines"
+            ]
+          },
+          {
+            name: "Solvents",
+            description: "Various solvents for cleaning and process applications.",
+            items: [
+              "Toluene",
+              "Xylene",
+              "Nefras"
+            ]
+          },
+          {
+            name: "Biocides",
+            description: "Effective solutions for bacterial control.",
+            items: [
+              "Glutaraldehyde 50%",
+              "THPS",
+              "Formalin/Formaldehyde"
+            ]
+          },
+          {
+            name: "Specialty Chemicals",
+            description: "Additional chemicals for specific applications.",
+            items: [
+              "Triazine",
+              "ABS Acid",
+              "Neonol",
+              "Polyethers"
+            ]
           }
         ]
       }
     }
+    ,
+    services: {
+      items: [
+        {
+          id: "consulting",
+          name: "Consulting Services",
+          description: "Our technical experts provide consultation services to identify and solve complex production challenges.",
+          features: [
+            {
+              title: "Production System Analysis",
+              description: "Comprehensive analysis of production systems to identify bottlenecks and optimization opportunities."
+            },
+            {
+              title: "Challenge Identification",
+              description: "Systematic approach to identifying and troubleshooting production issues."
+            },
+            {
+              title: "Technology Selection",
+              description: "Expert guidance in selecting and implementing appropriate technologies."
+            },
+            {
+              title: "Performance Monitoring",
+              description: "Continuous monitoring and optimization of production processes."
+            }
+          ]
+        },
+        {
+          id: "acid-stimulation",
+          name: "Acid Stimulation Implementation Support",
+          description: "\"Innovative Chemicals\" provides production enhancement via acid stimulation technologies, employing safe, data-enabled pumping units. Our in-house lab optimizes acid formulations through core-sample analysis and enforces rigorous QC. Our international team delivers turnkey well-treatment solutions.",
+          features: [
+            {
+              title: "Wellbore Acid Clean-up",
+              description: "Specialized treatments to remove scale, deposits, and damage from the wellbore area."
+            },
+            {
+              title: "Matrix Stimulation",
+              description: "Advanced acid treatments to improve near-wellbore permeability and productivity."
+            },
+            {
+              title: "Acid Fracturing",
+              description: "High-pressure acid injection to create conductive channels in carbonate formations."
+            },
+            {
+              title: "Quality Control",
+              description: "Rigorous testing and monitoring throughout the treatment process."
+            }
+          ]
+        },
+        {
+          id: "blending",
+          name: "Blending & Tolling Chemical Development",
+          description: "\"Innovative Chemicals\" offers contract manufacturing under a tolling scheme in stainless-steel mixing vessels, with strict QC at every stage. Production only begins after lab validation and full regulatory compliance.",
+          features: [
+            {
+              title: "Storage Capacity",
+              description: "150 m³ storage capacity for raw materials and finished products."
+            },
+            {
+              title: "Blending Facilities",
+              description: "Two 30 m³/day blending reactors for efficient production."
+            },
+            {
+              title: "Loading Infrastructure",
+              description: "On-site rail siding for direct loading and efficient logistics."
+            },
+            {
+              title: "Warehousing",
+              description: "Warehouse capacity for up to 200 tons of product with proper storage conditions."
+            }
+          ]
+        },
+        {
+          id: "technical-training",
+          name: "Technical Training",
+          description: "Specialized training programs to enhance the technical knowledge and skills of client personnel.",
+          features: [
+            {
+              title: "Chemical Fundamentals",
+              description: "Core chemical principles for oil and gas applications."
+            },
+            {
+              title: "Application Training",
+              description: "Specific training modules for different applications."
+            },
+            {
+              title: "Laboratory Workshops",
+              description: "Hands-on laboratory training and practical exercises."
+            },
+            {
+              title: "Best Practices",
+              description: "Field application best practices and safety protocols."
+            }
+          ]
+        }
+      ],
+      contact: {
+        interested: "Interested in {serviceName}?",
+        button: "Contact Us"
+      }
+    },
   },
   ru: {
     header: {
@@ -287,7 +648,7 @@ export const translations = {
     },
     research: {
       title: "Исследования и разработки",
-      description: "Наши специалисты проводят исследования и тесты для улучшения качества продукции.",
+      description: "Наши высококлассные специалисты и инженеры проводят полевой и лабораторный контроль эффективности реагентов, адаптируют дозировки и исследуют возникающие проблемы. Разрабатываются рекомендации по улучшению процессов. Все результаты оформляются в отчётности с анализом и выводами.",
       labTitle: "Возможности Лаборатории",
       labDescription: "Наша лаборатория оснащена передовыми технологиями для химического анализа и тестирования продукции.",
       labFeatures: [
@@ -332,11 +693,11 @@ export const translations = {
       downloadPDFButton: "Скачать PDF",
       viewAllProductsButton: "Посмотреть Все Продукты",
       categories: {
-        oilfieldChemicals: "НЕФТЕПРОМЫСЛОВАЯ ХИМИЯ",
-        acidStimulation: "Системы Кислотной Стимуляции",
-        fracturingFluids: "Системы Жидкостей для Гидроразрыва",
-        refineryReagents: "Реагенты для НПЗ",
-        basicChemicals: "Базовая Химическая Продукция"
+        oilfieldChemicals: "Нефтепромысловая Химия",
+        acidStimulation: "Кислотные составы",
+        fracturingFluids: "Жидкости ГРП",
+        refineryReagents: "Реагенты нефтепереработки",
+        basicChemicals: "Базовая Химия"
       },
       categoryDescriptions: {
         oilfieldChemicals: "Innovative Chemicals предлагает передовые производственные решения, обеспечивающие надежность и эффективность месторождений Казахстана и Каспийского региона. Мы производим химические реагенты, специально разработанные в соответствии с высочайшими отраслевыми стандартами.",
@@ -349,16 +710,377 @@ export const translations = {
         oilfieldChemicals: [
           {
             name: "Деэмульгатор (ICD)",
-            description: "Высокоэффективные реагенты для быстрого и полного разделения воды и нефти. Обеспечивает стабильную работу на всех этапах подготовки нефти путем разрушения стойких эмульсий и улучшения обезвоживания.",
+            description: "Высокоэффективные реагенты для быстрого и полного разделения воды и нефти. Обеспечивают стабильную работу на всех этапах подготовки нефти, разрушая стойкие эмульсии и улучшая процесс обезвоживания.",
             pdfFile: "Demulsifier (ICD).pdf"
           },
           {
             name: "Ингибитор парафиноотложений (IC Wax)",
-            description: "Надежная защита оборудования и трубопроводов от парафиновых отложений. Эффективен при низких дозировках и особенно подходит для нефти западных регионов Казахстана.",
+            description: "Надежная защита оборудования и трубопроводов от парафиновых отложений. Эффективен при низких дозировках, особенно для нефти западных регионов Казахстана.",
             pdfFile: "Wax Inhibitor (IC Wax).pdf"
+          },
+          {
+            name: "Ингибитор коррозии (ICC)",
+            description: "Комплексная защита от всех видов коррозии, включая кислотную. Повышает надежность и продлевает срок службы трубопроводов и технологических систем.",
+            pdfFile: "Corrosion Inhibitor (ICC).pdf"
+          },
+          {
+            name: "Ингибитор гидратообразования (IC Git)",
+            description: "Предотвращает образование гидратов в газо- и нефтепроводах. Обеспечивает бесперебойную транспортировку углеводородов даже при низких температурах.",
+            pdfFile: "Hydrate Formation Inhibitor (IC Git).pdf"
+          },
+          {
+            name: "Биоцид (ICB)",
+            description: "Альтернативная формула на основе THPS, глутарового альдегида и ЧАС. Быстро подавляет бактериальную активность, включая сульфатвосстанавливающие бактерии, обеспечивая санитарную безопасность систем.",
+            pdfFile: "Biocide (ICB).pdf"
+          },
+          {
+            name: "Поглотитель сероводорода (ICH)",
+            description: "Эффективное решение для нейтрализации H₂S в жидкостях и газах. Защищает персонал, оборудование и окружающую среду от токсичного воздействия.",
+            pdfFile: "Hydrogen Sulfide Scavenger (ICH)_empty.pdf"
+          },
+          {
+            name: "Ингибитор отложений (ICS)",
+            description: "Предотвращает образование карбонатных, сульфатных и других минеральных отложений. Сохраняет чистоту оборудования и эффективность процессов.",
+            pdfFile: "Scale Inhibitor (ICS).pdf"
+          },
+          {
+            name: "Флокулянт (ICF)",
+            description: "Оптимизирует осаждение механических примесей в пластовой воде. Повышает эффективность фильтрации и очистки.",
+            pdfFile: "Flocculant (ICF).pdf"
+          },
+          {
+            name: "Драг-редуцирующая добавка (IC DRA)",
+            description: "Снижает гидравлическое сопротивление и увеличивает пропускную способность трубопроводов. Также предлагаем насосное оборудование и техническую поддержку.",
+            pdfFile: "Drag Reducing Agent (IC DRA).pdf"
+          },
+          {
+            name: "Пеногаситель (IC Foam)",
+            description: "Надежное решение против пенообразования на всех этапах переработки нефти. Эффективен при минимальных дозах.",
+            pdfFile: "Defoamer (IC Foam).pdf"
+          },
+          {
+            name: "Депрессор температуры застывания (IC Depr)",
+            description: "Понижает температуру застывания и вязкость нефти. Обеспечивает стабильную прокачку даже в суровых климатических условиях.",
+            pdfFile: "Pour Point Depressant (IC Depr)_empty.pdf"
+          },
+          {
+            name: "Поглотитель кислорода (ICO)",
+            description: "Удаляет растворённый кислород из воды и технологических жидкостей, предотвращая окисление и коррозию оборудования.",
+            pdfFile: "Oxygen Scavenger (ICO).pdf"
+          },
+          {
+            name: "Коагулянт (IC Coagulant)",
+            description: "Обеспечивает эффективное осветление и очистку производственной воды на месторождениях. Идеален для подготовки воды к повторному использованию.",
+            pdfFile: "Coagulant (IC Coagulant).pdf"
+          }
+        ],
+        acidStimulation: [
+          {
+            name: "Ингибитор кислотной коррозии (CorroX)",
+            description: "Защищает оборудование от кислотной коррозии при низких и средних температурах.",
+            pdfFile: null
+          },
+          {
+            name: "Ингибитор кислотной коррозии (CorroX HT)",
+            description: "Обеспечивает защиту оборудования от кислотной коррозии при высоких температурах.",
+            pdfFile: null
+          },
+          {
+            name: "Стабилизатор железа (IronFix)",
+            description: "Удерживает ионы железа в растворённой форме, предотвращая загрязнение нефти и воды железистыми отложениями и закупорку пор.",
+            pdfFile: null
+          },
+          {
+            name: "Деэмульгатор (SurfPro)",
+            description: "Предотвращает образование стойких эмульсий при взаимодействии кислотных растворов с пластовыми флюидами в призабойной зоне.",
+            pdfFile: null
+          },
+          {
+            name: "Анти-шлам (ПАВ-диспергатор) (SludgeX)",
+            description: "Предотвращает осаждение тяжёлых нефтяных фракций, минимизирует риск повреждения пласта и улучшает проникновение кислоты в породу.",
+            pdfFile: null
+          },
+          {
+            name: "Поглотитель сероводорода (SulfurX)",
+            description: "Нейтрализует H₂S, образуя безопасные соединения и создаёт защитную плёнку на металлических поверхностях; предотвращает коррозию и повышает безопасность при кислотных обработках.",
+            pdfFile: null
+          },
+          {
+            name: "Хелатирующий агент (CA Agent)",
+            description: "Связывает и удаляет ионы металлов (Ca²⁺, Mg²⁺, Fe³⁺), предотвращая образование отложений и коррозию; поддерживает химическую стабильность растворов.",
+            pdfFile: null
+          },
+          {
+            name: "Химический дивертер (IC-VES)",
+            description: "Дивертер на основе вискоэластичных ПАВ, эффективно контролирует потерю кислоты в высокопроницаемых пропластках.",
+            pdfFile: null
+          },
+          {
+            name: "Замедленная кислота (Retarded Acid)",
+            description: "Замедляет скорость реакции кислоты в высокотемпературных скважинах, снижает коррозию и обеспечивает оптимальное растворение породы.",
+            pdfFile: null
+          },
+          {
+            name: "Растворитель асфальтенов/парафинов (IC Solvent)",
+            description: "Оптимальный подбор растворителя под конкретный состав асфальтенов/парафинов, улучшает вязкость и обратный приток.",
+            pdfFile: null
+          }
+        ],
+        fracturingFluids: [
+          {
+            name: "Гелеобразователь (ICG)",
+            description: "Образует прочную стабильную гелевую основу для транспорта проппанта.",
+            pdfFile: null
+          },
+          {
+            name: "Стабилизатор глин (IC Clay)",
+            description: "Предотвращает набухание и диспергирование глинистых минералов, сохраняя проницаемость пласта.",
+            pdfFile: null
+          },
+          {
+            name: "Деэмульгатор (ICD-40)",
+            description: "Предотвращает образование стойких эмульсий между жидкостью ГРП и пластовыми флюидами.",
+            pdfFile: null
+          },
+          {
+            name: "Биоцид (ICB-40G)",
+            description: "Быстро обеззараживает систему, подавляя анаэробные и сульфатвосстанавливающие бактерии.",
+            pdfFile: null
+          },
+          {
+            name: "Сшиватель (быстрый) (CLF-1)",
+            description: "Водорастворимый агент, быстро формирующий трёхмерную гелевую структуру.",
+            pdfFile: null
+          },
+          {
+            name: "Сшиватель (замедленный) (CLD-2)",
+            description: "Суспензия, замедляющая сшивание для контролируемого транспорта проппанта.",
+            pdfFile: null
+          },
+          {
+            name: "Разрушитель (окислительный) (BO-1)",
+            description: "Окислительный агент, снижающий вязкость геля после обработки.",
+            pdfFile: null
+          },
+          {
+            name: "Разрушитель (ферментативный) (BE-2)",
+            description: "Биоразлагаемый фермент, мягко разрушающий гель для возврата жидкости.",
+            pdfFile: null
+          }
+        ],
+        refineryReagents: [
+          {
+            name: "Плёкообразующий ингибитор коррозии (IC-REF-Cor)",
+            description: "Образует прочную защитную плёнку на оборудовании атмосферной перегонки.",
+            pdfFile: null
+          },
+          {
+            name: "Нейтрализующие амины (IC-REF-Amine)",
+            description: "Нейтрализует кислые компоненты (HCl, H₂S) в колоннах переработки.",
+            pdfFile: null
+          },
+          {
+            name: "Депрессор текучести дизеля (IC-REF-Flow)",
+            description: "Понижает температуру застывания и улучшает текучесть дизеля при низких температурах.",
+            pdfFile: null
+          },
+          {
+            name: "Присадка для смазывающей способности (IC-REF-Lube)",
+            description: "Повышает смазывающую способность топливных систем, снижая износ.",
+            pdfFile: null
+          },
+          {
+            name: "Деэмульгатор (IC-REF-Dem)",
+            description: "Обеспечивает эффективное разделение водонефтяных эмульсий при переработке сырья.",
+            pdfFile: null
+          },
+          {
+            name: "Пеногаситель (IC-REF-Defoam)",
+            description: "Подавляет пенообразование в технологических потоках НПЗ.",
+            pdfFile: null
+          },
+          {
+            name: "Пеногаситель аминовой системы (IC-REF-DefoamA)",
+            description: "Предотвращает пенообразование в установках очистки газа аминами при CO₂/H₂S.",
+            pdfFile: null
+          },
+          {
+            name: "Ингибитор коксообразования (IC-REF-Coke)",
+            description: "Предотвращает образование кокса на внутренних поверхностях оборудования НПЗ.",
+            pdfFile: null
+          }
+        ],
+        basicChemicals: [
+          {
+            name: "Гликоли",
+            description: "МЭГ, ДЭГ, ТЭГ и ПЭГ для различных применений, включая осушку газа и антифризы.",
+            items: [
+              "Моноэтиленгликоль (МЭГ)",
+              "Диэтиленгликоль (ДЭГ)",
+              "Триэтиленгликоль (ТЭГ)",
+              "Полиэтиленгликоль (ПЭГ)"
+            ]
+          },
+          {
+            name: "Амины",
+            description: "Различные амины для очистки газа и нейтрализации кислот.",
+            items: [
+              "Моноэтаноламин (МЭА)",
+              "Диэтаноламин (ДЭА)",
+              "Триэтаноламин (ТЭА)"
+            ]
+          },
+          {
+            name: "Кислоты",
+            description: "Высококачественные кислоты для различных промышленных применений.",
+            items: [
+              "Лимонная кислота",
+              "Соляная кислота (до 15%)",
+              "Плавиковая кислота (HF)",
+              "Муравьиная кислота",
+              "Уксусная кислота"
+            ]
+          },
+          {
+            name: "Ингибиторы отложений и коррозии",
+            description: "Специализированные химикаты для предотвращения отложений и защиты от коррозии.",
+            items: [
+              "НТА (нитрилтриуксусная кислота)",
+              "HEDP",
+              "Имидазолины"
+            ]
+          },
+          {
+            name: "Растворители",
+            description: "Различные растворители для очистки и технологических процессов.",
+            items: [
+              "Толуол",
+              "Ксилол",
+              "Нефрас"
+            ]
+          },
+          {
+            name: "Биоциды",
+            description: "Эффективные средства для бактериального контроля.",
+            items: [
+              "Глутаровый альдегид 50%",
+              "THPS",
+              "Формалин/Формальдегид"
+            ]
+          },
+          {
+            name: "Специальные химикаты",
+            description: "Дополнительные химикаты для специфических задач.",
+            items: [
+              "Триазин",
+              "ABS-кислота",
+              "Неонол",
+              "Полиэфиры"
+            ]
           }
         ]
       }
     }
+    ,
+    services: {
+      items: [
+        {
+          id: "consulting",
+          name: "Консультационные услуги",
+          description: "Наши технические эксперты предоставляют консультационные услуги для выявления и решения сложных производственных задач.",
+          features: [
+            {
+              title: "Анализ производственных систем",
+              description: "Всеобъемлющий анализ производственных систем для выявления узких мест и возможностей оптимизации."
+            },
+            {
+              title: "Идентификация проблем",
+              description: "Системный подход к выявлению и устранению проблем в производственных процессах."
+            },
+            {
+              title: "Выбор технологий",
+              description: "Экспертная помощь в выборе и внедрении подходящих технологий."
+            },
+            {
+              title: "Мониторинг производительности",
+              description: "Непрерывный мониторинг и оптимизация производственных процессов."
+            }
+          ]
+        },
+        {
+          id: "acid-stimulation",
+          name: "Поддержка внедрения кислотной стимуляции",
+          description: "«Innovative Chemicals» предоставляет повышение производительности за счет технологий кислотной стимуляции, используя безопасные насосные установки с передачей данных. Наше собственное лабораторное оборудование оптимизирует формулы кислот на основе анализа керна и обеспечивает строгий контроль качества. Наша международная команда предоставляет комплексные решения под ключ по обработке скважин.",
+          features: [
+            {
+              title: "Очистка призабойной зоны",
+              description: "Специализированные обработки для удаления отложений, повреждений и загрязнений в зоне призабоя."
+            },
+            {
+              title: "Матрицевая стимуляция",
+              description: "Передовые кислотные обработки для повышения проницаемости и продуктивности призабойной зоны."
+            },
+            {
+              title: "Кислотный гидроразрыв",
+              description: "Высоконапорная закачка кислоты для создания проводящих каналов в карбонатных коллекторах."
+            },
+            {
+              title: "Контроль качества",
+              description: "Строгие испытания и мониторинг на всех этапах процесса обработки."
+            }
+          ]
+        },
+        {
+          id: "blending",
+          name: "Смешивание и толлинг химических продуктов",
+          description: "«Innovative Chemicals» предлагает контрактное производство в стальных емкостях с тщательным контролем качества на каждом этапе. Производство начинается только после валидации в лаборатории и полного соблюдения нормативных требований.",
+          features: [
+            {
+              title: "Объем хранения",
+              description: "Емкость хранения 150 м³ для сырья и готовой продукции."
+            },
+            {
+              title: "Смешивающие установки",
+              description: "Два реактора производительностью 30 м³/день для эффективного производства."
+            },
+            {
+              title: "Инфраструктура погрузки",
+              description: "Встроенная железнодорожная ветка для прямой погрузки и эффективной логистики."
+            },
+            {
+              title: "Склады",
+              description: "Складские мощности до 200 тонн продукции с надлежащими условиями хранения."
+            }
+          ]
+        },
+        {
+          id: "technical-training",
+          name: "Техническое обучение",
+          description: "Специализированные программы обучения для повышения технических знаний и навыков персонала заказчика.",
+          features: [
+            {
+              title: "Основы химии",
+              description: "Базовые химические принципы для применения в нефтегазовой отрасли."
+            },
+            {
+              title: "Практическое обучение",
+              description: "Специальные модули обучения для различных видов применения."
+            },
+            {
+              title: "Лабораторные практикумы",
+              description: "Практические лабораторные занятия и упражнения."
+            },
+            {
+              title: "Лучшие практики",
+              description: "Рекомендации по применению в полевых условиях и протоколы безопасности."
+            }
+          ]
+        }
+      ],
+      contact: {
+        interested: "Заинтересованы в услуге {serviceName}?",
+        button: "Связаться с нами"
+      }
+    },
   }
 };

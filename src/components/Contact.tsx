@@ -34,16 +34,6 @@ export const Contact: React.FC<ContactProps> = ({ language, onContactClick }) =>
                   <MapPin size={20} className="text-blue-600" />
                 </div>
                 <div>
-                  <p className="font-medium text-gray-900">Main Office</p>
-                  <p className="text-gray-600">Republic of Kazakhstan, Mangystau Region, Aktau city, 17th microdistrict, Building 7, Office 142.</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="p-2 bg-blue-100 rounded-full mr-4">
-                  <MapPin size={20} className="text-blue-600" />
-                </div>
-                <div>
                   <p className="font-medium text-gray-900">Production Base</p>
                   <p className="text-gray-600">Aktau city, Industrial Zone No. 3, ICHEM Industrial Base</p>
                 </div>
