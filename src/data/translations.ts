@@ -66,9 +66,11 @@ export const translations = {
     },
     hero: {
       title: "Innovative Chemical Solutions",
-      subtitle: "For Oil and Gas Industry",
-      description: "We provide high-quality chemical solutions and services for the oil and gas industry.",
       contactButton: "Contact Us"
+    },
+    home: {
+      subtitle: "Oilfield Chemical Supply and Chemical Treatment Services",
+      description: "Innovative solutions to lower costs and boost your business efficiency."
     },
     about: {
       title: "About Us",
@@ -631,9 +633,11 @@ export const translations = {
     },
     hero: {
       title: "Инновационные Химические Решения",
-      subtitle: "Для Нефтегазовой Отрасли",
-      description: "Мы предоставляем высококачественные химические решения и услуги для нефтегазовой отрасли.",
       contactButton: "Связаться с Нами"
+    },
+    home: {
+      subtitle: "Поставка химических реагентов и сервисы химической обработки",
+      description: "Инновационные решения для снижения затрат и повышения эффективности вашего бизнеса."
     },
     about: {
       title: "О Нас",
