@@ -175,6 +175,11 @@ export const translations = {
         refineryReagents: "Refinery Reagents",
         basicChemicals: "Basic Chemical Supply"
       },
+      contact: {
+        interested: "Interested in {categoryName}?",
+        description: "Contact our team for detailed information and pricing.",
+        button: "Contact Us"
+      },
       categoryDescriptions: {
         oilfieldChemicals: "Innovative Chemicals offers advanced production solutions, ensuring reliability and efficiency of Kazakhstan and Caspian region fields. We manufacture chemical reagents, specifically designed to meet the industry's highest standards.",
         acidStimulation: "Since 2022, we have localized the production of reagents for acid stimulation systems in Kazakhstan and the Middle East, ensuring prompt delivery and consistent high product quality. In addition to reagent supply, we offer comprehensive well treatment services, including technical support and on-site supervision. Our specialized formulations are highly effective and fully compatible with formation rock and reservoir fluids, delivering outstanding results in enhanced oil recovery.",
@@ -734,6 +739,11 @@ export const translations = {
         fracturingFluids: "Жидкости ГРП",
         refineryReagents: "Реагенты нефтепереработки",
         basicChemicals: "Базовая Химия"
+      },
+      contact: {
+        interested: "Заинтересованы в категории «{categoryName}»?",
+        description: "Свяжитесь с нашей командой для получения подробной информации и цен.",
+        button: "Связаться с нами"
       },
       categoryDescriptions: {
         oilfieldChemicals: "Innovative Chemicals предлагает передовые производственные решения, обеспечивающие надежность и эффективность месторождений Казахстана и Каспийского региона. Мы производим химические реагенты, специально разработанные в соответствии с высочайшими отраслевыми стандартами.",

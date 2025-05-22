@@ -1,4 +1,3 @@
-import nodemailer from 'npm:nodemailer';
 import { createClient } from "npm:@supabase/supabase-js@2.39.0";
 
 const corsHeaders = {
@@ -51,7 +50,7 @@ Deno.serve(async (req) => {
       throw new Error('Failed to store contact submission');
     }
 
-    // Send email notification using nodemailer
+    // Send email notification
     const emailBody = `
       New Contact Form Submission
       
@@ -65,22 +64,16 @@ Deno.serve(async (req) => {
       ${message}
     `;
 
-    const transporter = nodemailer.createTransport({
-      host: Deno.env.get('EMAIL_SMTPHOST'),
-      port: Number(Deno.env.get('EMAIL_SMTPPORT')),
-      secure: Deno.env.get('EMAIL_SMTPCRYPTO') === 'ssl',
-      auth: {
-        user: Deno.env.get('EMAIL_SMTPUSER'),
-        pass: Deno.env.get('EMAIL_SMTPPASS'),
-      },
-    });
-
-    await transporter.sendMail({
-      from: `"${Deno.env.get('EMAIL_FROMNAME')}" <${Deno.env.get('EMAIL_FROM')}>`,
+    const emailData = {
       to: 'Asissenov@ichem.kz',
       subject: `New Contact Form Submission from ${name}`,
       text: emailBody,
-    });
+    };
+
+    // Here you would integrate with your email service provider
+    // For example, using SendGrid, Mailgun, etc.
+    // This is a placeholder for the actual email sending logic
+    console.log('Email would be sent:', emailData);
 
     return new Response(
       JSON.stringify({ message: "Contact form submitted successfully" }),

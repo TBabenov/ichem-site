@@ -181,17 +181,20 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ language }) => {
                   <div className="flex flex-col md:flex-row items-center justify-between">
                     <div className="mb-6 md:mb-0">
                       <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                        Interested in {t.categories[category.id as keyof typeof t.categories]}?
+                        {translations[language].products.contact.interested.replace(
+                          "{categoryName}",
+                          t.categories[category.id as keyof typeof t.categories]
+                        )}
                       </h3>
                       <p className="text-gray-600">
-                        Contact our team for detailed information and pricing.
+                        {translations[language].products.contact.description}
                       </p>
                     </div>
                     <button
                       onClick={() => setShowContactForm(true)}
                       className="bg-blue-600 text-white px-8 py-3 rounded-md transition-all duration-300 hover:bg-blue-700 hover:scale-105"
                     >
-                      Contact Us
+                      {translations[language].products.contact.button}
                     </button>
                   </div>
                 </div>
