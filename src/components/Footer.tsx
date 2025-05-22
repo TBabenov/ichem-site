@@ -19,7 +19,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
           <div>
             <Link to="/" className="flex items-center mb-6">
               <img 
-                src="/images/icons/logol.png" 
+                src="/home/images/icons/logol.png" 
                 alt="Logo" 
                 className="h-12 w-auto mr-3"
               />

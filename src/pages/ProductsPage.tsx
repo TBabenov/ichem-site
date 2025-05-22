@@ -11,32 +11,32 @@ const categories = [
   {
     id: 'oilfieldChemicals',
     name: 'OILFIELD CHEMICALS',
-    icon: '/images/icons/Production Chemicals.png',
-    image: '/images/Film-Forming Corrosion Inhibitor.png',
+    icon: '/home/images/icons/Production Chemicals.png',
+    image: '/home/images/Film-Forming Corrosion Inhibitor.png',
   },
   {
     id: 'acidStimulation',
     name: 'Acid Stimulation Fluid Systems',
-    icon: '/images/icons/Acid Stimulation.png',
-    image: '/images/Acid Stimulation Fluid Systems.png',
+    icon: '/home/images/icons/Acid Stimulation.png',
+    image: '/home/images/Acid Stimulation Fluid Systems.png',
   },
   {
     id: 'fracturingFluids',
     name: 'Hydraulic Fracturing Fluid Systems',
-    icon: '/images/icons/Hydraulic Fracturing.png',
-    image: '/images/Hydraulic Fracturing.png',
+    icon: '/home/images/icons/Hydraulic Fracturing.png',
+    image: '/home/images/Hydraulic Fracturing.png',
   },
   {
     id: 'refineryReagents',
     name: 'Refinery Reagents',
-    icon: '/images/icons/Downstream Chemicals.png',
-    image: '/images/Downstream Chemicals.png',
+    icon: '/home/images/icons/Downstream Chemicals.png',
+    image: '/home/images/Downstream Chemicals.png',
   },
   {
     id: 'basicChemicals',
     name: 'Basic Chemical Supply',
-    icon: '/images/icons/Basic Chemical.png',
-    image: '/images/Basic Chemical Supply.png',
+    icon: '/home/images/icons/Basic Chemical.png',
+    image: '/home/images/Basic Chemical Supply.png',
   }
 ];
 

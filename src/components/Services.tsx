@@ -53,7 +53,7 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
                   }`}
                 >
                   <img
-                    src={`/images/icons/${
+                    src={`/home/images/icons/${
                       service.id === 'acid-stimulation'
                         ? 'Acid Stimulation'
                         : service.id === 'technical-training'
@@ -83,7 +83,7 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
               {/* Service Header */}
               <div className="relative h-64 md:h-96">
                 <img
-                  src={`/images/${
+                  src={`/home/images/${
                     service.id === 'acid-stimulation'
                       ? 'Acid Stimulation Fluid Systems'
                       : service.id === 'technical-training'

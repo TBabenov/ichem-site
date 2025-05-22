@@ -42,7 +42,7 @@ export const Header: React.FC<HeaderProps> = ({
             aria-label="Home"
           >
             <img 
-              src="/images/icons/logol.png" 
+              src="/home/images/icons/logol.png" 
               alt="Logo" 
               className="h-10 w-auto mr-2"
             />

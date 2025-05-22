@@ -48,12 +48,12 @@ export const Hero: React.FC<HeroProps> = ({ language }) => {
           muted
           loop
           playsInline
-          poster="/images/background_main.jpg"
+          poster="/home/images/background_main.jpg"
         >
-          <source src="/videos/hero-background.mp4" type="video/mp4" />
+          <source src="/home/videos/hero-background.mp4" type="video/mp4" />
           {/* Fallback image if video fails to load */}
           <img 
-            src="/images/background_main.jpg" 
+            src="/home/images/background_main.jpg" 
             alt="Chemical industry background" 
             className="absolute inset-0 h-full w-full object-cover"
           />
@@ -67,7 +67,7 @@ export const Hero: React.FC<HeroProps> = ({ language }) => {
         >
           <div className="inline-block mb-4">
             <img 
-              src="/images/icons/logol.png" 
+              src="/home/images/icons/logol.png" 
               alt="Innovative Chemicals Logo" 
               className="h-32 w-auto md:h-40"
             />

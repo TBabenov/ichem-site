@@ -29,14 +29,14 @@ export const Partners: React.FC<PartnersProps> = ({ language }) => {
               Certified quality management system ensuring consistent quality in chemical production, supply, and field service operations.
             </p>
             <a 
-              href={`/images/Certificates/ISO_9001_Certificate_${langCode}.pdf`}
+              href={`/home/images/Certificates/ISO_9001_Certificate_${langCode}.pdf`}
               target="_blank"
               rel="noopener noreferrer"
               className="block group"
             >
               <div className="aspect-[3/4] mb-4 rounded-lg overflow-hidden relative">
                 <img 
-                  src={`/images/Certificates/ISO_9001_Certificate_${langCode}.png`}
+                  src={`/home/images/Certificates/ISO_9001_Certificate_${langCode}.png`}
                   alt="ISO 9001 Certificate"
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                 />
@@ -57,14 +57,14 @@ export const Partners: React.FC<PartnersProps> = ({ language }) => {
               Certified environmental management system supporting sustainable practices in production and well treatment processes.
             </p>
             <a 
-              href={`/images/Certificates/ISO_14001_Certificate_${langCode}.pdf`}
+              href={`/home/images/Certificates/ISO_14001_Certificate_${langCode}.pdf`}
               target="_blank"
               rel="noopener noreferrer"
               className="block group"
             >
               <div className="aspect-[3/4] mb-4 rounded-lg overflow-hidden relative">
                 <img 
-                  src={`/images/Certificates/ISO_14001_Certificate_${langCode}.png`}
+                  src={`/home/images/Certificates/ISO_14001_Certificate_${langCode}.png`}
                   alt="ISO 14001 Certificate"
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                 />
@@ -85,14 +85,14 @@ export const Partners: React.FC<PartnersProps> = ({ language }) => {
               Certified occupational health and safety management system for safe working conditions in manufacturing and field environments.
             </p>
             <a 
-              href={`/images/Certificates/ISO_45001_Certificate_${langCode}.pdf`}
+              href={`/home/images/Certificates/ISO_45001_Certificate_${langCode}.pdf`}
               target="_blank"
               rel="noopener noreferrer"
               className="block group"
             >
               <div className="aspect-[3/4] mb-4 rounded-lg overflow-hidden relative">
                 <img 
-                  src={`/images/Certificates/ISO_45001_Certificate_${langCode}.png`}
+                  src={`/home/images/Certificates/ISO_45001_Certificate_${langCode}.png`}
                   alt="ISO 45001 Certificate"
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                 />

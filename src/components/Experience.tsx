@@ -25,7 +25,7 @@ export const Experience: React.FC<ExperienceProps> = ({ language }) => {
           <div className="bg-blue-50 p-8 rounded-lg border-l-4 border-blue-600 transition-all duration-300 hover:shadow-lg">
             <div className="mb-6">
               <img 
-                src="/images/icons/Flow_Assurance_transparent.png" 
+                src="/home/images/icons/Flow_Assurance_transparent.png" 
                 alt="Flow Assurance" 
                 className="w-12 h-12"
               />
@@ -50,7 +50,7 @@ export const Experience: React.FC<ExperienceProps> = ({ language }) => {
           <div className="bg-blue-50 p-8 rounded-lg border-l-4 border-blue-600 transition-all duration-300 hover:shadow-lg">
             <div className="mb-6">
               <img 
-                src="/images/icons/Carbonate_Reservoir_Acid_Stimulation.png" 
+                src="/home/images/icons/Carbonate_Reservoir_Acid_Stimulation.png" 
                 alt="Carbonate Reservoir Acid Stimulation" 
                 className="w-12 h-12"
               />
@@ -75,7 +75,7 @@ export const Experience: React.FC<ExperienceProps> = ({ language }) => {
           <div className="bg-blue-50 p-8 rounded-lg border-l-4 border-blue-600 transition-all duration-300 hover:shadow-lg">
             <div className="mb-6">
               <img 
-                src="/images/icons/Reduce_Well_Failures_transparent.png" 
+                src="/home/images/icons/Reduce_Well_Failures_transparent.png" 
                 alt="Reduce Well Failures" 
                 className="w-12 h-12"
               />

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { ContactForm } from './components/ContactForm';
@@ -14,32 +14,30 @@ function App() {
   const [showContactForm, setShowContactForm] = useState(false);
 
   return (
-    <Router>
-      <div className="min-h-screen bg-white">
-        <Header 
+    <div className="min-h-screen bg-white">
+      <Header 
+        language={language} 
+        setLanguage={setLanguage} 
+        onContactClick={() => setShowContactForm(true)}
+      />
+      <main className="pt-[64px]">
+        <Routes>
+          <Route path="/" element={<HomePage language={language} />} />
+          <Route path="/products" element={<ProductsPage language={language} />} />
+          <Route path="/services" element={<ServicesPage language={language} />} />
+          <Route path="/rd" element={<RDPage language={language} />} />
+          <Route path="/contact" element={<ContactPage language={language} />} />
+        </Routes>
+      </main>
+      <Footer language={language} />
+      
+      {showContactForm && (
+        <ContactForm 
           language={language} 
-          setLanguage={setLanguage} 
-          onContactClick={() => setShowContactForm(true)}
+          onClose={() => setShowContactForm(false)} 
         />
-        <main className="pt-[64px]">
-          <Routes>
-            <Route path="/" element={<HomePage language={language} />} />
-            <Route path="/products" element={<ProductsPage language={language} />} />
-            <Route path="/services" element={<ServicesPage language={language} />} />
-            <Route path="/rd" element={<RDPage language={language} />} />
-            <Route path="/contact" element={<ContactPage language={language} />} />
-          </Routes>
-        </main>
-        <Footer language={language} />
-        
-        {showContactForm && (
-          <ContactForm 
-            language={language} 
-            onClose={() => setShowContactForm(false)} 
-          />
-        )}
-      </div>
-    </Router>
+      )}
+    </div>
   );
 }
 

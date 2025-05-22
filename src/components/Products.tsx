@@ -12,7 +12,7 @@ export const Products: React.FC<ProductsProps> = ({ language }) => {
   const categories = [
     {
       name: 'OILFIELD CHEMICALS',
-      icon: '/images/icons/Production Chemicals.png',
+      icon: '/home/images/icons/Production Chemicals.png',
       products: [
         {
           name: 'Scale Inhibitors',
@@ -30,7 +30,7 @@ export const Products: React.FC<ProductsProps> = ({ language }) => {
     },
     {
       name: 'Acid Stimulation Fluid Systems',
-      icon: '/images/icons/Acid Stimulation.png',
+      icon: '/home/images/icons/Acid Stimulation.png',
       products: [
         {
           name: 'Matrix Acidizing',
@@ -48,7 +48,7 @@ export const Products: React.FC<ProductsProps> = ({ language }) => {
     },
     {
       name: 'Hydraulic Fracturing Fluid Systems',
-      icon: '/images/icons/Hydraulic Fracturing.png',
+      icon: '/home/images/icons/Hydraulic Fracturing.png',
       products: [
         {
           name: 'Gelling Agents',
@@ -66,7 +66,7 @@ export const Products: React.FC<ProductsProps> = ({ language }) => {
     },
     {
       name: 'Refinery Reagents',
-      icon: '/images/icons/Downstream Chemicals.png',
+      icon: '/home/images/icons/Downstream Chemicals.png',
       products: [
         {
           name: 'Process Additives',
@@ -84,7 +84,7 @@ export const Products: React.FC<ProductsProps> = ({ language }) => {
     },
     {
       name: 'Basic Chemical Supply',
-      icon: '/images/icons/Basic Chemical.png',
+      icon: '/home/images/icons/Basic Chemical.png',
       products: [
         {
           name: 'Industrial Acids',
