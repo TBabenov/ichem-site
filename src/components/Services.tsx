@@ -33,6 +33,10 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
     setActiveService(serviceId);
+
+    if (serviceId === 'blending') {
+      setShowContactForm(true);
+    }
   };
 
   return (

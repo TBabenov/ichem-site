@@ -163,14 +163,14 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ language }) => {
                         <p className="text-gray-400 mb-4">{item.description}</p>
                   {item.pdfFile && (
                       <a
-                        href={`/pdf/${item.pdfFile.replace('.pdf', language === 'ru' ? '_ru.pdf' : '.pdf')}`}
+                        href={`/home/PDF/${item.pdfFile.replace('.pdf', language === 'ru' ? '_ru.pdf' : '.pdf')}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block text-blue-400 font-medium hover:text-blue-300 transition-colors duration-300"
                       >
                         {t.downloadPDFButton}
                       </a>
-                    )}
+                  )}
                       </div>
                     ))
                   )}

@@ -112,17 +112,6 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
             <p className="text-blue-100 text-sm text-center md:text-left">
               {t.copyright}
             </p>
-            <div className="flex flex-wrap justify-center md:justify-end gap-6">
-              {t.footerLinks.map((link, index) => (
-                <a 
-                  key={index}
-                  href={link.url} 
-                  className="text-blue-100 hover:text-white text-sm transition-colors duration-300"
-                >
-                  {link.text}
-                </a>
-              ))}
-            </div>
           </div>
         </div>
       </div>

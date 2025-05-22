@@ -39,6 +39,24 @@ export const translations = {
       contactFormDescription: "Fill out the form below and we'll get back to you as soon as possible.",
       contactFormButton: "Contact Us"
     },
+      contactForm: {
+      title: "Contact Us",
+      requestTypeLabel: "Request Type",
+      requestTypes: {
+        general: "General Inquiry",
+        product: "Product Inquiry",
+        technical: "Technical Support",
+        partnership: "Partnership Opportunity"
+      },
+      nameLabel: "Name",
+      emailLabel: "Email",
+      phoneLabel: "Phone",
+      companyLabel: "Company",
+      messageLabel: "Message",
+      cancelButton: "Cancel",
+      submitButton: "Send",
+      successMessage: "Your message was sent successfully!"
+    },
     navigation: {
       home: "Home",
       about: "About",
@@ -174,7 +192,7 @@ export const translations = {
           {
             name: "Wax Inhibitor (IC Wax)",
             description: "Reliable protection of equipment and pipelines from paraffin deposits. Effective at low dosages and particularly suitable for crude oil from the western regions of Kazakhstan.",
-            pdfFile: "Wax Inhibitor (IC Wax).pdf"
+            pdfFile: "Wax Inhibitor (IC Wax)_empty.pdf"
           },
           {
             name: "Corrosion Inhibitor (ICC)",
@@ -236,136 +254,136 @@ export const translations = {
           {
             name: "Acid Corrosion Inhibitor (CorroX)",
             description: "Provides equipment protection from acid corrosion under low and medium temperature conditions.",
-            pdfFile: null
+            pdfFile: "Acid Corrosion Inhibitor (CorroX)_empty.pdf"
           },
           {
             name: "Acid Corrosion Inhibitor (CorroX HT)",
             description: "Protects equipment from acid corrosion under high-temperature conditions.",
-            pdfFile: null
+            pdfFile: "Acid Corrosion Inhibitor (CorroX HT)_empty.pdf"
           },
           {
             name: "Iron Stabilizer (IronFix)",
             description: "Maintains iron ions in dissolved form, preventing contamination of oil and water with iron sediments and blocking of pore throats.",
-            pdfFile: null
+            pdfFile: "Iron Stabilizer (IronFix).pdf"
           },
           {
             name: "Demulsifier (SurfPro)",
             description: "Prevents formation of stable emulsions during interaction of acid solutions with reservoir fluids in the near-wellbore zone.",
-            pdfFile: null
+            pdfFile: "Demulsifier (SurfPro).pdf"
           },
           {
             name: "Anti-Sludge (Surfactant Dispersant) (SludgeX)",
             description: "Prevents deposition of heavy oil fractions, minimizes the risk of formation damage, and enhances acid penetration into rock matrix.",
-            pdfFile: null
+            pdfFile: "Anti-Sludge (Surfactant Dispersant) (SludgeX)_empty.pdf"
           },
           {
             name: "Hydrogen Sulfide Scavenger (SulfurX)",
             description: "Neutralizes H₂S, forming safe compounds and creating a protective film on metal surfaces; prevents corrosion and improves safety during acid treatments.",
-            pdfFile: null
+            pdfFile: "Hydrogen Sulfide Scavenger (SulfurX).pdf"
           },
           {
             name: "Chelating Agent (CA Agent)",
             description: "Binds and removes metal ions (Ca²⁺, Mg²⁺, Fe³⁺), preventing scale and corrosion; maintains chemical stability of treatment fluids.",
-            pdfFile: null
+            pdfFile: "Chelating Agent (CA Agent).pdf"
           },
           {
             name: "Chemical Diverter (IC-VES)",
             description: "Viscoelastic surfactant-based diverter, effectively controls acid loss in high-permeability interbeds.",
-            pdfFile: null
+            pdfFile: "Chemical Diverter (IC-VES)_empty.pdf"
           },
           {
             name: "Retarded Acid (Retarded Acid)",
             description: "Slows acid reaction rate in high-temperature wells, reducing corrosion and maintaining optimal rock dissolution.",
-            pdfFile: null
+            pdfFile: "Retarded Acid (Retarded Acid)_empty.pdf"
           },
           {
             name: "Asphaltene/Wax Solvent (IC Solvent)",
             description: "Selects optimal solvent for specific asphaltene/paraffin compositions, improving viscosity and flowback.",
-            pdfFile: null
+            pdfFile: "Asphaltene - Wax Solvent (IC Solvent)_empty.pdf"
           }
         ],
         fracturingFluids: [
           {
             name: "Gelling Agent (ICG)",
             description: "Forms a strong, stable gel base for proppant transport.",
-            pdfFile: null
+            pdfFile: "Gelling Agent (ICG).pdf"
           },
           {
             name: "Clay Stabilizer (IC Clay)",
             description: "Prevents swelling and dispersion of clay minerals, protecting formation permeability.",
-            pdfFile: null
+            pdfFile: "Clay Stabilizer (IC Clay).pdf"
           },
           {
             name: "Demulsifier (ICD-40)",
             description: "Prevents stable emulsion formation between fracturing fluid and formation fluids.",
-            pdfFile: null
+            pdfFile: "Demulsifier (ICD-40)_empty.pdf"
           },
           {
             name: "Biocide (ICB-40G)",
             description: "Rapidly disinfects system by inhibiting anaerobic and sulfate-reducing bacteria.",
-            pdfFile: null
+            pdfFile: "Biocide (ICB-40G)_empty.pdf"
           },
           {
             name: "Crosslinker (Fast) (CLF-1)",
             description: "Water-soluble agent that quickly creates a three-dimensional gel structure.",
-            pdfFile: null
+            pdfFile: "Crosslinker (Fast) (CLF-1)_empty.pdf"
           },
           {
             name: "Crosslinker (Delayed) (CLD-2)",
             description: "Suspension that delays gelation for controlled proppant transport.",
-            pdfFile: null
+            pdfFile: "Crosslinker (Delayed) (CLD-2)_empty.pdf"
           },
           {
             name: "Breaker (Oxidative) (BO-1)",
             description: "Oxidative agent that reduces gel viscosity post-treatment.",
-            pdfFile: null
+            pdfFile: "Breaker (Oxidative) (BO-1)_empty.pdf"
           },
           {
             name: "Breaker (Enzymatic) (BE-2)",
             description: "Biodegradable enzyme that gently degrades gel for flowback.",
-            pdfFile: null
+            pdfFile: "Breaker (Enzymatic) (BE-2)_empty.pdf"
           }
         ],
         refineryReagents: [
           {
             name: "Film-Forming Corrosion Inhibitor (IC-REF-Cor)",
             description: "Forms a durable protective film on atmospheric distillation equipment.",
-            pdfFile: null
+            pdfFile: "Film-Forming Corrosion Inhibitor (IC-REF-Cor)_empty.pdf"
           },
           {
             name: "Neutralizing Amines (IC-REF-Amine)",
             description: "Neutralizes acidic components (HCl, H₂S) in refining columns.",
-            pdfFile: null
+            pdfFile: "Neutralizing Amines (IC-REF-Amine)_empty.pdf"
           },
           {
             name: "Cold Flow Improver Additive (IC-REF-Flow)",
             description: "Lowers pour point and improves diesel flowability at low temperatures.",
-            pdfFile: null
+            pdfFile: "Cold Flow Improver Additive (IC-REF-Flow)_empty.pdf"
           },
           {
             name: "Lubricity Additive (IC-REF-Lube)",
             description: "Enhances lubricity of fuel systems, reducing wear.",
-            pdfFile: null
+            pdfFile: "Lubricity Additive (IC-REF-Lube)_empty.pdf"
           },
           {
             name: "Demulsifier (IC-REF-Dem)",
             description: "Ensures efficient separation of water-oil emulsions during crude processing.",
-            pdfFile: null
+            pdfFile: "Demulsifier (IC-REF-Dem)_empty.pdf"
           },
           {
             name: "Defoamer (IC-REF-Defoam)",
             description: "Suppresses foam in refinery process streams.",
-            pdfFile: null
+            pdfFile: "Defoamer (IC-REF-Defoam)_empty.pdf"
           },
           {
             name: "Amine System Defoamer (IC-REF-DefoamA)",
             description: "Prevents foam in amine gas treatment units under CO₂/H₂S.",
-            pdfFile: null
+            pdfFile: "Amine System Defoamer (IC-REF-DefoamA)_empty.pdf"
           },
           {
             name: "Coke Inhibitor (IC-REF-Coke)",
             description: "Inhibits coke formation on internal refinery surfaces.",
-            pdfFile: null
+            pdfFile: "Coke Inhibitor (IC-REF-Coke)_empty.pdf"
           }
         ],
         basicChemicals: [
@@ -581,6 +599,24 @@ export const translations = {
       contactFormDescription: "Заполните форму ниже, и мы свяжемся с вами в ближайшее время.",
       contactFormButton: "Связаться с Нами"
     },
+        contactForm: {
+      title: "Связаться с нами",
+      requestTypeLabel: "Тип запроса",
+      requestTypes: {
+        general: "Общий запрос",
+        product: "Запрос по продукту",
+        technical: "Техническая поддержка",
+        partnership: "Партнёрство"
+      },
+      nameLabel: "Имя",
+      emailLabel: "Электронная почта",
+      phoneLabel: "Телефон",
+      companyLabel: "Компания",
+      messageLabel: "Сообщение",
+      cancelButton: "Отмена",
+      submitButton: "Отправить",
+      successMessage: "Ваше сообщение успешно отправлено!"
+    },
     navigation: {
       home: "Главная",
       about: "О Нас",
@@ -711,203 +747,203 @@ export const translations = {
           {
             name: "Деэмульгатор (ICD)",
             description: "Высокоэффективные реагенты для быстрого и полного разделения воды и нефти. Обеспечивают стабильную работу на всех этапах подготовки нефти, разрушая стойкие эмульсии и улучшая процесс обезвоживания.",
-            pdfFile: "Demulsifier (ICD).pdf"
+            pdfFile: "Demulsifier (ICD)_empty_ru.pdf"
           },
           {
             name: "Ингибитор парафиноотложений (IC Wax)",
             description: "Надежная защита оборудования и трубопроводов от парафиновых отложений. Эффективен при низких дозировках, особенно для нефти западных регионов Казахстана.",
-            pdfFile: "Wax Inhibitor (IC Wax).pdf"
+            pdfFile: "Wax Inhibitor (IC Wax)_empty_ru.pdf"
           },
           {
             name: "Ингибитор коррозии (ICC)",
             description: "Комплексная защита от всех видов коррозии, включая кислотную. Повышает надежность и продлевает срок службы трубопроводов и технологических систем.",
-            pdfFile: "Corrosion Inhibitor (ICC).pdf"
+            pdfFile: "Corrosion Inhibitor (ICC)_empty_ru.pdf"
           },
           {
             name: "Ингибитор гидратообразования (IC Git)",
             description: "Предотвращает образование гидратов в газо- и нефтепроводах. Обеспечивает бесперебойную транспортировку углеводородов даже при низких температурах.",
-            pdfFile: "Hydrate Formation Inhibitor (IC Git).pdf"
+            pdfFile: "Hydrate Formation Inhibitor (IC Git)_empty_ru.pdf"
           },
           {
             name: "Биоцид (ICB)",
             description: "Альтернативная формула на основе THPS, глутарового альдегида и ЧАС. Быстро подавляет бактериальную активность, включая сульфатвосстанавливающие бактерии, обеспечивая санитарную безопасность систем.",
-            pdfFile: "Biocide (ICB).pdf"
+            pdfFile: "Biocide (ICB)_empty_ru.pdf"
           },
           {
             name: "Поглотитель сероводорода (ICH)",
             description: "Эффективное решение для нейтрализации H₂S в жидкостях и газах. Защищает персонал, оборудование и окружающую среду от токсичного воздействия.",
-            pdfFile: "Hydrogen Sulfide Scavenger (ICH)_empty.pdf"
+            pdfFile: "Hydrogen Sulfide Scavenger (ICH)_empty_ru.pdf"
           },
           {
             name: "Ингибитор отложений (ICS)",
             description: "Предотвращает образование карбонатных, сульфатных и других минеральных отложений. Сохраняет чистоту оборудования и эффективность процессов.",
-            pdfFile: "Scale Inhibitor (ICS).pdf"
+            pdfFile: "Scale Inhibitor (ICS)_ru.pdf"
           },
           {
             name: "Флокулянт (ICF)",
             description: "Оптимизирует осаждение механических примесей в пластовой воде. Повышает эффективность фильтрации и очистки.",
-            pdfFile: "Flocculant (ICF).pdf"
+            pdfFile: "Flocculant (ICF)_empty_ru.pdf"
           },
           {
             name: "Драг-редуцирующая добавка (IC DRA)",
             description: "Снижает гидравлическое сопротивление и увеличивает пропускную способность трубопроводов. Также предлагаем насосное оборудование и техническую поддержку.",
-            pdfFile: "Drag Reducing Agent (IC DRA).pdf"
+            pdfFile: "Drag Reducing Agent (IC DRA)_empty_ru.pdf"
           },
           {
             name: "Пеногаситель (IC Foam)",
             description: "Надежное решение против пенообразования на всех этапах переработки нефти. Эффективен при минимальных дозах.",
-            pdfFile: "Defoamer (IC Foam).pdf"
+            pdfFile: "Defoamer (IC Foam)_empty_ru.pdf"
           },
           {
             name: "Депрессор температуры застывания (IC Depr)",
             description: "Понижает температуру застывания и вязкость нефти. Обеспечивает стабильную прокачку даже в суровых климатических условиях.",
-            pdfFile: "Pour Point Depressant (IC Depr)_empty.pdf"
+            pdfFile: "Pour Point Depressant (IC Depr)_empty_ru.pdf"
           },
           {
             name: "Поглотитель кислорода (ICO)",
             description: "Удаляет растворённый кислород из воды и технологических жидкостей, предотвращая окисление и коррозию оборудования.",
-            pdfFile: "Oxygen Scavenger (ICO).pdf"
+            pdfFile: "Oxygen Scavenger (ICO)_empty_ru.pdf"
           },
           {
             name: "Коагулянт (IC Coagulant)",
             description: "Обеспечивает эффективное осветление и очистку производственной воды на месторождениях. Идеален для подготовки воды к повторному использованию.",
-            pdfFile: "Coagulant (IC Coagulant).pdf"
+            pdfFile: "Coagulant (IC Coagulant)_empty_ru.pdf"
           }
         ],
         acidStimulation: [
           {
             name: "Ингибитор кислотной коррозии (CorroX)",
             description: "Защищает оборудование от кислотной коррозии при низких и средних температурах.",
-            pdfFile: null
+            pdfFile: "Acid Corrosion Inhibitor (CorroX)_empty_ru.pdf"
           },
           {
             name: "Ингибитор кислотной коррозии (CorroX HT)",
             description: "Обеспечивает защиту оборудования от кислотной коррозии при высоких температурах.",
-            pdfFile: null
+            pdfFile: "Acid Corrosion Inhibitor (CorroX HT)_empty_ru.pdf"
           },
           {
             name: "Стабилизатор железа (IronFix)",
             description: "Удерживает ионы железа в растворённой форме, предотвращая загрязнение нефти и воды железистыми отложениями и закупорку пор.",
-            pdfFile: null
+            pdfFile: "Iron Stabilizer (IronFix)_empty_ru.pdf"
           },
           {
             name: "Деэмульгатор (SurfPro)",
             description: "Предотвращает образование стойких эмульсий при взаимодействии кислотных растворов с пластовыми флюидами в призабойной зоне.",
-            pdfFile: null
+            pdfFile: "Demulsifier (SurfPro)_empty_ru.pdf"
           },
           {
             name: "Анти-шлам (ПАВ-диспергатор) (SludgeX)",
             description: "Предотвращает осаждение тяжёлых нефтяных фракций, минимизирует риск повреждения пласта и улучшает проникновение кислоты в породу.",
-            pdfFile: null
+            pdfFile: "Anti-Sludge (Surfactant Dispersant) (SludgeX)_empty_ru.pdf"
           },
           {
             name: "Поглотитель сероводорода (SulfurX)",
             description: "Нейтрализует H₂S, образуя безопасные соединения и создаёт защитную плёнку на металлических поверхностях; предотвращает коррозию и повышает безопасность при кислотных обработках.",
-            pdfFile: null
+            pdfFile: "Hydrogen Sulfide Scavenger (SulfurX)_empty_ru.pdf"
           },
           {
             name: "Хелатирующий агент (CA Agent)",
             description: "Связывает и удаляет ионы металлов (Ca²⁺, Mg²⁺, Fe³⁺), предотвращая образование отложений и коррозию; поддерживает химическую стабильность растворов.",
-            pdfFile: null
+            pdfFile: "Chelating Agent (CA Agent)_empty_ru.pdf"
           },
           {
             name: "Химический дивертер (IC-VES)",
             description: "Дивертер на основе вискоэластичных ПАВ, эффективно контролирует потерю кислоты в высокопроницаемых пропластках.",
-            pdfFile: null
+            pdfFile: "Chemical Diverter (IC-VES)_empty_ru.pdf"
           },
           {
             name: "Замедленная кислота (Retarded Acid)",
             description: "Замедляет скорость реакции кислоты в высокотемпературных скважинах, снижает коррозию и обеспечивает оптимальное растворение породы.",
-            pdfFile: null
+            pdfFile: "Retarded Acid (Retarded Acid)_empty_ru.pdf"
           },
           {
             name: "Растворитель асфальтенов/парафинов (IC Solvent)",
             description: "Оптимальный подбор растворителя под конкретный состав асфальтенов/парафинов, улучшает вязкость и обратный приток.",
-            pdfFile: null
+            pdfFile: "Asphaltene - Wax Solvent (IC Solvent)_empty_ru.pdf"
           }
         ],
         fracturingFluids: [
           {
             name: "Гелеобразователь (ICG)",
             description: "Образует прочную стабильную гелевую основу для транспорта проппанта.",
-            pdfFile: null
+            pdfFile: "Gelling Agent (ICG)_ru.pdf"
           },
           {
             name: "Стабилизатор глин (IC Clay)",
             description: "Предотвращает набухание и диспергирование глинистых минералов, сохраняя проницаемость пласта.",
-            pdfFile: null
+            pdfFile: "Clay Stabilizer (IC Clay)_ru.pdf"
           },
           {
             name: "Деэмульгатор (ICD-40)",
             description: "Предотвращает образование стойких эмульсий между жидкостью ГРП и пластовыми флюидами.",
-            pdfFile: null
+            pdfFile: "Demulsifier (ICD-40)_empty_ru.pdf"
           },
           {
             name: "Биоцид (ICB-40G)",
             description: "Быстро обеззараживает систему, подавляя анаэробные и сульфатвосстанавливающие бактерии.",
-            pdfFile: null
+            pdfFile: "Biocide (ICB-40G)_empty_ru.pdf"
           },
           {
             name: "Сшиватель (быстрый) (CLF-1)",
             description: "Водорастворимый агент, быстро формирующий трёхмерную гелевую структуру.",
-            pdfFile: null
+            pdfFile: "Crosslinker (Fast) (CLF-1)_empty_ru.pdf"
           },
           {
             name: "Сшиватель (замедленный) (CLD-2)",
             description: "Суспензия, замедляющая сшивание для контролируемого транспорта проппанта.",
-            pdfFile: null
+            pdfFile: "Crosslinker (Delayed) (CLD-2)_empty_ru.pdf"
           },
           {
             name: "Разрушитель (окислительный) (BO-1)",
             description: "Окислительный агент, снижающий вязкость геля после обработки.",
-            pdfFile: null
+            pdfFile: "Breaker (Oxidative) (BO-1)_empty_ru.pdf"
           },
           {
             name: "Разрушитель (ферментативный) (BE-2)",
             description: "Биоразлагаемый фермент, мягко разрушающий гель для возврата жидкости.",
-            pdfFile: null
+            pdfFile: "Breaker (Enzymatic) (BE-2)_empty_ru.pdf"
           }
         ],
         refineryReagents: [
           {
             name: "Плёкообразующий ингибитор коррозии (IC-REF-Cor)",
             description: "Образует прочную защитную плёнку на оборудовании атмосферной перегонки.",
-            pdfFile: null
+            pdfFile: "Film-Forming Corrosion Inhibitor (IC-REF-Cor)_empty_ru.pdf"
           },
           {
             name: "Нейтрализующие амины (IC-REF-Amine)",
             description: "Нейтрализует кислые компоненты (HCl, H₂S) в колоннах переработки.",
-            pdfFile: null
+            pdfFile: "Neutralizing Amines (IC-REF-Amine)_empty_ru.pdf"
           },
           {
             name: "Депрессор текучести дизеля (IC-REF-Flow)",
             description: "Понижает температуру застывания и улучшает текучесть дизеля при низких температурах.",
-            pdfFile: null
+            pdfFile: "Cold Flow Improver Additive (IC-REF-Flow)_empty_ru.pdf"
           },
           {
             name: "Присадка для смазывающей способности (IC-REF-Lube)",
             description: "Повышает смазывающую способность топливных систем, снижая износ.",
-            pdfFile: null
+            pdfFile: "Lubricity Additive (IC-REF-Lube)_empty_ru.pdf"
           },
           {
             name: "Деэмульгатор (IC-REF-Dem)",
             description: "Обеспечивает эффективное разделение водонефтяных эмульсий при переработке сырья.",
-            pdfFile: null
+            pdfFile: "Demulsifier (IC-REF-Dem)_empty_ru.pdf"
           },
           {
             name: "Пеногаситель (IC-REF-Defoam)",
             description: "Подавляет пенообразование в технологических потоках НПЗ.",
-            pdfFile: null
+            pdfFile: "Defoamer (IC-REF-Defoam)_empty_ru.pdf"
           },
           {
             name: "Пеногаситель аминовой системы (IC-REF-DefoamA)",
             description: "Предотвращает пенообразование в установках очистки газа аминами при CO₂/H₂S.",
-            pdfFile: null
+            pdfFile: "Amine System Defoamer (IC-REF-DefoamA)_empty_ru.pdf"
           },
           {
             name: "Ингибитор коксообразования (IC-REF-Coke)",
             description: "Предотвращает образование кокса на внутренних поверхностях оборудования НПЗ.",
-            pdfFile: null
+            pdfFile: "Coke Inhibitor (IC-REF-Coke)_empty_ru.pdf"
           }
         ],
         basicChemicals: [
