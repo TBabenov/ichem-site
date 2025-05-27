@@ -39,7 +39,22 @@ export const translations = {
       contactFormDescription: "Fill out the form below and we'll get back to you as soon as possible.",
       contactFormButton: "Contact Us"
     },
-      contactForm: {
+      contactDetails: {
+      officeTitle: "Office Address",
+      officeLocationTitle: "Production Base",
+      officeLocation: "Aktau city, Industrial Zone No. 3, Innovative Chemicals Base",
+      contactInfoTitle: "Contact Information",
+      operationsDirector: "Operations Director",
+      operationsName: "Abylaikhan Sissenov",
+      director: "Director",
+      directorName: "Almas Istayev",
+      workingHoursTitle: "Working Hours",
+      workingHoursWeek: "Mon – Fri: 9:00 AM to 6:00 PM",
+      workingHoursWeekend: "Sat – Sun: Closed"
+    },
+    contactForm: {
+
+
       title: "Contact Us",
       requestTypeLabel: "Request Type",
       requestTypes: {
@@ -66,7 +81,11 @@ export const translations = {
     },
     hero: {
       title: "Innovative Chemical Solutions",
-      contactButton: "Contact Us"
+      contactButton: "Contact Us",
+      subtitle: "Oilfield Chemical Supply and Chemical Treatment Services",
+      tagline: "Innovative solutions to lower costs and boost your business efficiency.",
+      intro: "We are an oilfield service company that develops and manufactures production chemical solutions and acid stimulation fluid systems. We support our products with pumping services at the worksite. Our innovative chemical solutions significantly enhance well productivity and reduce operational costs at all stages of oil and gas extraction, processing, and transportation. We are committed to increasing value for our clients by delivering efficient, reliable, and advanced technologies."
+
     },
     home: {
       subtitle: "Oilfield Chemical Supply and Chemical Treatment Services",
@@ -606,7 +625,20 @@ export const translations = {
       contactFormDescription: "Заполните форму ниже, и мы свяжемся с вами в ближайшее время.",
       contactFormButton: "Связаться с Нами"
     },
-        contactForm: {
+      contactDetails: {
+      officeTitle: "Адрес офиса",
+      officeLocationTitle: "Производственная база",
+      officeLocation: "г. Актау, Индустриальная зона №3, База Innovation Chemicals",
+      contactInfoTitle: "Контактная информация",
+      operationsDirector: "Директор по операциям",
+      operationsName: "Абылайхан Сисенов",
+      director: "Генеральный директор",
+      directorName: "Алмас Истаев",
+      workingHoursTitle: "Часы работы",
+      workingHoursWeek: "Пн – Пт: с 9:00 до 18:00",
+      workingHoursWeekend: "Сб – Вс: выходной"
+    },
+    contactForm: {
       title: "Связаться с нами",
       requestTypeLabel: "Тип запроса",
       requestTypes: {
@@ -633,7 +665,10 @@ export const translations = {
     },
     hero: {
       title: "Инновационные Химические Решения",
-      contactButton: "Связаться с Нами"
+      contactButton: "Связаться с Нами",
+      subtitle: "Поставка химических реагентов и сервисы химической обработки",
+      tagline: "Инновационные решения для снижения затрат и повышения эффективности вашего бизнеса.",
+      intro: "Мы — сервисная компания, занимающаяся разработкой и производством химических реагентов для нефтедобычи и кислотной стимуляции. Мы сопровождаем нашу продукцию услугами по закачке непосредственно на промысле. Наши инновационные решения повышают производительность скважин и снижают операционные расходы на всех этапах добычи, переработки и транспортировки нефти и газа. Мы стремимся повышать ценность для клиентов, предлагая эффективные, надёжные и современные технологии."
     },
     home: {
       subtitle: "Поставка химических реагентов и сервисы химической обработки",

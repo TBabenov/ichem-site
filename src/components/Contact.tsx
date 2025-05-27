@@ -10,6 +10,7 @@ interface ContactProps {
 
 export const Contact: React.FC<ContactProps> = ({ language, onContactClick }) => {
   const t = translations[language].contact;
+  const d = translations[language].contactDetails;
   const [showContactForm, setShowContactForm] = useState(false);
   
   return (
@@ -27,30 +28,30 @@ export const Contact: React.FC<ContactProps> = ({ language, onContactClick }) =>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           <div className="bg-white p-8 rounded-lg shadow-sm">
-            <h3 className="text-xl font-semibold mb-6 text-gray-900">Office Address</h3>
+            <h3 className="text-xl font-semibold mb-6 text-gray-900">{d.officeTitle}</h3>
             <div className="space-y-4">
               <div className="flex items-start">
                 <div className="p-2 bg-blue-100 rounded-full mr-4">
                   <MapPin size={20} className="text-blue-600" />
                 </div>
                 <div>
-                  <p className="font-medium text-gray-900">Production Base</p>
-                  <p className="text-gray-600">Aktau city, Industrial Zone No. 3, ICHEM Industrial Base</p>
+                  <p className="font-medium text-gray-900">{d.officeLocationTitle}</p>
+                  <p className="text-gray-600">{d.officeLocation}</p>
                 </div>
               </div>
             </div>
           </div>
           
           <div className="bg-white p-8 rounded-lg shadow-sm">
-            <h3 className="text-xl font-semibold mb-6 text-gray-900">Contact Information</h3>
+            <h3 className="text-xl font-semibold mb-6 text-gray-900">{d.contactInfoTitle}</h3>
             <div className="space-y-4">
               <div className="flex items-start">
                 <div className="p-2 bg-blue-100 rounded-full mr-4">
                   <Mail size={20} className="text-blue-600" />
                 </div>
                 <div>
-                  <p className="font-medium text-gray-900">Operations Director</p>
-                  <p className="text-gray-600">Abylaikhan Sissenov</p>
+                  <p className="font-medium text-gray-900">{d.operationsDirector}</p>
+                  <p className="text-gray-600">{d.operationsName}</p>
                   <a href="mailto:Asissenov@ichem.kz" className="text-blue-600 hover:text-blue-800">Asissenov@ichem.kz</a>
                 </div>
               </div>
@@ -60,8 +61,8 @@ export const Contact: React.FC<ContactProps> = ({ language, onContactClick }) =>
                   <Mail size={20} className="text-blue-600" />
                 </div>
                 <div>
-                  <p className="font-medium text-gray-900">Director</p>
-                  <p className="text-gray-600">Almas Istayev</p>
+                  <p className="font-medium text-gray-900">{d.director}</p>
+                  <p className="text-gray-600">{d.directorName}</p>
                   <a href="mailto:almas.istayev@ichem.kz" className="text-blue-600 hover:text-blue-800">almas.istayev@ichem.kz</a>
                 </div>
               </div>
@@ -71,9 +72,9 @@ export const Contact: React.FC<ContactProps> = ({ language, onContactClick }) =>
                   <Clock size={20} className="text-blue-600" />
                 </div>
                 <div>
-                  <p className="font-medium text-gray-900">Working Hours</p>
-                  <p className="text-gray-600">Mon – Fri: 9:00 AM to 6:00 PM</p>
-                  <p className="text-gray-600">Sat – Sun: Closed</p>
+                  <p className="font-medium text-gray-900">{d.workingHoursTitle}</p>
+                  <p className="text-gray-600">{d.workingHoursWeek}</p>
+                  <p className="text-gray-600">{d.workingHoursWeekend}</p>
                 </div>
               </div>
             </div>

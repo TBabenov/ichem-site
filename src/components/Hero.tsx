@@ -72,18 +72,13 @@ export const Hero: React.FC<HeroProps> = ({ language }) => {
               className="h-32 w-auto md:h-40"
             />
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight">
-            {t.companyName}
-          </h1>
           <h2 className="text-2xl md:text-3xl text-white mb-4">
-            Oilfield Chemical Supply and Chemical Treatment Services
+            {t.subtitle}
           </h2>
           <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-4">
             {t.tagline}
           </p>
-          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
-            Innovative solutions to lower costs and boost your business efficiency.
-          </p>
+       
         </div>
 
         {/* Statistics Row */}
