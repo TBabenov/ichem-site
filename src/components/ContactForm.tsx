@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
 import { translations } from '../data/translations';
+import emailjs from '@emailjs/browser';
+// Initialize EmailJS with your User ID (replace 'user_xxxYYYzzz' with your actual User ID from EmailJS)
+const EMAILJS_USER_ID = 'Y9NG-L4rcbqvQmAwD';
+
+emailjs.init(EMAILJS_USER_ID);
 
 interface ContactFormProps {
   language: 'en' | 'ru';
@@ -36,28 +41,48 @@ export const ContactForm: React.FC<ContactFormProps> = ({ language, onClose }) =
     setSubmitStatus('idle');
     setErrorMessage('');
 
-    try {
-      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-email`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`
-        },
-        body: JSON.stringify(formData)
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to send message');
-      }
-
-      setSubmitStatus('success');
-      setTimeout(() => {
-        onClose();
-      }, 2000);
-    } catch (error) {
-      console.error('Error sending message:', error);
+    // 1) Simple validation for required fields
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      setErrorMessage(t.requiredFields || 'Пожалуйста, заполните все обязательные поля');
       setSubmitStatus('error');
-      setErrorMessage('Failed to send message. Please try again later.');
+      setIsSubmitting(false);
+      return;
+    }
+    // 2) Email format check
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setErrorMessage(t.invalidEmail || 'Неверный формат email');
+      setSubmitStatus('error');
+      setIsSubmitting(false);
+      return;
+    }
+
+    // 3) Send via EmailJS
+    const templateParams = {
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      company: formData.company,
+      message: formData.message,
+      requestType: formData.requestType,
+      language,
+      timestamp: new Date().toISOString()
+    };
+
+    try {
+      console.log('> EmailJS: отправляем данные', templateParams);
+      await emailjs.send(
+        'service_ichem_mail',       // <-- Your Service ID from EmailJS
+        'template_ichem_email',   // <-- Your Template ID from EmailJS
+        templateParams
+      );
+      console.log('> EmailJS: вызов emailjs.send завершён успешно');
+      setSubmitStatus('success');
+      setTimeout(() => onClose(), 2000);
+    } catch (err) {
+      console.error('EmailJS send error:', err);
+      setSubmitStatus('error');
+      setErrorMessage('Не удалось отправить сообщение. Попробуйте позже.');
     } finally {
       setIsSubmitting(false);
     }
