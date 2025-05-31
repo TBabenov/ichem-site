@@ -101,7 +101,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
             onClick={() => setShowContactForm(true)}
             className="bg-white text-blue-900 px-8 py-3 rounded-md font-semibold transition-all duration-300 hover:bg-blue-50 hover:scale-105 shadow-lg"
           >
-            Contact Us Now
+            {t.contactButton}
           </button>
         </div>
       </div>

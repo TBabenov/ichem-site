@@ -34,7 +34,7 @@ export const Experience: React.FC<ExperienceProps> = ({ language }) => {
               {t.areas[0].title}
             </h3>
             <p className="text-gray-600">
-              Flow Assurance Service covers the entire production system — from reservoir perforation, through wellbores, flowlines, and pipelines, all the way to processing facilities and storage tanks. It ensures the continuous and safe flow of hydrocarbons by identifying and managing risks such as hydrates, wax, asphaltenes, corrosion, scale, and slugging. Using advanced stimulation, monitoring, and chemical strategies, we help optimize production, reduce downtime, and maintain system integrity across the full value chain.
+              {t.areas[0].description}
             </p>
             <a 
               href="#"
@@ -59,7 +59,7 @@ export const Experience: React.FC<ExperienceProps> = ({ language }) => {
               {t.areas[1].title}
             </h3>
             <p className="text-gray-600">
-              A technique used to enhance oil and gas recovery by injecting acid (typically hydrochloric acid) into the reservoir. The acid dissolves carbonate rock, creating channels that improve fluid flow from the reservoir to the wellbore. This service increases well productivity, reduces formation damage, and is tailored to reservoir conditions for maximum effectiveness.
+              {t.areas[1].description}
             </p>
             <a 
               href="#"
@@ -84,7 +84,7 @@ export const Experience: React.FC<ExperienceProps> = ({ language }) => {
               {t.areas[2].title}
             </h3>
             <p className="text-gray-600">
-              Well Integrity Chemical Treatment is designed to prevent pipe failures by using targeted chemical solutions to control corrosion, scale, and other degradation processes. These treatments protect downhole and surface piping, extend equipment life, and reduce unplanned shutdowns — ensuring continuous, safe, and efficient well operation.
+              {t.areas[2].description}
             </p>
             <a 
               href="#"

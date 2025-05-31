@@ -83,25 +83,15 @@ export const Hero: React.FC<HeroProps> = ({ language }) => {
 
         {/* Statistics Row */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-12 mb-8">
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 transform transition-transform duration-300 hover:scale-105">
-            <div className="text-2xl font-bold text-white mb-1">4500</div>
-            <div className="text-sm text-gray-200">Production Capacity (tons/year)</div>
-          </div>
-          
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 transform transition-transform duration-300 hover:scale-105">
-            <div className="text-2xl font-bold text-white mb-1">100%</div>
-            <div className="text-sm text-gray-200">National Personnel with International Experience</div>
-          </div>
-          
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 transform transition-transform duration-300 hover:scale-105">
-            <div className="text-2xl font-bold text-white mb-1">50+</div>
-            <div className="text-sm text-gray-200">Projects in Kazakhstan</div>
-          </div>
-          
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 transform transition-transform duration-300 hover:scale-105">
-            <div className="text-2xl font-bold text-white mb-1">№1</div>
-            <div className="text-sm text-gray-200">Chemical manufacture with pumping service</div>
-          </div>
+          {t.stats.map((stat, index) => (
+            <div
+              key={index}
+              className="bg-white/10 backdrop-blur-sm rounded-lg p-4 transform transition-transform duration-300 hover:scale-105"
+            >
+              <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
+              <div className="text-sm text-gray-200">{stat.label}</div>
+            </div>
+          ))}
         </div>
         
         <a 

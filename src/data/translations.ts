@@ -30,7 +30,8 @@ export const translations = {
         { url: "/privacy", text: "Privacy Policy" },
         { url: "/terms", text: "Terms of Service" },
         { url: "/contact", text: "Contact Us" }
-      ]
+      ],
+      contactButton: "Contact Us Now",
     },
     contact: {
       title: "Get in Touch",
@@ -84,8 +85,13 @@ export const translations = {
       contactButton: "Contact Us",
       subtitle: "Oilfield Chemical Supply and Chemical Treatment Services",
       tagline: "Innovative solutions to lower costs and boost your business efficiency.",
-      intro: "We are an oilfield service company that develops and manufactures production chemical solutions and acid stimulation fluid systems. We support our products with pumping services at the worksite. Our innovative chemical solutions significantly enhance well productivity and reduce operational costs at all stages of oil and gas extraction, processing, and transportation. We are committed to increasing value for our clients by delivering efficient, reliable, and advanced technologies."
-
+      intro: "Innovative Chemicals is an oilfield service company that develops and manufactures production chemical solutions and acid stimulation fluid systems. It supports its products with pumping services at the worksite. Our innovative chemical solutions significantly enhance well productivity and reduce operational costs at all stages of oil and gas extraction, processing, and transportation. Innovative Chemicals is committed to increasing value for our clients by delivering efficient, reliable, and advanced technologies.",
+        stats: [
+        { value: "4500", label: "Production Capacity (tons/year)" },
+        { value: "100%", label: "National Personnel with International Experience" },
+        { value: "50+", label: "Projects in Kazakhstan" },
+        { value: "№1", label: "Chemical manufacture with pumping service" }
+     ]
     },
     home: {
       subtitle: "Oilfield Chemical Supply and Chemical Treatment Services",
@@ -93,7 +99,7 @@ export const translations = {
     },
     about: {
       title: "About Us",
-      description: "We are a leading provider of chemical solutions for the oil and gas industry.",
+      description: "Innovative Chemicals is a leading provider of chemical solutions for the oil and gas industry.",
       mission: {
         title: "Our Mission",
         description: "To provide innovative and sustainable chemical solutions that enhance the efficiency and productivity of oil and gas operations."
@@ -108,7 +114,7 @@ export const translations = {
       cards: [
         {
           title: "Innovation Excellence",
-          description: "We continuously develop and implement cutting-edge chemical solutions to address industry challenges."
+          description: "Our engineers continuously develop and implement cutting-edge chemical solutions to address industry challenges."
         },
         {
           title: "Quality Assurance",
@@ -141,7 +147,21 @@ export const translations = {
     },
     partners: {
       certificationsTitle: "Our Certifications",
-      description: "We maintain the highest standards of quality and safety in all our operations."
+      description: "We maintain the highest standards of quality and safety in all our operations.",
+      certifications: [
+        {
+          title: "ISO 9001",
+          description: "Certified quality management system ensuring consistent quality in chemical production, supply, and field service operations."
+        },
+        {
+          title: "ISO 14001",
+          description: "Certified environmental management system supporting sustainable practices in production and well treatment processes."
+        },
+        {
+          title: "ISO 45001",
+          description: "Certified occupational health and safety management system for safe working conditions in manufacturing and field environments."
+        }
+      ]
     },
     research: {
       title: "Research and Development",
@@ -616,7 +636,8 @@ export const translations = {
         { url: "/privacy", text: "Политика Конфиденциальности" },
         { url: "/terms", text: "Условия Использования" },
         { url: "/contact", text: "Связаться с Нами" }
-      ]
+      ],
+      contactButton: "Связаться с нами",
     },
     contact: {
       title: "Свяжитесь с Нами",
@@ -630,7 +651,7 @@ export const translations = {
       officeLocationTitle: "Производственная база",
       officeLocation: "г. Актау, Индустриальная зона №3, База Innovation Chemicals",
       contactInfoTitle: "Контактная информация",
-      operationsDirector: "Директор по операциям",
+      operationsDirector: "Производстенный директор",
       operationsName: "Абылайхан Сисенов",
       director: "Генеральный директор",
       directorName: "Алмас Истаев",
@@ -668,7 +689,13 @@ export const translations = {
       contactButton: "Связаться с Нами",
       subtitle: "Поставка химических реагентов и сервисы химической обработки",
       tagline: "Инновационные решения для снижения затрат и повышения эффективности вашего бизнеса.",
-      intro: "Мы — сервисная компания, занимающаяся разработкой и производством химических реагентов для нефтедобычи и кислотной стимуляции. Мы сопровождаем нашу продукцию услугами по закачке непосредственно на промысле. Наши инновационные решения повышают производительность скважин и снижают операционные расходы на всех этапах добычи, переработки и транспортировки нефти и газа. Мы стремимся повышать ценность для клиентов, предлагая эффективные, надёжные и современные технологии."
+      intro: "ТОО Innovative Chemicals — сервисная компания, занимающаяся разработкой и производством химических реагентов для нефтедобычи и кислотной стимуляции. Мы сопровождаем нашу продукцию услугами по закачке непосредственно на промысле. Наши инновационные решения повышают производительность скважин и снижают операционные расходы на всех этапах добычи, переработки и транспортировки нефти и газа. Мы стремимся повышать ценность для клиентов, предлагая эффективные, надёжные и современные технологии.",
+      stats: [
+        { value: "4500", label: "Производственная мощность (тонн/год)" },
+        { value: "100%", label: "Национальный персонал с международным опытом" },
+        { value: "50+", label: "Проектов в Казахстане" },
+        { value: "№1", label: "Производство химии с услугой закачки" }
+      ]
     },
     home: {
       subtitle: "Поставка химических реагентов и сервисы химической обработки",
@@ -691,7 +718,7 @@ export const translations = {
       cards: [
         {
           title: "Инновационное Превосходство",
-          description: "Мы постоянно разрабатываем и внедряем передовые химические решения для решения отраслевых задач."
+          description: "Наши инженера разрабатывают и внедряют передовые химические решения для решения отраслевых задач."
         },
         {
           title: "Гарантия Качества",
@@ -722,10 +749,24 @@ export const translations = {
       ],
       learnMoreButton: "Подробнее"
     },
-    partners: {
-      certificationsTitle: "Наши Сертификаты",
-      description: "Мы поддерживаем высочайшие стандарты качества и безопасности во всех наших операциях."
-    },
+   partners: {
+     certificationsTitle: "Наши Сертификаты",
+     description: "Мы поддерживаем высочайшие стандарты качества и безопасности во всех наших операциях.",
+     certifications: [
+       {
+         title: "ISO 9001",
+         description: "Сертифицированная система менеджмента качества, обеспечивающая стабильное качество в производстве, поставке химикатов и полевых сервисных операциях."
+       },
+       {
+         title: "ISO 14001",
+         description: "Сертифицированная система экологического менеджмента, поддерживающая устойчивые практики в производстве и процессах обработки скважин."
+       },
+       {
+         title: "ISO 45001",
+         description: "Сертифицированная система управления охраной труда и безопасностью, обеспечивающая безопасные условия работы на производстве и в полевых условиях."
+       }
+     ]
+   },
     research: {
       title: "Исследования и разработки",
       description: "Наши высококлассные специалисты и инженеры проводят полевой и лабораторный контроль эффективности реагентов, адаптируют дозировки и исследуют возникающие проблемы. Разрабатываются рекомендации по улучшению процессов. Все результаты оформляются в отчётности с анализом и выводами.",
