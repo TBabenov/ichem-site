@@ -192,7 +192,11 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
       <div className="sticky top-16 z-40 bg-white shadow-md">
         <div className="container mx-auto px-4">
           <nav className="overflow-x-auto">
-            <div className="flex space-x-1 py-4">
+            <div
+              className="flex space-x-1 py-4"
+              role="tablist"
+              aria-label="Service categories"
+            >
               {GROUP_ORDER.map((groupKey) => (
                 <button
                   key={groupKey}
@@ -200,6 +204,10 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
                     setActiveGroupKey(groupKey);
                     scrollToGroup(groupKey);
                   }}
+                  role="tab"
+                  aria-selected={activeGroupKey === groupKey}
+                  aria-controls={groupKey}
+                  tabIndex={activeGroupKey === groupKey ? 0 : -1}
                   className={`flex items-center px-4 py-2 rounded-md whitespace-nowrap transition-all duration-300 ${
                     activeGroupKey === groupKey
                       ? 'bg-blue-600 text-white shadow-lg transform scale-105'
@@ -236,7 +244,12 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
           if (!group?.services?.length) return null;
 
           return (
-            <section key={groupKey} id={groupKey} className="mb-20 scroll-mt-32">
+            <section
+              key={groupKey}
+              id={groupKey}
+              className="mb-20 scroll-mt-32"
+              role="tabpanel"
+            >
               <div className="bg-white rounded-lg shadow-lg overflow-hidden">
                 {/* Group Header */}
                 <div className="relative h-64 md:h-96">
