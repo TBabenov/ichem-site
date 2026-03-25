@@ -15,6 +15,10 @@ declare global {
     grecaptcha?: {
       ready: (cb: () => void) => void;
       execute: (siteKey: string, options: { action: string }) => Promise<string>;
+      enterprise?: {
+        ready: (cb: () => void) => void;
+        execute: (siteKey: string, options: { action: string }) => Promise<string>;
+      };
     };
   }
 }
@@ -27,6 +31,8 @@ interface ContactFormProps {
 export const ContactForm: React.FC<ContactFormProps> = ({ language, onClose }) => {
   const t = translations[language].contactForm;
   const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_V3_SITE_KEY as string | undefined;
+  const recaptchaAction =
+    (import.meta.env.VITE_RECAPTCHA_V3_ACTION as string | undefined) ?? 'LOGIN';
   const [idempotencyKey] = useState(() => generateIdempotencyKey());
   const [formData, setFormData] = useState({
     name: '',
@@ -56,7 +62,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ language, onClose }) =
 
     const script = document.createElement('script');
     script.id = scriptId;
-    script.src = 'https://www.google.com/recaptcha/api.js?render=explicit';
+    // Google suggests loading Enterprise API with `render=<SITE_KEY>` in the URL.
+    script.src = `https://www.google.com/recaptcha/enterprise.js?render=${encodeURIComponent(recaptchaSiteKey)}`;
     script.async = true;
     script.defer = true;
     document.body.appendChild(script);
@@ -116,8 +123,12 @@ export const ContactForm: React.FC<ContactFormProps> = ({ language, onClose }) =
 
       const request_type = requestTypeMap[formData.requestType];
 
-      const action = 'submit';
-      if (!window.grecaptcha?.execute || !window.grecaptcha?.ready) {
+      const action = recaptchaAction;
+      const readyFn = window.grecaptcha?.enterprise?.ready ?? window.grecaptcha?.ready;
+      const executeFn =
+        window.grecaptcha?.enterprise?.execute ?? window.grecaptcha?.execute;
+
+      if (!executeFn || !readyFn) {
         setErrorMessage(
           language === 'en'
             ? 'Captcha is not ready yet. Please try again.'
@@ -130,12 +141,28 @@ export const ContactForm: React.FC<ContactFormProps> = ({ language, onClose }) =
         return;
       }
 
-      // Wait until reCAPTCHA is ready before requesting a token.
-      await new Promise<void>((resolve) => {
-        window.grecaptcha?.ready(() => resolve());
-      });
+      // Generate captcha token (keep this separate so we can show a more specific UI error).
+      let captchaToken = '';
+      try {
+        // Wait until reCAPTCHA is ready before requesting a token.
+        await new Promise<void>((resolve) => {
+          readyFn(() => resolve());
+        });
 
-      const captchaToken = await window.grecaptcha.execute(recaptchaSiteKey, { action });
+        captchaToken = await executeFn(recaptchaSiteKey, { action });
+      } catch (err) {
+        console.error('reCAPTCHA token generation failed:', err);
+        setErrorMessage(
+          language === 'en'
+            ? 'Captcha token generation failed. Please try again.'
+            : language === 'kz'
+              ? 'Captcha токенін алу сәтсіз аяқталды. Қайта қайталап көріңіз.'
+              : 'Не удалось получить токен капчи. Попробуйте ещё раз.'
+        );
+        setSubmitStatus('error');
+        setIsSubmitting(false);
+        return;
+      }
       if (!captchaToken) {
         setErrorMessage(
           language === 'en'
