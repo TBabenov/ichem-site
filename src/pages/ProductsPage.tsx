@@ -81,7 +81,10 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ language }) => {
   const t = translations[language].products;
   const fallbackProductData = fallbackProducts[language];
 
-  const { itemsByStableCategoryEn, labelByStableCategoryEn } = useProductsCatalog(language as CatalogLang);
+  const products = useProductsCatalog(language as CatalogLang);
+  const { itemsByStableCategoryEn, labelByStableCategoryEn } = products;
+  const isLoading = products.status === 'loading';
+  const isError = products.status === 'error';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -196,6 +199,16 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ language }) => {
 
       {/* Product Categories */}
       <div className="container mx-auto px-4 py-12">
+        {isLoading ? (
+          <div className="mb-6 rounded-md border border-blue-200 bg-blue-50 px-4 py-3 text-blue-900 text-sm">
+            Loading products...
+          </div>
+        ) : null}
+        {isError ? (
+          <div className="mb-6 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-red-900 text-sm">
+            Failed to load products. Showing fallback content.
+          </div>
+        ) : null}
         {productCategories.map((category) => (
           <section
             key={category.stableCategoryEn}

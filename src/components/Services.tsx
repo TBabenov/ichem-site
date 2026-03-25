@@ -71,6 +71,8 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
   };
 
   const api = useServicesCatalog(language as CatalogLang);
+  const isLoading = api.status === 'loading';
+  const isError = api.status === 'error';
 
   const legacyServicesForUI = useMemo(
     () => normalizeLegacyServices(fallbackServiceData),
@@ -208,6 +210,16 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
 
       {/* Service Sections */}
       <div className="container mx-auto px-4 py-12">
+        {isLoading ? (
+          <div className="mb-6 rounded-md border border-blue-200 bg-blue-50 px-4 py-3 text-blue-900 text-sm">
+            Loading services...
+          </div>
+        ) : null}
+        {isError ? (
+          <div className="mb-6 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-red-900 text-sm">
+            Failed to load services. Showing fallback content.
+          </div>
+        ) : null}
         {GROUP_ORDER.map((groupKey) => {
           const group = groupedByCategory[groupKey];
           if (!group?.services?.length) return null;
