@@ -1,11 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { X } from 'lucide-react';
 import { translations } from '../data/translations';
-import emailjs from '@emailjs/browser';
-// Initialize EmailJS with your User ID (replace 'user_xxxYYYzzz' with your actual User ID from EmailJS)
-const EMAILJS_USER_ID = 'Y9NG-L4rcbqvQmAwD';
 
-emailjs.init(EMAILJS_USER_ID);
+function generateIdempotencyKey(): string {
+  if (typeof crypto !== 'undefined' && 'randomUUID' in crypto) {
+    // @ts-expect-error - TS doesn't always know about randomUUID.
+    return crypto.randomUUID();
+  }
+  return `idemp_${Date.now()}_${Math.random().toString(16).slice(2)}`;
+}
+
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (
+        container: HTMLElement,
+        options: {
+          sitekey: string;
+          callback: (token: string) => void;
+          'expired-callback'?: () => void;
+        }
+      ) => void;
+    };
+  }
+}
 
 interface ContactFormProps {
   language: 'en' | 'ru' | 'kz';
@@ -14,6 +32,9 @@ interface ContactFormProps {
 
 export const ContactForm: React.FC<ContactFormProps> = ({ language, onClose }) => {
   const t = translations[language].contactForm;
+  const turnstileSiteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY as string | undefined;
+  const [idempotencyKey] = useState(() => generateIdempotencyKey());
+  const [captchaToken, setCaptchaToken] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -26,6 +47,46 @@ export const ContactForm: React.FC<ContactFormProps> = ({ language, onClose }) =
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const turnstileContainerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!turnstileSiteKey || !turnstileContainerRef.current) return;
+
+    const scriptId = 'turnstile-script';
+    const renderWidget = () => {
+      const el = turnstileContainerRef.current;
+      if (!el) return;
+      el.innerHTML = '';
+
+      if (!window.turnstile?.render) return;
+
+      window.turnstile.render(el, {
+        sitekey: turnstileSiteKey,
+        callback: (token: string) => setCaptchaToken(token),
+        'expired-callback': () => setCaptchaToken(''),
+      });
+    };
+
+    if (document.getElementById(scriptId)) {
+      renderWidget();
+      return;
+    }
+
+    const script = document.createElement('script');
+    script.id = scriptId;
+    script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+    script.async = true;
+    script.defer = true;
+    script.onload = renderWidget;
+    document.body.appendChild(script);
+  }, [turnstileSiteKey]);
+
+  const requestTypeMap: Record<string, string> = {
+    general: 'general_request',
+    product: 'product_request',
+    technical: 'technical_support',
+    partnership: 'partnership',
+  };
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -57,32 +118,94 @@ export const ContactForm: React.FC<ContactFormProps> = ({ language, onClose }) =
       return;
     }
 
-    // 3) Send via EmailJS
-    const templateParams = {
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-      company: formData.company,
-      message: formData.message,
-      requestType: formData.requestType,
-      language,
-      timestamp: new Date().toISOString()
-    };
-
     try {
-      console.log('> EmailJS: отправляем данные', templateParams);
-      await emailjs.send(
-        'service_ichem_mail',       // <-- Your Service ID from EmailJS
-        'template_ichem_email',   // <-- Your Template ID from EmailJS
-        templateParams
-      );
-      console.log('> EmailJS: вызов emailjs.send завершён успешно');
-      setSubmitStatus('success');
-      setTimeout(() => onClose(), 2000);
-    } catch (err) {
-      console.error('EmailJS send error:', err);
+      // 3) Send via backend API
+      if (!turnstileSiteKey || !captchaToken) {
+        setErrorMessage(
+          language === 'en'
+            ? 'Please complete captcha.'
+            : language === 'kz'
+              ? 'Captcha-ны аяқтаңыз.'
+              : 'Пожалуйста, пройдите captcha.'
+        );
+        setSubmitStatus('error');
+        setIsSubmitting(false);
+        return;
+      }
+
+      const request_type = requestTypeMap[formData.requestType];
+
+      const payload = {
+        idempotency_key: idempotencyKey,
+        contact_name: formData.name.trim(),
+        company_name: formData.company.trim() ? formData.company.trim() : null,
+        phone: formData.phone.trim() ? formData.phone.trim() : null,
+        email: formData.email.trim() ? formData.email.trim() : null,
+        request_description: formData.message.trim(),
+        request_type: request_type ?? undefined,
+        captcha_token: captchaToken,
+        website_extra_field: '', // honeypot
+      };
+
+      const res = await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json().catch(() => null);
+
+      if (res.ok) {
+        setSubmitStatus('success');
+        setTimeout(() => onClose(), 2000);
+        return;
+      }
+
+      if (res.status === 422) {
+        setErrorMessage(
+          language === 'en'
+            ? data?.detail || 'Validation error. Please check your input.'
+            : language === 'kz'
+              ? 'Жарамсыз деректер. Өтінеміз, енгізуді тексеріңіз.'
+              : data?.detail || 'Ошибка валидации. Проверьте поля формы.'
+        );
+      } else if (res.status === 400) {
+        setErrorMessage(
+          language === 'en'
+            ? data?.detail || 'Captcha validation failed.'
+            : language === 'kz'
+              ? 'Captcha жарамсыз.'
+              : data?.detail || 'Ошибка CAPTCHA.'
+        );
+      } else if (res.status === 429) {
+        setErrorMessage(
+          language === 'en'
+            ? 'Too many requests. Please try again later.'
+            : language === 'kz'
+              ? 'Тым көп сұраныс. Кейінірек қайталап көріңіз.'
+              : 'Слишком много запросов. Попробуйте позже.'
+        );
+      } else {
+        setErrorMessage(
+          language === 'en'
+            ? data?.detail || `Request failed (${res.status}).`
+            : language === 'kz'
+              ? `Сұрау орындалмады (${res.status}).`
+              : data?.detail || `Запрос не удался (${res.status}).`
+        );
+      }
+
       setSubmitStatus('error');
-      setErrorMessage('Не удалось отправить сообщение. Попробуйте позже.');
+    } catch (err) {
+      console.error('Contact form submit error:', err);
+      setSubmitStatus('error');
+      setErrorMessage(
+        language === 'en'
+          ? 'Failed to submit. Please try again later.'
+          : language === 'kz'
+            ? 'Жіберу мүмкін болмады. Кейінірек қайталап көріңіз.'
+            : 'Не удалось отправить сообщение. Попробуйте позже.'
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -105,6 +228,12 @@ export const ContactForm: React.FC<ContactFormProps> = ({ language, onClose }) =
           
           <form onSubmit={handleSubmit}>
             <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  {language === 'en' ? 'Captcha' : language === 'kz' ? 'Captcha' : 'CAPTCHA'}
+                </label>
+                <div ref={turnstileContainerRef} />
+              </div>
               <div>
                 <label htmlFor="requestType" className="block text-sm font-medium text-gray-700 mb-1">
                   {t.requestTypeLabel}
