@@ -10,6 +10,11 @@ export type CatalogItem = {
   // Stable key (English) for anchors/grouping
   category_en: string | null;
 
+  features: Array<{
+    title: string;
+    description: string;
+  }>;
+
   // Files (may be null until filled)
   photo: string | null;
   pdf_url: string | null;

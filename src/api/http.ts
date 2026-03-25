@@ -1,8 +1,8 @@
 export function getApiBaseUrl() {
-  // Prefer explicit env; fall back to local backend in dev.
+  // Default to relative `/api/*` calls so dev can use Vite proxy (no CORS).
   const envBase = import.meta.env.VITE_CATALOG_API_BASE_URL as string | undefined;
-  const base = envBase ?? (import.meta.env.DEV ? 'http://127.0.0.1:8080' : '');
-  return base.replace(/\/$/, '');
+  if (!envBase) return '';
+  return envBase.replace(/\/$/, '');
 }
 
 export async function getJson<T>(path: string, init?: RequestInit): Promise<T> {
