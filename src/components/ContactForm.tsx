@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { X } from 'lucide-react';
 import { translations } from '../data/translations';
 
@@ -12,15 +12,9 @@ function generateIdempotencyKey(): string {
 
 declare global {
   interface Window {
-    turnstile?: {
-      render: (
-        container: HTMLElement,
-        options: {
-          sitekey: string;
-          callback: (token: string) => void;
-          'expired-callback'?: () => void;
-        }
-      ) => void;
+    grecaptcha?: {
+      ready: (cb: () => void) => void;
+      execute: (siteKey: string, options: { action: string }) => Promise<string>;
     };
   }
 }
@@ -32,10 +26,8 @@ interface ContactFormProps {
 
 export const ContactForm: React.FC<ContactFormProps> = ({ language, onClose }) => {
   const t = translations[language].contactForm;
-  const turnstileSiteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY as string | undefined;
+  const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_V3_SITE_KEY as string | undefined;
   const [idempotencyKey] = useState(() => generateIdempotencyKey());
-  const [captchaToken, setCaptchaToken] = useState('');
-  const [isTurnstileConfigured, setIsTurnstileConfigured] = useState<boolean>(!!turnstileSiteKey);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -48,43 +40,27 @@ export const ContactForm: React.FC<ContactFormProps> = ({ language, onClose }) =
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
-  const turnstileContainerRef = useRef<HTMLDivElement | null>(null);
+  const [isRecaptchaConfigured, setIsRecaptchaConfigured] = useState<boolean>(!!recaptchaSiteKey);
 
   useEffect(() => {
-    if (!turnstileSiteKey || !turnstileContainerRef.current) {
-      setIsTurnstileConfigured(false);
+    const scriptId = 'recaptcha-script-v3';
+
+    if (!recaptchaSiteKey) {
+      setIsRecaptchaConfigured(false);
       return;
     }
-    setIsTurnstileConfigured(true);
 
-    const scriptId = 'turnstile-script';
-    const renderWidget = () => {
-      const el = turnstileContainerRef.current;
-      if (!el) return;
-      el.innerHTML = '';
+    setIsRecaptchaConfigured(true);
 
-      if (!window.turnstile?.render) return;
-
-      window.turnstile.render(el, {
-        sitekey: turnstileSiteKey,
-        callback: (token: string) => setCaptchaToken(token),
-        'expired-callback': () => setCaptchaToken(''),
-      });
-    };
-
-    if (document.getElementById(scriptId)) {
-      renderWidget();
-      return;
-    }
+    if (document.getElementById(scriptId)) return;
 
     const script = document.createElement('script');
     script.id = scriptId;
-    script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+    script.src = 'https://www.google.com/recaptcha/api.js?render=explicit';
     script.async = true;
     script.defer = true;
-    script.onload = renderWidget;
     document.body.appendChild(script);
-  }, [turnstileSiteKey]);
+  }, [recaptchaSiteKey]);
 
   const requestTypeMap: Record<string, string> = {
     general: 'general_request',
@@ -125,25 +101,13 @@ export const ContactForm: React.FC<ContactFormProps> = ({ language, onClose }) =
 
     try {
       // 3) Send via backend API
-      if (!turnstileSiteKey) {
+      if (!recaptchaSiteKey) {
         setErrorMessage(
           language === 'en'
-            ? 'Captcha is not configured (missing VITE_TURNSTILE_SITE_KEY).'
+            ? 'Captcha is not configured (missing VITE_RECAPTCHA_V3_SITE_KEY).'
             : language === 'kz'
-              ? 'Captcha бапталмаған (VITE_TURNSTILE_SITE_KEY жоқ).'
-              : 'Captcha не настроена (отсутствует VITE_TURNSTILE_SITE_KEY).'
-        );
-        setSubmitStatus('error');
-        setIsSubmitting(false);
-        return;
-      }
-      if (!captchaToken) {
-        setErrorMessage(
-          language === 'en'
-            ? 'Please complete captcha.'
-            : language === 'kz'
-              ? 'Captcha-ны аяқтаңыз.'
-              : 'Пожалуйста, пройдите captcha.'
+              ? 'Captcha бапталмаған (VITE_RECAPTCHA_V3_SITE_KEY жоқ).'
+              : 'Captcha не настроена (отсутствует VITE_RECAPTCHA_V3_SITE_KEY).'
         );
         setSubmitStatus('error');
         setIsSubmitting(false);
@@ -151,6 +115,34 @@ export const ContactForm: React.FC<ContactFormProps> = ({ language, onClose }) =
       }
 
       const request_type = requestTypeMap[formData.requestType];
+
+      const action = 'submit';
+      if (!window.grecaptcha?.execute) {
+        setErrorMessage(
+          language === 'en'
+            ? 'Captcha is not ready yet. Please try again.'
+            : language === 'kz'
+              ? 'Captcha әлі дайын емес. Қайта қайталап көріңіз.'
+              : 'Captcha еще не готова. Попробуйте ещё раз.'
+        );
+        setSubmitStatus('error');
+        setIsSubmitting(false);
+        return;
+      }
+
+      const captchaToken = await window.grecaptcha.execute(recaptchaSiteKey, { action });
+      if (!captchaToken) {
+        setErrorMessage(
+          language === 'en'
+            ? 'Captcha token is empty.'
+            : language === 'kz'
+              ? 'Captcha токені бос.'
+              : 'Captcha токен пустой.'
+        );
+        setSubmitStatus('error');
+        setIsSubmitting(false);
+        return;
+      }
 
       const payload = {
         idempotency_key: idempotencyKey,
@@ -249,14 +241,13 @@ export const ContactForm: React.FC<ContactFormProps> = ({ language, onClose }) =
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   {language === 'en' ? 'Captcha' : language === 'kz' ? 'Captcha' : 'CAPTCHA'}
                 </label>
-                <div ref={turnstileContainerRef} />
-                {!isTurnstileConfigured ? (
+                {!isRecaptchaConfigured ? (
                   <p className="mt-2 text-xs text-red-600">
                     {language === 'en'
-                      ? 'Captcha is not configured. Add VITE_TURNSTILE_SITE_KEY and restart dev server.'
+                      ? 'Captcha is not configured. Add VITE_RECAPTCHA_V3_SITE_KEY and restart dev server.'
                       : language === 'kz'
-                        ? 'Captcha бапталмаған. VITE_TURNSTILE_SITE_KEY қосып, dev серверді қайта іске қосыңыз.'
-                        : 'Captcha не настроена. Добавьте VITE_TURNSTILE_SITE_KEY и перезапустите dev-сервер.'}
+                        ? 'Captcha бапталмаған. VITE_RECAPTCHA_V3_SITE_KEY қосып, dev серверді қайта іске қосыңыз.'
+                        : 'Captcha не настроена. Добавьте VITE_RECAPTCHA_V3_SITE_KEY и перезапустите dev-сервер.'}
                   </p>
                 ) : null}
               </div>
