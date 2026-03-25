@@ -35,6 +35,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ language, onClose }) =
   const turnstileSiteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY as string | undefined;
   const [idempotencyKey] = useState(() => generateIdempotencyKey());
   const [captchaToken, setCaptchaToken] = useState('');
+  const [isTurnstileConfigured, setIsTurnstileConfigured] = useState<boolean>(!!turnstileSiteKey);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -50,7 +51,11 @@ export const ContactForm: React.FC<ContactFormProps> = ({ language, onClose }) =
   const turnstileContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (!turnstileSiteKey || !turnstileContainerRef.current) return;
+    if (!turnstileSiteKey || !turnstileContainerRef.current) {
+      setIsTurnstileConfigured(false);
+      return;
+    }
+    setIsTurnstileConfigured(true);
 
     const scriptId = 'turnstile-script';
     const renderWidget = () => {
@@ -120,7 +125,19 @@ export const ContactForm: React.FC<ContactFormProps> = ({ language, onClose }) =
 
     try {
       // 3) Send via backend API
-      if (!turnstileSiteKey || !captchaToken) {
+      if (!turnstileSiteKey) {
+        setErrorMessage(
+          language === 'en'
+            ? 'Captcha is not configured (missing VITE_TURNSTILE_SITE_KEY).'
+            : language === 'kz'
+              ? 'Captcha бапталмаған (VITE_TURNSTILE_SITE_KEY жоқ).'
+              : 'Captcha не настроена (отсутствует VITE_TURNSTILE_SITE_KEY).'
+        );
+        setSubmitStatus('error');
+        setIsSubmitting(false);
+        return;
+      }
+      if (!captchaToken) {
         setErrorMessage(
           language === 'en'
             ? 'Please complete captcha.'
@@ -233,6 +250,15 @@ export const ContactForm: React.FC<ContactFormProps> = ({ language, onClose }) =
                   {language === 'en' ? 'Captcha' : language === 'kz' ? 'Captcha' : 'CAPTCHA'}
                 </label>
                 <div ref={turnstileContainerRef} />
+                {!isTurnstileConfigured ? (
+                  <p className="mt-2 text-xs text-red-600">
+                    {language === 'en'
+                      ? 'Captcha is not configured. Add VITE_TURNSTILE_SITE_KEY and restart dev server.'
+                      : language === 'kz'
+                        ? 'Captcha бапталмаған. VITE_TURNSTILE_SITE_KEY қосып, dev серверді қайта іске қосыңыз.'
+                        : 'Captcha не настроена. Добавьте VITE_TURNSTILE_SITE_KEY и перезапустите dev-сервер.'}
+                  </p>
+                ) : null}
               </div>
               <div>
                 <label htmlFor="requestType" className="block text-sm font-medium text-gray-700 mb-1">
