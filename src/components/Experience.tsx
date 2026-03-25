@@ -3,7 +3,7 @@ import { translations } from '../data/translations';
 import { assetUrl } from '../utils/assets';
 
 interface ExperienceProps {
-  language: 'en' | 'ru';
+  language: 'en' | 'ru' | 'kz';
 }
 
 export const Experience: React.FC<ExperienceProps> = ({ language }) => {

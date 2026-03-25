@@ -3,7 +3,7 @@ import { translations } from '../data/translations';
 import { assetUrl } from '../utils/assets';
 
 interface PartnersProps {
-  language: 'en' | 'ru';
+  language: 'en' | 'ru' | 'kz';
 }
 
 export const Partners: React.FC<PartnersProps> = ({ language }) => {

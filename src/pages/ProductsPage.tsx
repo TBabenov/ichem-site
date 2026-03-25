@@ -8,7 +8,7 @@ import { fallbackProducts, type FallbackBasicChemGroup, type FallbackStandardPro
 import { assetUrl } from '../utils/assets';
 
 interface ProductsPageProps {
-  language: 'en' | 'ru';
+  language: 'en' | 'ru' | 'kz';
 }
 
 type ProductsTranslationCategoryId = keyof typeof translations.en.products.categories;

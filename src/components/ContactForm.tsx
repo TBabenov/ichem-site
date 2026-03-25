@@ -8,7 +8,7 @@ const EMAILJS_USER_ID = 'Y9NG-L4rcbqvQmAwD';
 emailjs.init(EMAILJS_USER_ID);
 
 interface ContactFormProps {
-  language: 'en' | 'ru';
+  language: 'en' | 'ru' | 'kz';
   onClose: () => void;
 }
 

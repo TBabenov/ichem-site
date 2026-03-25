@@ -2,7 +2,7 @@ import React from 'react';
 import { Services } from '../components/Services';
 
 interface ServicesPageProps {
-  language: 'en' | 'ru';
+  language: 'en' | 'ru' | 'kz';
 }
 
 export const ServicesPage: React.FC<ServicesPageProps> = ({ language }) => {

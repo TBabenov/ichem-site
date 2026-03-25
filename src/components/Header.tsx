@@ -5,8 +5,8 @@ import { translations } from '../data/translations';
 import { assetUrl } from '../utils/assets';
 
 interface HeaderProps {
-  language: 'en' | 'ru';
-  setLanguage: (lang: 'en' | 'ru') => void;
+  language: 'en' | 'ru' | 'kz';
+  setLanguage: (lang: 'en' | 'ru' | 'kz') => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({ 
@@ -101,6 +101,13 @@ export const Header: React.FC<HeaderProps> = ({
                   >
                     Русский
                   </button>
+                  <button
+                    onClick={() => { setLanguage('kz'); setIsLanguageMenuOpen(false); }}
+                    className="block px-4 py-2 text-sm text-gray-800 hover:bg-blue-50 w-full text-left"
+                    role="menuitem"
+                  >
+                    Қазақша
+                  </button>
                 </div>
               )}
             </div>
@@ -173,6 +180,16 @@ export const Header: React.FC<HeaderProps> = ({
                     } transition-colors duration-300`}
                   >
                     Русский
+                  </button>
+                  <button
+                    onClick={() => setLanguage('kz')}
+                    className={`px-4 py-2 rounded-md ${
+                      language === 'kz'
+                        ? 'bg-blue-100 text-blue-800'
+                        : 'bg-gray-100 text-gray-800'
+                    } transition-colors duration-300`}
+                  >
+                    Қазақша
                   </button>
                 </div>
                 

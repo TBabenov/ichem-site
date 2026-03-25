@@ -6,7 +6,7 @@ import { ContactForm } from './ContactForm';
 import { assetUrl } from '../utils/assets';
 
 interface FooterProps {
-  language: 'en' | 'ru';
+  language: 'en' | 'ru' | 'kz';
 }
 
 export const Footer: React.FC<FooterProps> = ({ language }) => {

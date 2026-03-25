@@ -2,7 +2,7 @@ import React from 'react';
 import { Research } from '../components/Research';
 
 interface RDPageProps {
-  language: 'en' | 'ru';
+  language: 'en' | 'ru' | 'kz';
 }
 
 export const RDPage: React.FC<RDPageProps> = ({ language }) => {

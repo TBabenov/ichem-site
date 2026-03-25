@@ -3,7 +3,7 @@ import { Microscope, Lightbulb, Building, Ruler } from 'lucide-react';
 import { translations } from '../data/translations';
 
 interface ResearchProps {
-  language: 'en' | 'ru';
+  language: 'en' | 'ru' | 'kz';
 }
 
 export const Research: React.FC<ResearchProps> = ({ language }) => {

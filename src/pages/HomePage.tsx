@@ -6,7 +6,7 @@ import { Partners } from '../components/Partners';
 import { Contact } from '../components/Contact';
 
 interface HomePageProps {
-  language: 'en' | 'ru';
+  language: 'en' | 'ru' | 'kz';
 }
 
 export const HomePage: React.FC<HomePageProps> = ({ language }) => {

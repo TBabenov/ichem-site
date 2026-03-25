@@ -7,7 +7,7 @@ import { useServicesCatalog } from '../hooks/useServicesCatalog';
 import type { CatalogLang } from '../api/catalog';
 
 interface ServicesProps {
-  language: 'en' | 'ru';
+  language: 'en' | 'ru' | 'kz';
 }
 
 const GROUP_ORDER = [

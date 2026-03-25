@@ -4,7 +4,7 @@ import { translations } from '../data/translations';
 import { assetUrl } from '../utils/assets';
 
 interface HeroProps {
-  language: 'en' | 'ru';
+  language: 'en' | 'ru' | 'kz';
 }
 
 export const Hero: React.FC<HeroProps> = ({ language }) => {

@@ -4,7 +4,7 @@ import { translations } from '../data/translations';
 import { ContactForm } from './ContactForm';
 
 interface ContactProps {
-  language: 'en' | 'ru';
+  language: 'en' | 'ru' | 'kz';
 }
 
 export const Contact: React.FC<ContactProps> = ({ language }) => {

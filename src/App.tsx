@@ -10,7 +10,7 @@ import { RDPage } from './pages/RDPage';
 import { ContactPage } from './pages/ContactPage';
 
 function App() {
-  const [language, setLanguage] = useState<'en' | 'ru'>('en');
+  const [language, setLanguage] = useState<'en' | 'ru' | 'kz'>('en');
   const [showContactForm, setShowContactForm] = useState(false);
 
   return (

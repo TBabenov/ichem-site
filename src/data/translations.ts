@@ -1,5 +1,4 @@
-export const translations = {
-  en: {
+const en = {
     header: {
       home: "Home",
       products: "Products",
@@ -330,8 +329,9 @@ export const translations = {
         button: "Contact Us"
       }
     },
-  },
-  ru: {
+};
+
+const ru = {
     header: {
       home: "Главная",
       products: "Продукция",
@@ -660,5 +660,7 @@ export const translations = {
         button: "Связаться с нами"
       }
     },
-  }
 };
+
+// Kazakh is temporarily mapped to Russian until proper `kz` strings are provided.
+export const translations = { en, ru, kz: ru };

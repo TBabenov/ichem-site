@@ -18,8 +18,7 @@ export type FallbackProductsByCategory = {
   basicChemicals: FallbackBasicChemGroup[];
 };
 
-export const fallbackProducts: Record<'en' | 'ru', FallbackProductsByCategory> = {
-  en: {
+const en = {
     oilfieldChemicals: [
       {
         name: 'Demulsifier (ICD)',
@@ -279,8 +278,9 @@ export const fallbackProducts: Record<'en' | 'ru', FallbackProductsByCategory> =
         items: ['Triazine', 'ABS Acid', 'Neonol', 'Polyethers'],
       },
     ],
-  },
-  ru: {
+  };
+
+const ru = {
     oilfieldChemicals: [
       {
         name: 'Деэмульгатор (ICD)',
@@ -539,7 +539,13 @@ export const fallbackProducts: Record<'en' | 'ru', FallbackProductsByCategory> =
         description: 'Дополнительные химикаты для специфических задач.',
         items: ['Триазин', 'ABS-кислота', 'Неонол', 'Полиэфиры'],
       },
-    ],
-  },
+    ]
+};
+
+export const fallbackProducts: Record<'en' | 'ru' | 'kz', FallbackProductsByCategory> = {
+  en,
+  ru,
+  // Temporary Kazakh fallback until proper `kz` PDF/file names and text are provided.
+  kz: ru,
 };
 
