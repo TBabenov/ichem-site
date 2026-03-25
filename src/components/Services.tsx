@@ -141,7 +141,18 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
   const scrollToGroup = (groupKey: string) => {
     const element = document.getElementById(groupKey);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      // Keep scrolling within the bounds of the selected category group.
+      // This matches the ProductsPage behavior and avoids overscrolling into the next group.
+      const scrollMarginTopPx = 128; // matches `scroll-mt-32` on the group <section>
+      const rect = element.getBoundingClientRect();
+      const elementTop = rect.top + window.scrollY;
+      const elementBottom = elementTop + rect.height;
+
+      const desiredTop = elementTop - scrollMarginTopPx;
+      const maxTop = elementBottom - window.innerHeight;
+      const clampedTop = Math.max(0, Math.min(desiredTop, maxTop));
+
+      window.scrollTo({ top: clampedTop, behavior: 'smooth' });
     }
   };
 
