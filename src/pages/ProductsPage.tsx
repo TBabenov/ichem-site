@@ -99,7 +99,19 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ language }) => {
   const scrollToCategory = (categoryId: string) => {
     const element = document.getElementById(categoryId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      // Keep scrolling within the bounds of the selected category.
+      // This prevents any “overscrolling” into the next sections when using smooth scrolling.
+      const scrollMarginTopPx = 128; // matches `scroll-mt-32` on the category <section>
+      const rect = element.getBoundingClientRect();
+      const elementTop = rect.top + window.scrollY;
+      const elementBottom = elementTop + rect.height;
+
+      const desiredTop = elementTop - scrollMarginTopPx;
+      // Clamp so that the viewport bottom doesn't go beyond category end.
+      const maxTop = elementBottom - window.innerHeight;
+
+      const clampedTop = Math.max(0, Math.min(desiredTop, maxTop));
+      window.scrollTo({ top: clampedTop, behavior: 'smooth' });
     }
     setActiveCategory(categoryId);
   };

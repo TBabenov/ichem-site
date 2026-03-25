@@ -108,10 +108,16 @@
 
 ### Откуда сейчас берутся товары и услуги
 
-- Товары: `src/data/translations.ts` → `translations[lang].products.products`.
-- Услуги: `src/data/translations.ts` → `translations[lang].services.items`.
-- PDF: текущая ссылка строится на клиенте как `/home/PDF/${pdfFile}`.
-- Изображения категорий/услуг: “жёсткие” пути вида `/home/images/...` и шаблоны на основе `id`.
+- Товары: `src/pages/ProductsPage.tsx` → `src/hooks/useProductsCatalog.ts` → публичный API `GET /api/catalog?lang=...`.
+  - секции/якоря формируются по stableKey `category_en`
+  - label/описания берутся по активному языку из `category_ru`/`category_kz` (fallback на `en`)
+  - PDF: `pdf_url` из API (может быть `null`); при `null` используется fallback из `src/data/fallback/products.ts`.
+- Услуги: `src/components/Services.tsx` → `src/hooks/useServicesCatalog.ts` → публичный API `GET /api/catalog?lang=...`.
+  - фильтр: `type === "service"`
+  - группировка: `category_key`
+  - описание группы: `category_description` (показывается один раз; при `null` не отображается)
+  - карточки услуг: `name` + `description`
+- Изображения категорий/услуг и PDF/файлы формируются через `assetUrl()` с учетом `base` (`/home/` в production).
 
 ### Насколько удобно перевести каталог на backend API
 

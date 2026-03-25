@@ -53,19 +53,25 @@
 
 ## Каталог товаров и услуг (текущая реализация)
 
-На данный момент контент каталога **захардкожен** в `src/data/translations.ts`:
+Контент каталога сейчас берётся из публичного backend API:
 
-- товары и их категории: `translations[lang].products`
-- услуги и их блоки: `translations[lang].services`
-- названия категорий, описания, имена файлов PDF и текстовые элементы: также в `translations.ts`
+- `/api/catalog?lang=...` (в dev запросы идут через `vite` proxy)
 
 Отрисовка:
 
 - продукты → `src/pages/ProductsPage.tsx`
-  - секции категорий формируются по `category.id`
-  - PDF скачиваются по пути `/home/PDF/${item.pdfFile}`
+  - данные грузятся через `src/hooks/useProductsCatalog.ts`
+  - секции категорий формируются по stableKey `category_en`
+  - label/описания категорий берутся по активному языку из полей `category_ru`/`category_kz` (с fallback на `en`)
+  - PDF: `pdf_url` из API (может быть `null`); если `null`, используются fallback-данные из `src/data/fallback/products.ts`
 - услуги → `src/components/Services.tsx`, вызывается из `src/pages/ServicesPage.tsx`
-  - иконки/баннеры подбираются по `service.id` (шаблонные пути `/home/images/...`)
+  - данные грузятся через `src/hooks/useServicesCatalog.ts`
+  - фильтр: `type === "service"`
+  - группировка: `category_key`
+  - описание группы показывается один раз из `category_description` (если `null` — не показывается)
+  - карточки услуг: `name` + `description`
+
+`src/data/translations.ts` при этом используется как UI-переводы и fallback, когда API недоступен.
 
 ## Мультиязычность
 

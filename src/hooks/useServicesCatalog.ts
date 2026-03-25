@@ -41,8 +41,8 @@ export function useServicesCatalog(lang: CatalogLang): ServicesCatalogState {
         const services = data.filter((x) => x.type === 'service');
 
         services.sort((a, b) => {
-          const ai = categorySortIndex(a.category_en);
-          const bi = categorySortIndex(b.category_en);
+          const ai = categorySortIndex(a.category_key ?? a.category_en);
+          const bi = categorySortIndex(b.category_key ?? b.category_en);
           if (ai !== bi) return ai - bi;
           return a.id - b.id;
         });

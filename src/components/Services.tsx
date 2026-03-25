@@ -22,15 +22,14 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
   const fallbackServiceData = translations[language].services.items;
   const serviceContact = translations[language].services.contact;
 
-  type Feature = { title: string; description: string };
   type ServiceUI = {
     key: string;
     domId: string;
     name: string;
     description: string;
-    categoryEn: string;
+    categoryKey: string;
     categoryLabel: string;
-    features: Feature[];
+    groupDescription: string | null;
   };
 
   const legacyServiceIdToCategoryEn = (legacyId: string): string => {
@@ -49,15 +48,26 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
   };
 
   const normalizeLegacyServices = (items: typeof fallbackServiceData): ServiceUI[] => {
-    return items.map((s) => ({
-      key: s.id,
-      domId: `service-${s.id}`,
-      name: s.name,
-      description: s.description,
-      categoryEn: legacyServiceIdToCategoryEn(s.id),
-      categoryLabel: s.name,
-      features: (s.features || []) as Feature[],
-    }));
+    // Legacy fallback structure uses `services.items` as group-level entries.
+    // Convert to API-like structure:
+    // - each group becomes { groupDescription }
+    // - each feature becomes a service card { name, description }
+    return items.flatMap((group) => {
+      const categoryKey = legacyServiceIdToCategoryEn(group.id);
+      const categoryLabel = group.name;
+      const groupDescription = group.description;
+
+      const features = (group.features ?? []) as Array<{ title: string; description: string }>;
+      return features.map((feature, idx) => ({
+        key: `${group.id}-${idx}`,
+        domId: `service-${group.id}-${idx}`,
+        name: feature.title,
+        description: feature.description,
+        categoryKey,
+        categoryLabel,
+        groupDescription,
+      }));
+    });
   };
 
   const api = useServicesCatalog(language as CatalogLang);
@@ -76,9 +86,9 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
         domId: `service-${s.id}`,
         name: s.name,
         description: s.description ?? '',
-        categoryEn: s.category_en ?? '',
+        categoryKey: s.category_key ?? s.category_en ?? '',
         categoryLabel: s.category ?? s.category_en ?? '',
-        features: s.features ?? [],
+        groupDescription: s.category_description ?? null,
       })),
     [api.items]
   );
@@ -87,10 +97,13 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
     api.status === 'success' && api.items.length ? apiServicesForUI : legacyServicesForUI;
 
   const groupedByCategory = useMemo(() => {
-    const map: Record<string, { label: string; services: ServiceUI[] }> = {};
+    const map: Record<
+      string,
+      { label: string; groupDescription: string | null; services: ServiceUI[] }
+    > = {};
     for (const s of servicesForUI) {
-      const key = s.categoryEn || '';
-      if (!map[key]) map[key] = { label: s.categoryLabel, services: [] };
+      const key = s.categoryKey || '';
+      if (!map[key]) map[key] = { label: s.categoryLabel, groupDescription: s.groupDescription, services: [] };
       map[key].services.push(s);
       // prefer existing label (should be identical within group)
       if (!map[key].label) map[key].label = s.categoryLabel;
@@ -108,7 +121,6 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
     }
   }, [groupedByCategory, activeGroupKey]);
 
-  const servicesInActiveGroup = groupedByCategory[activeGroupKey]?.services ?? [];
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [showContactForm, setShowContactForm] = useState(false);
 
@@ -124,20 +136,15 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const scrollToService = (service: ServiceUI) => {
-    const element = document.getElementById(service.domId);
+  const scrollToGroup = (groupKey: string) => {
+    const element = document.getElementById(groupKey);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
-  const scrollToFirstServiceInGroup = (groupKey: string) => {
-    const first = groupedByCategory[groupKey]?.services?.[0];
-    if (first) scrollToService(first);
-  };
-
-  const getServiceIcon = (categoryEn: string) => {
-    switch (categoryEn) {
+  const getServiceIcon = (categoryKey: string) => {
+    switch (categoryKey) {
       case 'Consulting Services':
         return assetUrl('images/icons/consulting.png');
       case 'Acid Stimulation Implementation Support':
@@ -151,8 +158,8 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
     }
   };
 
-  const getServiceHero = (categoryEn: string) => {
-    switch (categoryEn) {
+  const getServiceHero = (categoryKey: string) => {
+    switch (categoryKey) {
       case 'Consulting Services':
         return assetUrl('images/Consulting.png');
       case 'Acid Stimulation Implementation Support':
@@ -178,10 +185,7 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
                   key={groupKey}
                   onClick={() => {
                     setActiveGroupKey(groupKey);
-                    if (groupKey === 'Blending & Tolling Chemical Development') {
-                      setShowContactForm(true);
-                    }
-                    scrollToFirstServiceInGroup(groupKey);
+                    scrollToGroup(groupKey);
                   }}
                   className={`flex items-center px-4 py-2 rounded-md whitespace-nowrap transition-all duration-300 ${
                     activeGroupKey === groupKey
@@ -204,71 +208,66 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
 
       {/* Service Sections */}
       <div className="container mx-auto px-4 py-12">
-        {servicesInActiveGroup.map((service) => (
-          <section
-            key={service.key}
-            id={service.domId}
-            className="mb-20 scroll-mt-32"
-          >
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-              {/* Service Header */}
-              <div className="relative h-64 md:h-96">
-                <img
-                  src={getServiceHero(service.categoryEn)}
-                  alt={service.name}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end">
-                  <div className="p-8">
-                    <h2 className="text-3xl font-bold text-white mb-4">
-                      {service.name}
-                    </h2>
-                    <p className="text-gray-200 max-w-3xl text-lg">
-                      {service.description}
-                    </p>
+        {GROUP_ORDER.map((groupKey) => {
+          const group = groupedByCategory[groupKey];
+          if (!group?.services?.length) return null;
+
+          return (
+            <section key={groupKey} id={groupKey} className="mb-20 scroll-mt-32">
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                {/* Group Header */}
+                <div className="relative h-64 md:h-96">
+                  <img
+                    src={getServiceHero(groupKey)}
+                    alt={group.label ?? groupKey}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end">
+                    <div className="p-8">
+                      <h2 className="text-3xl font-bold text-white mb-4">{group.label ?? groupKey}</h2>
+                      {group.groupDescription ? (
+                        <p className="text-gray-200 max-w-3xl text-lg">{group.groupDescription}</p>
+                      ) : null}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Services Cards Grid */}
+                <div className="p-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                    {group.services.map((service) => (
+                      <div
+                        key={service.key}
+                        className="bg-gray-50 rounded-lg p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                      >
+                        <h3 className="text-xl font-semibold mb-3 text-gray-900">{service.name}</h3>
+                        <p className="text-gray-600">{service.description}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Contact Section */}
+                  <div className="mt-12 bg-blue-50 rounded-lg p-8">
+                    <div className="flex flex-col md:flex-row items-center justify-between">
+                      <div className="mb-6 md:mb-0">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                          {serviceContact.interested.replace("{serviceName}", group.label ?? groupKey)}
+                        </h3>
+                        <p className="text-gray-600">Contact our team to discuss your specific requirements.</p>
+                      </div>
+                      <button
+                        onClick={() => setShowContactForm(true)}
+                        className="bg-blue-600 text-white px-8 py-3 rounded-md transition-all duration-300 hover:bg-blue-700 hover:scale-105"
+                      >
+                        {serviceContact.button}
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-
-              {/* Features Grid */}
-              <div className="p-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-                  {service.features.map((feature) => (
-                    <div
-                      key={feature.title}
-                      className="bg-gray-50 rounded-lg p-6 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-                    >
-                      <h3 className="text-xl font-semibold mb-3 text-gray-900">
-                        {feature.title}
-                      </h3>
-                      <p className="text-gray-600">{feature.description}</p>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Contact Section */}
-                <div className="mt-12 bg-blue-50 rounded-lg p-8">
-                  <div className="flex flex-col md:flex-row items-center justify-between">
-                    <div className="mb-6 md:mb-0">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                        {serviceContact.interested.replace("{serviceName}", service.name)}
-                      </h3>
-                      <p className="text-gray-600">
-                        Contact our team to discuss your specific requirements.
-                      </p>
-                    </div>
-                    <button
-                      onClick={() => setShowContactForm(true)}
-                      className="bg-blue-600 text-white px-8 py-3 rounded-md transition-all duration-300 hover:bg-blue-700 hover:scale-105"
-                    >
-                      {serviceContact.button}
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        ))}
+            </section>
+          );
+        })}
       </div>
 
       {/* Scroll to Top Button */}
