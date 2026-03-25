@@ -117,7 +117,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ language, onClose }) =
       const request_type = requestTypeMap[formData.requestType];
 
       const action = 'submit';
-      if (!window.grecaptcha?.execute) {
+      if (!window.grecaptcha?.execute || !window.grecaptcha?.ready) {
         setErrorMessage(
           language === 'en'
             ? 'Captcha is not ready yet. Please try again.'
@@ -129,6 +129,11 @@ export const ContactForm: React.FC<ContactFormProps> = ({ language, onClose }) =
         setIsSubmitting(false);
         return;
       }
+
+      // Wait until reCAPTCHA is ready before requesting a token.
+      await new Promise<void>((resolve) => {
+        window.grecaptcha?.ready(() => resolve());
+      });
 
       const captchaToken = await window.grecaptcha.execute(recaptchaSiteKey, { action });
       if (!captchaToken) {
