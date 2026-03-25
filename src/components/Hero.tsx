@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { translations } from '../data/translations';
+import { assetUrl } from '../utils/assets';
 
 interface HeroProps {
   language: 'en' | 'ru';
@@ -12,9 +13,10 @@ export const Hero: React.FC<HeroProps> = ({ language }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   
   useEffect(() => {
+    const logoEl = logoRef.current;
     const animateLogo = () => {
-      if (logoRef.current) {
-        logoRef.current.classList.add('animate-fadeIn');
+      if (logoEl) {
+        logoEl.classList.add('animate-fadeIn');
       }
     };
     
@@ -29,8 +31,8 @@ export const Hero: React.FC<HeroProps> = ({ language }) => {
     }
     
     return () => {
-      if (logoRef.current) {
-        logoRef.current.classList.remove('animate-fadeIn');
+      if (logoEl) {
+        logoEl.classList.remove('animate-fadeIn');
       }
     };
   }, []);
@@ -48,12 +50,12 @@ export const Hero: React.FC<HeroProps> = ({ language }) => {
           muted
           loop
           playsInline
-          poster="/home/images/background_main.jpg"
+          poster={assetUrl('images/background_main.jpg')}
         >
-          <source src="/home/videos/hero-background.mp4" type="video/mp4" />
+          <source src={assetUrl('videos/hero-background.mp4')} type="video/mp4" />
           {/* Fallback image if video fails to load */}
           <img 
-            src="/home/images/background_main.jpg" 
+            src={assetUrl('images/background_main.jpg')} 
             alt="Chemical industry background" 
             className="absolute inset-0 h-full w-full object-cover"
           />
@@ -67,7 +69,7 @@ export const Hero: React.FC<HeroProps> = ({ language }) => {
         >
           <div className="inline-block mb-4">
             <img 
-              src="/home/images/icons/logol.png" 
+              src={assetUrl('images/icons/logol.png')} 
               alt="Innovative Chemicals Logo" 
               className="h-32 w-auto md:h-40"
             />

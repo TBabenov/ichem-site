@@ -2,39 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { ChevronUp } from 'lucide-react';
 import { translations } from '../data/translations';
 import { ContactForm } from '../components/ContactForm';
+import { useProductsCatalog } from '../hooks/useProductsCatalog';
+import type { CatalogLang } from '../api/catalog';
+import { fallbackProducts, type FallbackBasicChemGroup, type FallbackStandardProductCard } from '../data/fallback/products';
+import { assetUrl } from '../utils/assets';
 
 interface ProductsPageProps {
   language: 'en' | 'ru';
 }
 
 type ProductsTranslationCategoryId = keyof typeof translations.en.products.categories;
-
-type ApiCatalogItem = {
-  id: number;
-  type: 'product' | 'service';
-  category: string | null;
-  description: string | null;
-  name: string;
-
-  // stable fields (used for category anchors/ids)
-  category_en: string | null;
-
-  // files (may be null while not filled yet)
-  photo: string | null;
-  pdf_url: string | null;
-};
-
-type FallbackStandardProductCard = {
-  name: string;
-  description: string;
-  pdfFile?: string;
-};
-
-type FallbackBasicChemGroup = {
-  name: string;
-  description: string;
-  items: string[];
-};
 
 type StandardProductCard = {
   name: string;
@@ -68,32 +45,32 @@ const productCategories = [
   {
     translationId: 'oilfieldChemicals' as const,
     stableCategoryEn: 'Oilfield Chemicals',
-    icon: '/home/images/icons/Production Chemicals.png',
-    image: '/home/images/Film-Forming Corrosion Inhibitor.png',
+    icon: assetUrl('images/icons/Production Chemicals.png'),
+    image: assetUrl('images/Film-Forming Corrosion Inhibitor.png'),
   },
   {
     translationId: 'acidStimulation' as const,
     stableCategoryEn: 'Acid Stimulation Fluid Systems',
-    icon: '/home/images/icons/Acid Stimulation.png',
-    image: '/home/images/Acid Stimulation Fluid Systems.png',
+    icon: assetUrl('images/icons/Acid Stimulation.png'),
+    image: assetUrl('images/Acid Stimulation Fluid Systems.png'),
   },
   {
     translationId: 'fracturingFluids' as const,
     stableCategoryEn: 'Hydraulic Fracturing Fluid Systems',
-    icon: '/home/images/icons/Hydraulic Fracturing.png',
-    image: '/home/images/Hydraulic Fracturing.png',
+    icon: assetUrl('images/icons/Hydraulic Fracturing.png'),
+    image: assetUrl('images/Hydraulic Fracturing.png'),
   },
   {
     translationId: 'refineryReagents' as const,
     stableCategoryEn: 'Refinery Reagents',
-    icon: '/home/images/icons/Downstream Chemicals.png',
-    image: '/home/images/Downstream Chemicals.png',
+    icon: assetUrl('images/icons/Downstream Chemicals.png'),
+    image: assetUrl('images/Downstream Chemicals.png'),
   },
   {
     translationId: 'basicChemicals' as const,
     stableCategoryEn: 'Basic Chemical Supply',
-    icon: '/home/images/icons/Basic Chemical.png',
-    image: '/home/images/Basic Chemical Supply.png',
+    icon: assetUrl('images/icons/Basic Chemical.png'),
+    image: assetUrl('images/Basic Chemical Supply.png'),
   },
 ];
 
@@ -102,11 +79,9 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ language }) => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [showContactForm, setShowContactForm] = useState(false);
   const t = translations[language].products;
-  const fallbackProductData = translations[language].products.products;
+  const fallbackProductData = fallbackProducts[language];
 
-  // API data (used for product texts only; layout + icons/images preserved)
-  const [apiProductItemsByStableKey, setApiProductItemsByStableKey] = useState<Record<string, ApiCatalogItem[]>>({});
-  const [apiCategoryLabelsByStableKey, setApiCategoryLabelsByStableKey] = useState<Record<string, string>>({});
+  const { itemsByStableCategoryEn, labelByStableCategoryEn } = useProductsCatalog(language as CatalogLang);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -129,16 +104,12 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ language }) => {
     setActiveCategory(categoryId);
   };
 
-  const apiBaseUrl =
-    import.meta.env.VITE_CATALOG_API_BASE_URL ??
-    (import.meta.env.DEV ? 'http://127.0.0.1:8080' : '');
-
   const resolveCategoryLabel = (stableKey: string, translationId: ProductsTranslationCategoryId) => {
-    return apiCategoryLabelsByStableKey[stableKey] ?? t.categories[translationId];
+    return labelByStableCategoryEn[stableKey] ?? t.categories[translationId];
   };
 
   const resolveBasicChemGroups = (stableKey: string, translationId: ProductsTranslationCategoryId): BasicChemGroup[] => {
-    const apiItems = apiProductItemsByStableKey[stableKey];
+    const apiItems = itemsByStableCategoryEn[stableKey];
     if (apiItems && apiItems.length) {
       return apiItems.map((item) => {
         const rawDesc = item.description ?? '';
@@ -154,12 +125,12 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ language }) => {
     stableKey: string,
     translationId: ProductsTranslationCategoryId
   ): StandardProductCard[] => {
-    const apiItems = apiProductItemsByStableKey[stableKey];
+    const apiItems = itemsByStableCategoryEn[stableKey];
     if (apiItems && apiItems.length) {
       const fallbackByName = new Map<string, string | null>(
         (fallbackProductData[translationId] as unknown as FallbackStandardProductCard[] | undefined)?.map((item) => [
           item.name,
-          item.pdfFile ? `/home/PDF/${item.pdfFile}` : null,
+          item.pdfFile ? assetUrl(`PDF/${item.pdfFile}`) : null,
         ]) ?? []
       );
 
@@ -174,56 +145,9 @@ export const ProductsPage: React.FC<ProductsPageProps> = ({ language }) => {
     return (fallbackProductData[translationId] as unknown as FallbackStandardProductCard[]).map((item) => ({
       name: item.name,
       description: item.description,
-      pdfUrl: item.pdfFile ? `/home/PDF/${item.pdfFile}` : null,
+      pdfUrl: item.pdfFile ? assetUrl(`PDF/${item.pdfFile}`) : null,
     }));
   };
-
-  useEffect(() => {
-    let cancelled = false;
-
-    const fetchCatalog = async () => {
-      try {
-        const apiBase = apiBaseUrl.replace(/\/$/, '');
-        const url = apiBase ? `${apiBase}/api/catalog?lang=${language}` : `/api/catalog?lang=${language}`;
-
-        const res = await fetch(url, { headers: { Accept: 'application/json' } });
-        if (!res.ok) return;
-
-        const data: ApiCatalogItem[] = (await res.json()) as ApiCatalogItem[];
-        const productItems = data.filter((x) => x.type === 'product' && x.category_en);
-
-        const nextItemsByStableKey: Record<string, ApiCatalogItem[]> = {};
-        const nextLabelsByStableKey: Record<string, string> = {};
-
-        for (const item of productItems) {
-          const stableKey = item.category_en as string;
-          if (!nextItemsByStableKey[stableKey]) nextItemsByStableKey[stableKey] = [];
-          nextItemsByStableKey[stableKey].push(item);
-
-          if (item.category && !nextLabelsByStableKey[stableKey]) {
-            nextLabelsByStableKey[stableKey] = item.category;
-          }
-        }
-
-        for (const stableKey of Object.keys(nextItemsByStableKey)) {
-          nextItemsByStableKey[stableKey] = nextItemsByStableKey[stableKey].sort((a, b) => a.id - b.id);
-        }
-
-        if (!cancelled) {
-          setApiProductItemsByStableKey(nextItemsByStableKey);
-          setApiCategoryLabelsByStableKey(nextLabelsByStableKey);
-        }
-      } catch {
-        // Keep fallback if API fails.
-      }
-    };
-
-    fetchCatalog();
-
-    return () => {
-      cancelled = true;
-    };
-  }, [apiBaseUrl, language]);
 
   return (
     <div className="min-h-screen bg-gray-50">

@@ -1,5 +1,6 @@
 import React from 'react';
 import { translations } from '../data/translations';
+import { assetUrl } from '../utils/assets';
 
 interface PartnersProps {
   language: 'en' | 'ru';
@@ -37,14 +38,14 @@ export const Partners: React.FC<PartnersProps> = ({ language }) => {
                   {cert.description}
                 </p>
                 <a
-                  href={`/home/images/Certificates/${fileBase}_Certificate_${langCode}.pdf`}
+                  href={assetUrl(`images/Certificates/${fileBase}_Certificate_${langCode}.pdf`)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block group"
                 >
                   <div className="aspect-[3/4] mb-4 rounded-lg overflow-hidden relative">
                     <img
-                      src={`/home/images/Certificates/${fileBase}_Certificate_${langCode}.png`}
+                      src={assetUrl(`images/Certificates/${fileBase}_Certificate_${langCode}.png`)}
                       alt={`${cert.title} Certificate`}
                       className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                     />

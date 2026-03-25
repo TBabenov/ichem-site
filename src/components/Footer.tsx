@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 import { translations } from '../data/translations';
 import { ContactForm } from './ContactForm';
+import { assetUrl } from '../utils/assets';
 
 interface FooterProps {
   language: 'en' | 'ru';
@@ -19,7 +20,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
           <div>
             <Link to="/" className="flex items-center mb-6">
               <img 
-                src="/home/images/icons/logol.png" 
+                src={assetUrl('images/icons/logol.png')} 
                 alt="Logo" 
                 className="h-12 w-auto mr-3"
               />

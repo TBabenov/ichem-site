@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ChevronUp } from 'lucide-react';
 import { translations } from '../data/translations';
 import { ContactForm } from './ContactForm';
+import { assetUrl } from '../utils/assets';
 
 interface ServicesProps {
   language: 'en' | 'ru';
@@ -57,13 +58,13 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
                   }`}
                 >
                   <img
-                    src={`/home/images/icons/${
+                    src={assetUrl(`images/icons/${
                       service.id === 'acid-stimulation'
                         ? 'Acid Stimulation'
                         : service.id === 'technical-training'
                           ? 'Training'
                           : service.id.charAt(0).toUpperCase() + service.id.slice(1).replace('-', ' ')
-                    }.png`}
+                    }.png`)}
                     alt={service.name}
                     className="w-6 h-6 object-contain mr-2"
                   />
@@ -87,13 +88,13 @@ export const Services: React.FC<ServicesProps> = ({ language }) => {
               {/* Service Header */}
               <div className="relative h-64 md:h-96">
                 <img
-                  src={`/home/images/${
+                  src={assetUrl(`images/${
                     service.id === 'acid-stimulation'
                       ? 'Acid Stimulation Fluid Systems'
                       : service.id === 'technical-training'
                         ? 'Training'
                         : service.id.charAt(0).toUpperCase() + service.id.slice(1).replace('-', ' ')
-                  }.png`}
+                  }.png`)}
                   alt={service.name}
                   className="w-full h-full object-cover"
                 />

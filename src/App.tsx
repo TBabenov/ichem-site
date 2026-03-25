@@ -18,7 +18,6 @@ function App() {
       <Header 
         language={language} 
         setLanguage={setLanguage} 
-        onContactClick={() => setShowContactForm(true)}
       />
       <main className="pt-[64px]">
         <Routes>

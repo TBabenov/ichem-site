@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Mail, Clock } from 'lucide-react';
 import { translations } from '../data/translations';
 import { ContactForm } from './ContactForm';
 
 interface ContactProps {
   language: 'en' | 'ru';
-  onContactClick: () => void;
 }
 
-export const Contact: React.FC<ContactProps> = ({ language, onContactClick }) => {
+export const Contact: React.FC<ContactProps> = ({ language }) => {
   const t = translations[language].contact;
   const d = translations[language].contactDetails;
   const [showContactForm, setShowContactForm] = useState(false);

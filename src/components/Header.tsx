@@ -2,17 +2,16 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Globe } from 'lucide-react';
 import { translations } from '../data/translations';
+import { assetUrl } from '../utils/assets';
 
 interface HeaderProps {
   language: 'en' | 'ru';
   setLanguage: (lang: 'en' | 'ru') => void;
-  onContactClick: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({ 
   language, 
-  setLanguage,
-  onContactClick
+  setLanguage
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
@@ -42,7 +41,7 @@ export const Header: React.FC<HeaderProps> = ({
             aria-label="Home"
           >
             <img 
-              src="/home/images/icons/logol.png" 
+              src={assetUrl('images/icons/logol.png')} 
               alt="Logo" 
               className="h-10 w-auto mr-2"
             />

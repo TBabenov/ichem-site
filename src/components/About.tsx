@@ -1,5 +1,6 @@
 import React from "react";
 import { translations } from "../data/translations";
+import { assetUrl } from "../utils/assets";
 
 interface AboutProps {
   language: "en" | "ru";
@@ -26,9 +27,9 @@ export const About: React.FC<AboutProps> = ({ language }) => {
               muted
               loop
               playsInline
-              poster="/home/images/background_main.jpg"
+              poster={assetUrl("images/background_main.jpg")}
             >
-              <source src="/home/images/about.mp4" type="video/mp4" />
+              <source src={assetUrl("images/about.mp4")} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
