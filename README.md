@@ -21,8 +21,22 @@
 
 ## Сборка и предпросмотр
 
-- Build: `npm run build`
-- Preview: `npm run preview`
+- Production-сборка: `npm run build`
+- Сборка для выкладки на сервер (в `dist/` попадёт и `.htaccess` для Apache): `npm run build:deploy`
+- Локальный просмотр собранного бандла: `npm run preview`
+
+## Деплой: только `dist/` (рекомендуемый процесс)
+
+Собирайте **локально** (или в CI) и на хостинг заливайте **содержимое папки `dist/`** — исходники (`src/`) и `node_modules` на сервер не нужны.
+
+1. В корне проекта задайте переменные для **production**-сборки (в терминале или в `.env.production`, не коммитьте секреты):
+   - `VITE_RECAPTCHA_V3_SITE_KEY` — ключ reCAPTCHA (Enterprise/v3), как ожидает ваш бэкенд
+   - при необходимости: `VITE_RECAPTCHA_V3_ACTION`, `VITE_CATALOG_API_BASE_URL` (если каталог не на том же origin)
+2. `npm ci` (или `npm install`)
+3. `npm run build:deploy` — появится `dist/` с бандлом и **`dist/.htaccess`**
+4. На сервере (например каталог `.../public/home/` под `https://dev.ichem.kz/home/`) **замените или обновите файлы содержимым `dist/`**: `index.html`, `assets/`, всё остальное из `dist/`, включая `.htaccess`
+
+Статика из репозитория (`images/`, `PDF/` и т.д.), которая попадает в сборку через `public/` или пути в коде, окажется внутри `dist/` после билда. Если какие-то тяжёлые файлы лежат только на сервере и не в репо — не удаляйте их при выкладке, либо перенесите их в `public/` и пересоберите.
 
 ## Деплой и base path
 
@@ -77,19 +91,17 @@
 
 Включена простая локализация через `translations.ts`:
 
-- поддерживаются `en` и `ru`
+- поддерживаются `en`, `ru` и `kz`
 - язык хранится в состоянии `src/App.tsx` и переключается в `Header`
 
 В URL локаль не вшита (роуты одинаковые, меняется только содержимое).
 
 ## Форма обратной связи (Contact)
 
-Модальное окно `ContactForm` отправляет сообщение через **EmailJS**:
+Модальное окно `ContactForm` отправляет заявку на backend: **`POST /api/leads`** (JSON), с **reCAPTCHA v3 / Enterprise** токеном в поле `captcha_token`, honeypot `website_extra_field`, ключом идемпотентности `idempotency_key`.
 
 - см. `src/components/ContactForm.tsx`
-- `EMAILJS_USER_ID` и идентификаторы `service_ichem_mail` / `template_ichem_email` сейчас заданы в коде
-
-Если планируется интеграция с backend, лучше перенести отправку на сервер (чтобы не хранить ключи EmailJS в клиенте).
+- для сборки нужен `VITE_RECAPTCHA_V3_SITE_KEY` (и при необходимости `VITE_RECAPTCHA_V3_ACTION`)
 
 ## Примечание про Supabase
 
