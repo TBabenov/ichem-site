@@ -32,6 +32,7 @@
 1. В корне проекта задайте переменные для **production**-сборки (в терминале или в `.env.production`, не коммитьте секреты):
    - `VITE_RECAPTCHA_V3_SITE_KEY` — ключ reCAPTCHA (Enterprise/v3), как ожидает ваш бэкенд
    - при необходимости: `VITE_RECAPTCHA_V3_ACTION`, `VITE_CATALOG_API_BASE_URL` (если каталог не на том же origin)
+   - опционально: `VITE_LOGIN_URL` — полный URL страницы входа (если не задан, в браузере используется `https://<текущий host>/login`, чтобы не уходить на HTTP и Apache на порту 80)
 2. `npm ci` (или `npm install`)
 3. `npm run build:deploy` — появится `dist/` с бандлом и **`dist/.htaccess`**
 4. На сервере (например каталог `.../public/home/` под `https://dev.ichem.kz/home/`) **замените или обновите файлы содержимым `dist/`**: `index.html`, `assets/`, всё остальное из `dist/`, включая `.htaccess`

@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Globe } from 'lucide-react';
 import { translations } from '../data/translations';
 import { assetUrl } from '../utils/assets';
+import { getLoginHref } from '../utils/loginUrl';
 
 interface HeaderProps {
   language: 'en' | 'ru' | 'kz';
@@ -113,7 +114,7 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
             
             <a
-              href="/login"
+              href={getLoginHref()}
               className="bg-blue-900 text-white px-4 py-2 rounded-md transition-all duration-300 hover:bg-blue-700 hover:scale-105"
               aria-label="Login to customer portal"
             >
@@ -192,7 +193,7 @@ export const Header: React.FC<HeaderProps> = ({
                 </div>
                 
                 <a
-                  href="/login"
+                  href={getLoginHref()}
                   className="bg-blue-900 text-white px-6 py-3 rounded-md text-center font-medium transition-all duration-300 hover:bg-blue-700 hover:scale-105"
                 >
                   {t.login}
