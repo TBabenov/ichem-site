@@ -23,7 +23,12 @@ jobs:
         run: npm ci
 
       - name: Build site
-        run: npm run build
+        env:
+          VITE_RECAPTCHA_V3_SITE_KEY: ${{ secrets.VITE_RECAPTCHA_V3_SITE_KEY }}
+          VITE_RECAPTCHA_V3_ACTION: ${{ secrets.VITE_RECAPTCHA_V3_ACTION }}
+          VITE_CATALOG_API_BASE_URL: ${{ secrets.VITE_CATALOG_API_BASE_URL }}
+          VITE_LOGIN_URL: ${{ secrets.VITE_LOGIN_URL }}
+        run: npm run build:deploy
 
       - name: Add SSH key
         run: |
