@@ -112,10 +112,8 @@ export const Header: React.FC<HeaderProps> = ({
               )}
             </div>
             
-            <a 
-              href="https://ichem.kz/login" 
-              target="_blank" 
-              rel="noopener noreferrer"
+            <a
+              href="/login"
               className="bg-blue-900 text-white px-4 py-2 rounded-md transition-all duration-300 hover:bg-blue-700 hover:scale-105"
               aria-label="Login to customer portal"
             >
@@ -193,10 +191,8 @@ export const Header: React.FC<HeaderProps> = ({
                   </button>
                 </div>
                 
-                <a 
-                  href="https://ichem.kz/login" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+                <a
+                  href="/login"
                   className="bg-blue-900 text-white px-6 py-3 rounded-md text-center font-medium transition-all duration-300 hover:bg-blue-700 hover:scale-105"
                 >
                   {t.login}
